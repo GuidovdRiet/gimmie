@@ -23,32 +23,6 @@ const javascript = {
   ]
 };
 
-/*
-  This is our postCSS loader which gets fed into the next loader. I'm setting it up in it's own variable because its a didgeridog
-*/
-
-const postcss = {
-  loader: "postcss-loader",
-  options: {
-    plugins() {
-      return [autoprefixer({ browsers: "last 3 versions" })];
-    }
-  }
-};
-
-// this is our sass/css loader. It handles files that are require('something.scss')
-const styles = {
-  test: /\.(scss)$/,
-  // here we pass the options as query params b/c it's short.
-  // remember above we used an object for each loader instead of just a string?
-  // We don't just pass an array of loaders, we run them through the extract plugin so they can be outputted to their own .css file
-  use: ExtractTextPlugin.extract([
-    "css-loader?sourceMap",
-    postcss,
-    "sass-loader?sourceMap"
-  ])
-};
-
 // We can also use plugins - this one will compress the crap out of our JS
 const uglify = new webpack.optimize.UglifyJsPlugin({
   // eslint-disable-line
@@ -59,7 +33,7 @@ const uglify = new webpack.optimize.UglifyJsPlugin({
 const config = {
   entry: {
     // we only have 1 entry, but I've set it up for multiple in the future
-    App: "./public/javascripts/delicious-app.js"
+    App: "./public/javascripts/gimmie-app.js"
   },
   // we're using sourcemaps and here is where we specify which kind of sourcemap to use
   devtool: "source-map",
@@ -75,7 +49,7 @@ const config = {
 
   // remember we said webpack sees everthing as modules and how different loaders are responsible for different file types? Here is is where we implement them. Pass it the rules for our JS and our styles
   module: {
-    rules: [javascript, styles]
+    rules: [javascript]
   },
   // finally we pass it an array of our plugins - uncomment if you want to uglify
   // plugins: [uglify]
