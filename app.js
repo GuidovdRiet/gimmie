@@ -1,21 +1,21 @@
-const express = require("express");
-const session = require("express-session");
-const mongoose = require("mongoose");
-const MongoStore = require("connect-mongo")(session);
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const passport = require("passport");
-const flash = require("connect-flash");
-const expressValidator = require("express-validator");
-const routes = require("./routes/index");
-const helpers = require("./helpers");
+const express = require('express');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const flash = require('connect-flash');
+const expressValidator = require('express-validator');
+const routes = require('./routes/index');
+const helpers = require('./helpers');
 
 // create our Express app
 const app = express();
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
@@ -35,6 +35,7 @@ app.use(
     key: process.env.KEY,
     resave: false,
     saveUninitialized: false,
+    useNewUrlParser: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
@@ -56,7 +57,7 @@ app.use((req, res, next) => {
 });
 
 // Handle our own routes!
-app.use("/", routes);
+app.use('/', routes);
 
 // done! we export it so we can start the site in start.js
 module.exports = app;
