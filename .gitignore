@@ -12,3 +12,4 @@ thumbs.db
 node_modules/
 public/dist/*
 .eslintrc
+frontend/.next
