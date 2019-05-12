@@ -2,10 +2,20 @@ import React from "../node_modules/react";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 
-const Index = () => {
+// Components
+import Card from "../components/cards";
+
+const Index = ({ neighbourhoods }) => {
   return (
     <div>
-      <Title>Init</Title>
+      {neighbourhoods &&
+        neighbourhoods.map(neighbourhood => (
+          <Card
+            type="overview"
+            neighbourhood={neighbourhood}
+            key={neighbourhood.id}
+          />
+        ))}
     </div>
   );
 };

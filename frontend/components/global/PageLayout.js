@@ -8,14 +8,17 @@ import Header from "./Header";
 
 const PageLayout = ({ children }) => {
   return (
-    <Main>
+    <Container>
       <Header />
       <GlobalStyle />
       {children}
-    </Main>
+    </Container>
   );
 };
 
 export default PageLayout;
 
-const Main = styled.main``;
+const Container = styled.main`
+  max-width: 1100px;
+  margin: 0 auto;
+`;
