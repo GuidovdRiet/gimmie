@@ -1,6 +1,9 @@
 import Document, { Head, Main, NextScript } from "next/document";
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from "styled-components";
+import { generateFontFaceCSSString } from "../libs";
+import typefaces from "../common/typefaces";
+import theme from "../common/theme";
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -23,8 +26,15 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `${generateFontFaceCSSString(
+                typefaces,
+                theme.primaryFont
+              )}`
+            }}
+          />
         </Head>
         <body>
           <Main />

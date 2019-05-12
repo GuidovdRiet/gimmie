@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   * {
-    /* font-family: ${props => props.theme.primaryFont}, sans-serif;      */
+    font-family: ${props => props.theme.primaryFont}, sans-serif;     
   }
   body {
     font-size: 1.6rem;
