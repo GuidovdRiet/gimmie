@@ -9,7 +9,15 @@ const neighbourhoodSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  residentSatisfaction: {
+  physicalAverage: {
+    type: Number,
+    required: true
+  },
+  safetyAverage: {
+    type: Number,
+    required: true
+  },
+  socialAverage: {
     type: Number,
     required: true
   }
