@@ -1,6 +1,7 @@
-const demo = {
-  // Set theme color
-  black: "#393939"
+const theme = {
+  red: "#E34646",
+  purple: "#2F0A6E",
+  pink: "#FFD0C9"
 };
 
-export default demo;
+export default theme;
