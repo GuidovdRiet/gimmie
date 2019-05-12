@@ -1,10 +1,11 @@
 import React from "../node_modules/react";
 import fetch from "isomorphic-unfetch";
+import styled from "styled-components";
 
 const Index = () => {
   return (
     <div>
-      <h1>Init</h1>
+      <Title>Init</Title>
     </div>
   );
 };
@@ -21,3 +22,7 @@ Index.getInitialProps = async () => {
 };
 
 export default Index;
+
+const Title = styled.h1`
+  color: red;
+`;
