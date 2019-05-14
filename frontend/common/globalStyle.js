@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   * {
-    font-family: ${props => props.theme.primaryFont}, sans-serif;     
+    font-family: ${({ theme }) => theme.primaryFont}, sans-serif;     
   }
   body {
     font-size: 1.6rem;
@@ -22,7 +22,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px;
     overflow-x: hidden; 
     max-width: 100%;
-    background-color: ${({ theme }) => theme.purple};;
+    background-color: ${({ theme }) => theme.purple};
+    &.area-svg {
+      background-image: url(${({ theme }) => theme.pageBackgrounds.area});
+      background-size: contain;
+      background-position: -400px 0;
+      background-repeat: no-repeat;
+    }
   }
   a, button {
     text-decoration: none;

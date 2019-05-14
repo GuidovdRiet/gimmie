@@ -1,22 +1,27 @@
-import React from "../node_modules/react";
+import React, { useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
+import BodyClassName from "react-body-classname";
 
 // Components
 import Card from "../components/cards";
 
 const Index = ({ neighbourhoods }) => {
   return (
-    <div>
-      {neighbourhoods &&
-        neighbourhoods.map(neighbourhood => (
-          <Card
-            type="overview"
-            neighbourhood={neighbourhood}
-            key={neighbourhood.id}
-          />
-        ))}
-    </div>
+    <>
+      {/* Set className for different background image */}
+      <BodyClassName className="area-svg" />
+      <Wrapper>
+        {neighbourhoods &&
+          neighbourhoods.map((neighbourhood, i) => (
+            <Card
+              type="overview"
+              neighbourhood={neighbourhood}
+              key={i.toString()}
+            />
+          ))}
+      </Wrapper>
+    </>
   );
 };
 
@@ -33,6 +38,4 @@ Index.getInitialProps = async () => {
 
 export default Index;
 
-const Title = styled.h1`
-  color: red;
-`;
+const Wrapper = styled.div``;

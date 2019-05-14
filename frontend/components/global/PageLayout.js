@@ -5,6 +5,7 @@ import GlobalStyle from "../../common/globalStyle";
 
 // Components
 import Header from "./Header";
+import Area from "../media/svg/Area";
 
 const PageLayout = ({ children }) => {
   return (
@@ -21,4 +22,5 @@ export default PageLayout;
 const Container = styled.main`
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
 `;

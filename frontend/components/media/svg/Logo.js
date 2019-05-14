@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Logo = ({ ...props }) => {
   return (
     <svg {...props} width="109.9" height="58.66">

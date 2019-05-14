@@ -11,7 +11,11 @@ const theme = {
   fontSmoothing: `
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  `
+  `,
+
+  pageBackgrounds: {
+    area: "/static/assets/images/area.png"
+  }
 };
 
 export default theme;

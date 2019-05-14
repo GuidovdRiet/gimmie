@@ -20,11 +20,15 @@ const Wrapper = styled.section`
   h1,
   h2 {
     font-size: 10rem;
-    line-height: 1.1;
+    line-height: 1.3;
   }
   h1 {
     color: ${({ theme }) => theme.purple};
     margin-bottom: 0;
+    max-width: 1100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   h2 {
     -webkit-text-stroke-width: 1px;

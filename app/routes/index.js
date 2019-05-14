@@ -8,7 +8,10 @@ const neighbourhoodController = require('../controllers/neighbourhoodController'
 // Do work here
 router.get('/', neighbourhoodController.getAll);
 router.get('/neighbourhoods', neighbourhoodController.getAll);
-router.get('/neighbourhoods/high-satisfaction', neighbourhoodController.getHighestSatisfaction);
+router.get(
+  '/neighbourhoods/high-satisfaction',
+  neighbourhoodController.getHighestSatisfaction
+);
 
 // ROUTE DOES NOT EXITS
 router.use('*', (req, res) => {
