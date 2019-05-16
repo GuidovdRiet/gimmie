@@ -14,7 +14,7 @@ const theme = {
   `,
 
   pageBackgrounds: {
-    area: "/static/assets/images/area.png"
+    area: "/static/assets/images/area.svg"
   }
 };
 

@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     &.area-svg {
       background-image: url(${({ theme }) => theme.pageBackgrounds.area});
       background-size: contain;
-      background-position: -400px 0;
+      background-position: -400px 15px;
       background-repeat: no-repeat;
     }
   }
