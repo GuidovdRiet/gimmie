@@ -10,6 +10,23 @@ exports.getAll = async (req, res) => {
   res.status(200).json(Neighbourhoods);
 };
 
+exports.getByWOZbySquareFeed = async (req, res) => {
+  const { squareFeet, budget } = req.params;
+  const WOZ = Math.ceil(budget / squareFeet);
+
+  const WOZbySquareFeed = await Neighbourhood.find({
+    wozAverage: { $lte: WOZ }
+  })
+    .sort({ physicalAverage: -1, safetyAverage: -1, socialAverage: -1 })
+    .limit(4);
+
+  if (!WOZbySquareFeed) {
+    res.status(404).json({ error: 'Page not found' });
+  }
+
+  res.status(200).json(WOZbySquareFeed);
+};
+
 exports.getHighestSatisfaction = async (req, res) => {
   const prop = 'socialAverage';
   const propOne = 'physicalAverage';
@@ -19,7 +36,7 @@ exports.getHighestSatisfaction = async (req, res) => {
   const priorityOne = -1;
   const priorityTwo = -1;
 
-  const NeighbourhoodsHighestSatisfaction = await Neighbourhood.find({})
+  const neighbourhoodsHighestSatisfaction = await Neighbourhood.find({})
     .sort({
       [prop]: [priority],
       [propOne]: [priorityOne],
@@ -27,13 +44,9 @@ exports.getHighestSatisfaction = async (req, res) => {
     })
     .limit(4);
 
-  // const NeighbourhoodsHighestSatisfaction = await Neighbourhood.find({})
-  //   .sort({ socialAverage: -1, physicalAverage: -1, safetyAverage: -1 })
-  //   .limit(4);
-
-  if (!NeighbourhoodsHighestSatisfaction) {
+  if (!neighbourhoodsHighestSatisfaction) {
     res.status(404).json({ error: 'Page not found' });
   }
 
-  res.status(200).json(NeighbourhoodsHighestSatisfaction);
+  res.status(200).json(neighbourhoodsHighestSatisfaction);
 };

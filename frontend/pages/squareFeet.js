@@ -6,21 +6,21 @@ import * as yup from "yup";
 // Context
 import { UserContext } from "../components/context/UserProvider";
 
-const name = () => {
-  const { name, setNameContext } = useContext(UserContext);
+const squareFeet = () => {
+  const { squareFeet, setSquareFeetContext } = useContext(UserContext);
   const initialState = {
-    name: name ? name : ""
+    squareFeet: squareFeet ? squareFeet : ""
   };
   const [user, setUser] = useState(initialState);
 
   const userSchema = yup.object().shape({
-    name: yup.string().required()
+    squareFeet: yup.string().required()
   });
 
   const handleSubmit = ({ values, actions }) => {
-    setNameContext(values.name);
+    setSquareFeetContext(values.squareFeet);
     setUser(values);
-    Router.push("/budget");
+    Router.push("/result");
   };
 
   return (
@@ -33,13 +33,15 @@ const name = () => {
         {({ handleSubmit, handleChange, values, errors, touched }) => (
           <form onSubmit={handleSubmit}>
             <Field
-              name="name"
+              name="squareFeet"
               onChange={handleChange}
-              value={values.name}
-              type="text"
-              placeholder="Name"
+              value={values.squareFeet}
+              type="number"
+              placeholder="squareFeet"
             />
-            {errors.name && touched.name && <span>{errors.name}</span>}
+            {errors.squareFeet && touched.squareFeet && (
+              <span>{errors.squareFeet}</span>
+            )}
             <button type="submit">Volgende</button>
           </form>
         )}
@@ -48,4 +50,4 @@ const name = () => {
   );
 };
 
-export default name;
+export default squareFeet;

@@ -9,6 +9,10 @@ const neighbourhoodController = require('../controllers/neighbourhoodController'
 router.get('/', neighbourhoodController.getAll);
 router.get('/neighbourhoods', neighbourhoodController.getAll);
 router.get(
+  '/neighbourhoods/high-satisfaction/:squareFeet/:budget',
+  neighbourhoodController.getByWOZbySquareFeed
+);
+router.get(
   '/neighbourhoods/high-satisfaction',
   neighbourhoodController.getHighestSatisfaction
 );

@@ -5,12 +5,18 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [name, setNameContext] = useState("");
+  const [budget, setBudgetContext] = useState("");
+  const [squareFeet, setSquareFeetContext] = useState("");
 
   return (
     <UserContext.Provider
       value={{
         name,
-        setNameContext
+        setNameContext,
+        budget,
+        setBudgetContext,
+        squareFeet,
+        setSquareFeetContext
       }}
     >
       {children}

@@ -14,6 +14,12 @@ const Header = () => {
       <Link href="/name">
         <a>Name</a>
       </Link>
+      <Link href="/budget">
+        <a>Budget</a>
+      </Link>
+      <Link href="/squarefeet">
+        <a>Square feet</a>
+      </Link>
     </Wrapper>
   );
 };
