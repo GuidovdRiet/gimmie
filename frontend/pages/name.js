@@ -6,11 +6,11 @@ import * as yup from "yup";
 import UserProvider, { UserContext } from "../components/context/UserProvider";
 
 const name = () => {
+  const { name, setNameContext } = useContext(UserContext);
   const initialState = {
-    name: ""
+    name: name ? name : ""
   };
   const [user, setUser] = useState(initialState);
-  const { setUsernameContext } = useContext(UserContext);
 
   const userSchema = yup.object().shape({
     name: yup.string().required()
@@ -18,11 +18,10 @@ const name = () => {
 
   const handleSubmit = ({ values, actions }) => {
     actions.setSubmitting(true);
-    setUsernameContext(values.name);
+    setNameContext(values.name);
     setUser(values);
 
     setTimeout(() => {
-      actions.resetForm(initialState);
       actions.setSubmitting(false);
     }, 2000);
   };
@@ -46,12 +45,7 @@ const name = () => {
             {props.errors.name && props.touched.name && (
               <span>{props.errors.name}</span>
             )}
-            <button
-              type="submit"
-              disabled={!props.dirty && !props.isSubmitting}
-            >
-              Volgende
-            </button>
+            <button type="submit">Volgende</button>
           </form>
         )}
       </Formik>

@@ -4,13 +4,13 @@ import { oneOfType, arrayOf, node, string } from "prop-types";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [username, setUsernameContext] = useState("");
+  const [name, setNameContext] = useState("");
 
   return (
     <UserContext.Provider
       value={{
-        name: username,
-        setUsernameContext: setUsernameContext
+        name,
+        setNameContext
       }}
     >
       {children}
