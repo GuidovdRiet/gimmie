@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { Formik, Field } from "formik";
+import Router from "next/router";
 import * as yup from "yup";
 
 // Context
@@ -17,13 +18,9 @@ const name = () => {
   });
 
   const handleSubmit = ({ values, actions }) => {
-    actions.setSubmitting(true);
     setNameContext(values.name);
     setUser(values);
-
-    setTimeout(() => {
-      actions.setSubmitting(false);
-    }, 2000);
+    Router.push("/budget");
   };
 
   return (
@@ -33,18 +30,16 @@ const name = () => {
         onSubmit={(values, actions) => handleSubmit({ values, actions })}
         validationSchema={userSchema}
       >
-        {props => (
-          <form onSubmit={props.handleSubmit}>
+        {({ handleSubmit, handleChange, values, errors, touched }) => (
+          <form onSubmit={handleSubmit}>
             <Field
               name="name"
-              onChange={props.handleChange}
-              value={props.values.name}
+              onChange={handleChange}
+              value={values.name}
               type="text"
               placeholder="Name"
             />
-            {props.errors.name && props.touched.name && (
-              <span>{props.errors.name}</span>
-            )}
+            {errors.name && touched.name && <span>{errors.name}</span>}
             <button type="submit">Volgende</button>
           </form>
         )}
