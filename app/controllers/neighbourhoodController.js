@@ -13,9 +13,10 @@ exports.getAll = async (req, res) => {
 exports.getByWOZbySquareFeed = async (req, res) => {
   const { squareFeet, budget } = req.params;
   const WOZ = Math.ceil(budget / squareFeet);
+  const WOZTotal = WOZ <= 1051 ? 1051 : WOZ;
 
   const WOZbySquareFeed = await Neighbourhood.find({
-    wozAverage: { $lte: WOZ }
+    wozAverage: { $lte: WOZTotal }
   })
     .sort({ physicalAverage: -1, safetyAverage: -1, socialAverage: -1 })
     .limit(4);
