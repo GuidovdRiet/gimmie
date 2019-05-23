@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
+const cors = require('cors');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 
@@ -55,6 +56,22 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   next();
 });
+
+// Set up a whitelist and check against it:
+// setup for productions
+// const whitelist = ['http://http://localhost:3000/', 'http://localhost:3000/'];
+// const corsOptions = {
+//   origin(origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     }
+//  else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// };
+
+app.use(cors());
 
 // Handle our own routes!
 app.use('/', routes);

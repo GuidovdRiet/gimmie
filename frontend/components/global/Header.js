@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 // Components
 import Logo from "../media/svg/Logo";
@@ -7,6 +8,12 @@ const Header = () => {
   return (
     <Wrapper>
       <Logo fill="#FFCFC7" />
+      <Link href="/">
+        <a>Home</a>
+      </Link>
+      <Link href="/name">
+        <a>Name</a>
+      </Link>
     </Wrapper>
   );
 };

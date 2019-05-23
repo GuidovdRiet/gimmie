@@ -1,6 +1,7 @@
 import App, { Container } from "next/app";
 import { ThemeProvider } from "styled-components";
 
+// Components
 import PageLayout from "../components/global/PageLayout";
 
 // Style

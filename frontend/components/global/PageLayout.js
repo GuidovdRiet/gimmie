@@ -5,15 +5,17 @@ import GlobalStyle from "../../common/globalStyle";
 
 // Components
 import Header from "./Header";
-import Area from "../media/svg/Area";
+import UserProvider from "../context/UserProvider";
 
 const PageLayout = ({ children }) => {
   return (
-    <Container>
-      <Header />
-      <GlobalStyle />
-      {children}
-    </Container>
+  <UserProvider>
+      <Container>
+        <Header />
+        <GlobalStyle />
+        {children}
+      </Container>
+    </UserProvider>
   );
 };
 
