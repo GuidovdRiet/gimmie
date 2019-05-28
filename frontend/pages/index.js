@@ -1,28 +1,28 @@
 import styled from "styled-components";
-import { useSpring, animated, interpolate } from "react-spring";
 
 // Components
-import LogoParts from "../components/media/svg/LogoParts";
+import StartLogoAnimation from "../components/animations/home/StartLogoAnimation";
+import StartTextAnimation from "../components/animations/home/StartTextAnimation";
 
 const index = () => {
-  const { o, xyz, color } = useSpring({
-    from: { o: 0, xyz: [0, 0, 0], color: "red" },
-    o: 1,
-    xyz: [10, 20, 5],
-    color: "green"
-  });
-
   return (
-    <Wrapper>
-      <LogoParts />
-    </Wrapper>
+    <Container>
+      <StartTextAnimation />
+      <Wrapper>
+        <StartLogoAnimation />
+      </Wrapper>
+    </Container>
   );
 };
 
 export default index;
 
-const Wrapper = styled.div`
+const Container = styled.div`
+  position: relative;
   background-color: ${({ theme }) => theme.purple};
+`;
+
+const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

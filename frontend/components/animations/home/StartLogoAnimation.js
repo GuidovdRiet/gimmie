@@ -6,14 +6,15 @@ const LogoParts = ({ ...props }) => {
   const pathDelay = 1000;
 
   const { scale } = useSpring({
-    from: { scale: 0.3 },
+    from: { scale: 0.28 },
     scale: 1,
+    config: config.stiff,
     delay: svgDelay
   });
 
   const { opacity, xyz } = useSpring({
     from: { opacity: 1, xyz: [0, 0, 0] },
-    opacity: 0.2,
+    opacity: 0.3,
     xyz: [-60, -150, 0],
     config: config.stiff,
     delay: pathDelay
@@ -21,7 +22,7 @@ const LogoParts = ({ ...props }) => {
 
   const { opacityBottom, xyzBottom } = useSpring({
     from: { opacityBottom: 1, xyzBottom: [0, 0, 0] },
-    opacityBottom: 0.2,
+    opacityBottom: 0.3,
     xyzBottom: [60, 150, 0],
     config: { mass: 1, tension: 210, friction: 20 },
     delay: pathDelay
