@@ -1,41 +1,35 @@
-import React, { useEffect } from "react";
-import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
-import BodyClassName from "react-body-classname";
+import { useSpring, animated, interpolate } from "react-spring";
 
 // Components
-import Card from "../components/cards";
+import LogoParts from "../components/media/svg/LogoParts";
 
-const Index = ({ neighbourhoods }) => {
+const index = () => {
+  const { o, xyz, color } = useSpring({
+    from: { o: 0, xyz: [0, 0, 0], color: "red" },
+    o: 1,
+    xyz: [10, 20, 5],
+    color: "green"
+  });
+
   return (
-    <>
-      {/* Set className for different background image */}
-      <BodyClassName className="area-svg" />
-      <Wrapper>
-        {neighbourhoods &&
-          neighbourhoods.map((neighbourhood, i) => (
-            <Card
-              type="overview"
-              neighbourhood={neighbourhood}
-              key={i.toString()}
-            />
-          ))}
-      </Wrapper>
-    </>
+    <Wrapper>
+      <LogoParts />
+    </Wrapper>
   );
 };
 
-Index.getInitialProps = async () => {
-  const res = await fetch(
-    "http://localhost:7777/neighbourhoods/high-satisfaction"
-  );
-  const data = await res.json();
+export default index;
 
-  console.log(`Neighbourhood data fetched. Count: ${data.length}`);
-
-  return { neighbourhoods: data };
-};
-
-export default Index;
-
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background-color: ${({ theme }) => theme.purple};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  svg {
+    fill: ${({ theme }) => theme.pink};
+    width: 100%;
+    height: 100%;
+  }
+`;

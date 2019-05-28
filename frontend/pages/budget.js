@@ -3,6 +3,9 @@ import { Formik, Field } from "formik";
 import Router from "next/router";
 import * as yup from "yup";
 
+// Components
+import Header from "../components/global/Header";
+
 // Context
 import { UserContext } from "../components/context/UserProvider";
 
@@ -25,6 +28,7 @@ const budget = () => {
 
   return (
     <>
+      <Header />
       <Formik
         initialValues={user}
         onSubmit={(values, actions) => handleSubmit({ values, actions })}

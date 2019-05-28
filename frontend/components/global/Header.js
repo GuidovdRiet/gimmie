@@ -31,4 +31,5 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   margin: 40px 0 45px 0;
+  /* Logo  width="109.9" height="58.66" */
 `;

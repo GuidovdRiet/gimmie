@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
+    overflow-y: hidden; 
     max-width: 100%;
     background-color: ${({ theme }) => theme.purple};
     &.area-svg {

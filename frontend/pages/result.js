@@ -1,19 +1,13 @@
 import { useContext, useEffect, useState } from "react";
+import BodyClassName from "react-body-classname";
+import styled from "styled-components";
+
+// Components
+import Header from "../components/global/Header";
+import Card from "../components/cards";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
-
-const useFetch = url => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    (async () => {
-      const res = await fetch(url);
-      const data = await res.json();
-      setData(data);
-    })();
-  }, [url]);
-  return data;
-};
 
 const result = () => {
   const [data, setData] = useState([]);
@@ -36,16 +30,26 @@ const result = () => {
     }
   }, [budget, squareFeet]);
 
-  console.log(data);
-
   return (
-    <div>
+    <>
+      <Header />
+      {/* Set className for different background image */}
       {loading && <div>loading ... </div>}
-      {/* <p>{name}</p>
-      <p>{budget}</p>
-      <p>{squareFeet}</p> */}
-    </div>
+      <BodyClassName className="area-svg" />
+      <Wrapper>
+        {data &&
+          data.map((neighbourhood, i) => (
+            <Card
+              type="overview"
+              neighbourhood={neighbourhood}
+              key={i.toString()}
+            />
+          ))}
+      </Wrapper>
+    </>
   );
 };
 
 export default result;
+
+const Wrapper = styled.div``;

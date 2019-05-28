@@ -4,17 +4,15 @@ import styled from "styled-components";
 import GlobalStyle from "../../common/globalStyle";
 
 // Components
-import Header from "./Header";
 import UserProvider from "../context/UserProvider";
 
 const PageLayout = ({ children }) => {
   return (
-  <UserProvider>
-      <Container>
-        <Header />
-        <GlobalStyle />
-        {children}
-      </Container>
+    <UserProvider>
+      {/* <Container> */}
+      <GlobalStyle />
+      {children}
+      {/* </Container> */}
     </UserProvider>
   );
 };
