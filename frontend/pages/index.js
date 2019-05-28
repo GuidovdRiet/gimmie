@@ -8,9 +8,9 @@ const index = () => {
   return (
     <Container>
       <StartTextAnimation />
-      <Wrapper>
+      {/* <Wrapper>
         <StartLogoAnimation />
-      </Wrapper>
+      </Wrapper> */}
     </Container>
   );
 };
