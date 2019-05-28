@@ -27,9 +27,4 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   max-height: 100vh;
-  svg {
-    fill: ${({ theme }) => theme.pink};
-    width: 100%;
-    height: 100%;
-  }
 `;

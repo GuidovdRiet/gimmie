@@ -2,24 +2,39 @@ import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 
 const LogoParts = ({ ...props }) => {
+  const svgDelay = 500;
+  const pathDelay = 1000;
+
+  const { scale } = useSpring({
+    from: { scale: 0.3 },
+    scale: 1,
+    delay: svgDelay
+  });
+
   const { opacity, xyz } = useSpring({
     from: { opacity: 1, xyz: [0, 0, 0] },
     opacity: 0.2,
     xyz: [-60, -150, 0],
     config: config.stiff,
-    delay: 200
+    delay: pathDelay
   });
 
   const { opacityBottom, xyzBottom } = useSpring({
     from: { opacityBottom: 1, xyzBottom: [0, 0, 0] },
     opacityBottom: 0.2,
     xyzBottom: [60, 150, 0],
-    config: config.stiff,
-    delay: 200
+    config: { mass: 1, tension: 210, friction: 20 },
+    delay: pathDelay
   });
 
   return (
-    <SVG {...props} id="Laag_1" viewBox="0 0 644.54 344.07">
+    <SVG
+      {...props}
+      viewBox="0 0 644.54 344.07"
+      style={{
+        transform: scale.interpolate(scale => `scale(${scale})`)
+      }}
+    >
       <UPPER
         style={{
           transform: xyz.interpolate(
@@ -50,6 +65,11 @@ const LogoParts = ({ ...props }) => {
 
 export default LogoParts;
 
-const SVG = styled.svg``;
+const SVG = styled(animated.svg)`
+  fill: ${({ theme }) => theme.pink};
+  width: 100%;
+  height: 100vh;
+`;
+
 const UPPER = styled(animated.g)``;
 const BOTTOM = styled(animated.g)``;
