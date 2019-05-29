@@ -40,7 +40,7 @@ const Button = styled.button`
   }
   &:active {
     background-color: ${({ theme, secondary }) =>
-      secondary ? "#F4989F" : "#52DBAD"};
+      secondary ? theme.geraldineLight : theme.shamrockLight};
   }
   &:focus {
     outline: 0;

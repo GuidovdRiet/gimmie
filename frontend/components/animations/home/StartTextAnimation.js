@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
+import Router from "next/router";
 
 // Components
 import Button from "../../buttons";
@@ -8,9 +9,13 @@ const StartTextAnimation = () => {
   const { opacity } = useSpring({
     from: { opacity: 0 },
     opacity: 1,
-    // delay: 1200,
+    delay: 1200,
     config: config.stiff
   });
+
+  const handleNextRoute = () => {
+    Router.push("/name");
+  };
 
   return (
     <Wrapper style={{ opacity: opacity.interpolate(o => `${o}`) }}>
@@ -28,6 +33,7 @@ const StartTextAnimation = () => {
             text="Starten"
             type="square"
             iconType="arrow"
+            onClick={() => handleNextRoute()}
           />
         </ButtonWrapper>
       </TextWrapper>

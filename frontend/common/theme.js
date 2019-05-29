@@ -5,7 +5,9 @@ const theme = {
   purple: "#2F0A6E",
   pink: "#FFD0C9",
   geraldine: "#FB8D8F",
-  shamrock: "#38CBA1",
+  geraldineLight: "#f59698",
+  shamrock: "#14ca8d",
+  shamrockLight: "#3ace9b",
   white: "#fff",
 
   // Fonts

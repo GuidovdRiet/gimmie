@@ -52,6 +52,22 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.4rem;
     line-height: 25px;
   }
+
+  /* Page transition states */
+  .page-transition-enter {
+    opacity: 0;
+  }
+  .page-transition-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .page-transition-exit {
+    opacity: 1;
+  }
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
 `;
 
 export default GlobalStyle;
