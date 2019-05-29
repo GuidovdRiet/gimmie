@@ -5,16 +5,16 @@ import { useSpring, animated, config } from "react-spring";
 import Button from "../../buttons";
 
 const StartTextAnimation = () => {
-  // const { opacity } = useSpring({
-  //   from: { opacity: 0 },
-  //   opacity: 1,
-  //   delay: 1200,
-  //   config: config.stiff
-  // });
+  const { opacity } = useSpring({
+    from: { opacity: 0 },
+    opacity: 1,
+    // delay: 1200,
+    config: config.stiff
+  });
 
   return (
-    // <Wrapper style={{ opacity: opacity.interpolate(o => `${o}`) }}>
-    <Wrapper>
+    <Wrapper style={{ opacity: opacity.interpolate(o => `${o}`) }}>
+      {/* <Wrapper> */}
       <TextWrapper>
         <h1>
           Vindt de buurt die het beste bij je past.
@@ -22,8 +22,13 @@ const StartTextAnimation = () => {
           <span>Een advies aan de hand van data.</span>
         </h1>
         <ButtonWrapper>
-          <Button text="Hoe dan?" type="square" secondary />
-          <Button text="Starten" type="square" iconType="arrow" />
+          <Button className="button" text="Hoe dan?" type="square" secondary />
+          <Button
+            className="button"
+            text="Starten"
+            type="square"
+            iconType="arrow"
+          />
         </ButtonWrapper>
       </TextWrapper>
     </Wrapper>
@@ -61,7 +66,7 @@ const TextWrapper = styled.div`
 
 const ButtonWrapper = styled.div`
   /* background-color: rgba(255, 255, 255, 0.2); */
-  button {
+  .button {
     width: 170px;
     height: 60px;
     &:first-child {
