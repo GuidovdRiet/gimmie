@@ -13,7 +13,7 @@ export default CardOverview;
 
 const Wrapper = styled.section`
   background-color: ${({ theme }) => theme.pink};
-  border-radius: 20px;
+  border-radius: 40px;
   min-height: 400px;
   padding: 40px;
   margin-bottom: 50px;

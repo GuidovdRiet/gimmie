@@ -1,7 +1,9 @@
 // Components / cards
 import CardOverview from "./CardOverview";
+import FormCard from "./FormCard";
 
 const cards = {
+  form: FormCard,
   overview: CardOverview
 };
 

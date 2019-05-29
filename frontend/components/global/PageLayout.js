@@ -21,5 +21,5 @@ export const Container = styled.main`
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.03);
+  /* background-color: rgba(255, 255, 255, 0.03); */
 `;
