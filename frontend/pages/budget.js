@@ -5,6 +5,7 @@ import * as yup from "yup";
 
 // Components
 import Header from "../components/global/Header";
+import { Container } from "../components/global/PageLayout";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
@@ -27,7 +28,7 @@ const budget = () => {
   };
 
   return (
-    <>
+    <Container>
       <Header />
       <Formik
         initialValues={user}
@@ -48,7 +49,7 @@ const budget = () => {
           </form>
         )}
       </Formik>
-    </>
+    </Container>
   );
 };
 

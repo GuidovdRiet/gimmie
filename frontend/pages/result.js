@@ -5,6 +5,7 @@ import styled from "styled-components";
 // Components
 import Header from "../components/global/Header";
 import Card from "../components/cards";
+import { Container } from "../components/global/PageLayout";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
@@ -31,7 +32,7 @@ const result = () => {
   }, [budget, squareFeet]);
 
   return (
-    <>
+    <Container>
       <Header />
       {/* Set className for different background image */}
       {loading && <div>loading ... </div>}
@@ -46,7 +47,7 @@ const result = () => {
             />
           ))}
       </Wrapper>
-    </>
+    </Container>
   );
 };
 

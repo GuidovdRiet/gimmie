@@ -34,9 +34,20 @@ const Button = styled.button`
   padding-top: 3px;
   display: inline-block;
   transition: transform 0.04s cubic-bezier(0.25, 0.75, 0.5, 1.25);
+  position: relative;
   &:hover {
     cursor: pointer;
     transform: translate3d(7px, 7px, 0);
+    /* Prevent jitter */
+    &:after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      height: 110%;
+      width: 110%;
+      box-sizing: border-box;
+    }
   }
   &:active {
     background-color: ${({ theme, secondary }) =>

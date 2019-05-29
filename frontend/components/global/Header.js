@@ -7,7 +7,7 @@ import Logo from "../media/svg/Logo";
 const Header = () => {
   return (
     <Wrapper>
-      <Logo fill="#FFCFC7" />
+      <Logo fill="#FFCFC7" className="logo" />
       <Link href="/">
         <a>Home</a>
       </Link>
@@ -29,7 +29,10 @@ export default Header;
 const Wrapper = styled.header`
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: center;
   margin: 40px 0 45px 0;
-  /* Logo  width="109.9" height="58.66" */
+  flex-direction: column;
+  .logo {
+    width: 109px;
+  }
 `;

@@ -21,13 +21,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
-    overflow-y: hidden; 
     max-width: 100%;
     background-color: ${({ theme }) => theme.purple};
     &.area-svg {
       background-image: url(${({ theme }) => theme.pageBackgrounds.area});
-      background-size: contain;
-      background-position: -400px 15px;
       background-repeat: no-repeat;
     }
   }

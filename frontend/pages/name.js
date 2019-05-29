@@ -5,6 +5,7 @@ import * as yup from "yup";
 
 // Components
 import Header from "../components/global/Header";
+import { Container } from "../components/global/PageLayout";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
@@ -27,7 +28,7 @@ const name = () => {
   };
 
   return (
-    <>
+    <Container>
       <Header />
       <Formik
         initialValues={user}
@@ -48,7 +49,7 @@ const name = () => {
           </form>
         )}
       </Formik>
-    </>
+    </Container>
   );
 };
 

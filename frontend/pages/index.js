@@ -26,5 +26,5 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 100vh;
+  /* max-height: 100vh; */
 `;
