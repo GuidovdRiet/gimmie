@@ -8,6 +8,7 @@ import * as yup from "yup";
 import Header from "../components/global/Header";
 import { Container } from "../components/global/PageLayout";
 import Card from "../components/cards";
+import Button from "../components/buttons";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
@@ -54,6 +55,22 @@ const Budget = () => {
                 />
               </TopWrapper>
               <h2>Uitgeven aan mijn nieuwe woning.</h2>
+              <ButtonWrapper>
+                <Button
+                  type="submit"
+                  __type="square"
+                  className="button"
+                  secondary
+                  text="Skip"
+                />
+                <Button
+                  type="submit"
+                  __type="square"
+                  className="button"
+                  iconType="arrow"
+                  text="Volgende"
+                />
+              </ButtonWrapper>
             </form>
           )}
         </Formik>
@@ -67,4 +84,16 @@ export default Budget;
 const TopWrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const ButtonWrapper = styled.div`
+  margin-top: 62px;
+  .button {
+    width: 160px;
+    height: 60px;
+    font-size: 1.7rem;
+    &:first-child {
+      margin-right: 35px;
+    }
+  }
 `;

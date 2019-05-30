@@ -3,7 +3,6 @@ import { array, oneOfType, arrayOf, node, string } from "prop-types";
 
 // Components
 import Illustration from "../media/Illustrations";
-import Button from "../buttons";
 
 const FormCard = ({ illustrationTypes, children }) => {
   return (
@@ -16,22 +15,6 @@ const FormCard = ({ illustrationTypes, children }) => {
             ))}
         </IllustrationWrapper>
         <ChildWrapper>{children}</ChildWrapper>
-        <ButtonWrapper>
-          <Button
-            type="submit"
-            __type="square"
-            className="button"
-            secondary
-            text="Skip"
-          />
-          <Button
-            type="submit"
-            __type="square"
-            className="button"
-            iconType="arrow"
-            text="Volgende"
-          />
-        </ButtonWrapper>
       </Wrapper>
     </Container>
   );
@@ -92,17 +75,5 @@ const Wrapper = styled.div`
     margin: 10px 0;
     line-height: 30px;
     font-weight: 200;
-  }
-`;
-
-const ButtonWrapper = styled.div`
-  margin-top: 62px;
-  .button {
-    width: 160px;
-    height: 60px;
-    font-size: 1.7rem;
-    &:first-child {
-      margin-right: 35px;
-    }
   }
 `;
