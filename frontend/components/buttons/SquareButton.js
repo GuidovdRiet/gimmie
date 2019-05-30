@@ -30,7 +30,7 @@ const Button = styled.button`
     secondary ? theme.geraldine : theme.shamrock};
   color: ${({ theme }) => theme.white};
   font-size: 1.9rem;
-  -webkit-font-smoothing: antialiased;
+  ${({ theme }) => theme.fontSmoothing};
   padding-top: 3px;
   display: inline-block;
   transition: transform 0.04s cubic-bezier(0.25, 0.75, 0.5, 1.25);

@@ -65,7 +65,7 @@ const TextWrapper = styled.div`
   max-width: 720px;
   h1 {
     font-size: 6.4rem;
-    -webkit-font-smoothing: antialiased;
+    ${({ theme }) => theme.fontSmoothing};
     color: ${({ theme }) => theme.pink};
     line-height: 1.26;
   }
