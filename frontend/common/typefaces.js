@@ -7,7 +7,7 @@ const typefaces = [
   {
     typeface: "RobotoCondensed",
     extensions: ["woff", "woff2"],
-    fonts: ["Regular"]
+    fonts: ["Regular", "Light"]
   }
 ];
 

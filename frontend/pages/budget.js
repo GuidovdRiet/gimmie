@@ -32,7 +32,7 @@ const Budget = () => {
   return (
     <Container>
       <Header />
-      <Card type="form">
+      <Card type="form" illustrationTypes={["school", "treeHouse"]}>
         <Formik
           initialValues={user}
           onSubmit={(values, actions) => handleSubmit({ values, actions })}
@@ -40,7 +40,9 @@ const Budget = () => {
         >
           {({ handleSubmit, handleChange, values, errors, touched }) => (
             <form onSubmit={handleSubmit}>
-              {errors.budget && touched.budget && <span>{errors.budget}</span>}
+              {errors.budget && touched.budget && (
+                <span className="form-error">{errors.budget}</span>
+              )}
               <TopWrapper>
                 <h2>Ik wil maximaal &euro;</h2>
                 <Field

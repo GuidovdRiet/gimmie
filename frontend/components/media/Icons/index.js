@@ -5,7 +5,7 @@ const types = {
   arrow: Arrow
 };
 
-const Button = ({ type, ...props }) => {
+const Icon = ({ type, ...props }) => {
   const Comp = types[type];
 
   if (typeof types[type] === "undefined") {
@@ -15,4 +15,4 @@ const Button = ({ type, ...props }) => {
   return Comp && <Comp {...props} />;
 };
 
-export default Button;
+export default Icon;
