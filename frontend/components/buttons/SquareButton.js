@@ -57,8 +57,16 @@ const Button = styled.button`
   &:focus {
     outline: 0;
   }
+  &.cross {
+    svg {
+      width: 10px;
+      margin-left: 14px;
+      fill: ${({ theme }) => theme.white};
+    }
+  }
   .icon {
     margin-left: 20px;
+    transform: translateY(1px);
   }
 `;
 

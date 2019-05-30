@@ -10,8 +10,8 @@ const FormCard = ({ illustrationTypes, children }) => {
       <Wrapper>
         <IllustrationWrapper>
           {illustrationTypes &&
-            illustrationTypes.map(illustrationType => (
-              <Illustration type={illustrationType} />
+            illustrationTypes.map((illustrationType, i) => (
+              <Illustration type={illustrationType} key={i.toString()} />
             ))}
         </IllustrationWrapper>
         <ChildWrapper>{children}</ChildWrapper>

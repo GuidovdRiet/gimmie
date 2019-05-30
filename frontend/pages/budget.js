@@ -59,7 +59,8 @@ const Budget = () => {
                 <Button
                   type="submit"
                   __type="square"
-                  className="button"
+                  className="button cross"
+                  iconType="cross"
                   secondary
                   text="Skip"
                 />
@@ -91,7 +92,7 @@ const ButtonWrapper = styled.div`
   .button {
     width: 160px;
     height: 60px;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     &:first-child {
       margin-right: 35px;
     }
