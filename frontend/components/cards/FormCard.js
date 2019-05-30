@@ -56,7 +56,7 @@ const Wrapper = styled.div`
     border: 0;
     margin-left: 7px;
     font-family: ${({ theme }) => theme.secondaryFont};
-    font-size: 3.1rem;
+    font-size: 3.41rem;
     color: ${({ theme }) => theme.purple};
     opacity: 0.4;
     font-weight: 200;
@@ -74,6 +74,7 @@ const Wrapper = styled.div`
     ${({ theme }) => theme.fontSmoothing};
     margin: 10px 0;
     line-height: 30px;
+    font-size: 3.26rem;
     font-weight: 200;
   }
 `;
