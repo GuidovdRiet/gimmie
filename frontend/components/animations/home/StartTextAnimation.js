@@ -27,11 +27,16 @@ const StartTextAnimation = () => {
           <span>Een advies aan de hand van data.</span>
         </h1>
         <ButtonWrapper>
-          <Button className="button" text="Hoe dan?" type="square" secondary />
+          <Button
+            className="button"
+            text="Hoe dan?"
+            __type="square"
+            secondary
+          />
           <Button
             className="button"
             text="Starten"
-            type="square"
+            __type="square"
             iconType="arrow"
             onClick={() => handleNextRoute()}
           />

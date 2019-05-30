@@ -35,6 +35,7 @@ const Button = styled.button`
   display: inline-block;
   transition: transform 0.04s cubic-bezier(0.25, 0.75, 0.5, 1.25);
   position: relative;
+  z-index: 1;
   &:hover {
     cursor: pointer;
     transform: translate3d(7px, 7px, 0);
@@ -64,7 +65,7 @@ const Button = styled.button`
 const ButtonLine = styled.div`
   top: 7px;
   left: 7px;
-  z-index: -3;
+  z-index: 0;
   width: 100%;
   height: 100%;
   position: absolute;

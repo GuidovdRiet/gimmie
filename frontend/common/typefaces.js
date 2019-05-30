@@ -1,8 +1,13 @@
 const typefaces = [
   {
-    typeface: "OpenSans",
-    extensions: ["woff", "woff2", "ttf"],
+    typeface: "Poppins",
+    extensions: ["woff", "woff2"],
     fonts: ["Bold", "Regular", "Light", "SemiBold", "ExtraBold"]
+  },
+  {
+    typeface: "RobotoCondensed",
+    extensions: ["woff", "woff2"],
+    fonts: ["Regular"]
   }
 ];
 

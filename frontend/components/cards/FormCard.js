@@ -20,14 +20,15 @@ FormCard.propTypes = {
   children: oneOfType([arrayOf(node), node, string])
 };
 
-const Container = styled.section`
-  background-color: red;
-`;
+const Container = styled.section``;
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.pink};
   border-radius: 40px;
   padding: 40px 35px 50px 35px;
-  max-width: 750px;
+  max-width: 620px;
   margin: 0 auto;
+  h2 {
+    color: ${({ theme }) => theme.purple};
+  }
 `;

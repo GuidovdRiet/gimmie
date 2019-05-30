@@ -13,6 +13,7 @@ const theme = {
   // Fonts
   typefaces,
   primaryFont: "Poppins",
+  secondaryFont: "RobotoCondensed",
   fontSmoothing: `
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

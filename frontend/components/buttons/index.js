@@ -5,10 +5,10 @@ const types = {
   square: SquareButton
 };
 
-const Button = ({ type, ...props }) => {
-  const Comp = types[type];
+const Button = ({ __type, ...props }) => {
+  const Comp = types[__type];
 
-  if (typeof types[type] === "undefined") {
+  if (typeof types[__type] === "undefined") {
     return null;
   }
 

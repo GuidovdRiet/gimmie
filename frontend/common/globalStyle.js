@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    /* overflow-x: hidden;  */
     max-width: 100%;
     background-color: ${({ theme }) => theme.purple};
     &.area-svg {
@@ -34,6 +34,10 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-size: 2.2rem;
     font-weight: 700;
+  }
+  h2 {
+    font-family: ${({ theme }) => theme.secondaryFont}, sans-serif;
+    font-size: 3rem;
   }
   h3 {  
     font-size: 1.5rem;
