@@ -31,9 +31,9 @@ const Container = styled.section``;
 
 const IllustrationWrapper = styled.div`
   display: flex;
+  max-height: 90px;
   svg {
     width: 90px;
-    /* height: 90px; */
     margin-right: 15px;
   }
 `;
@@ -50,6 +50,8 @@ const Wrapper = styled.div`
   margin: 0 auto;
   .form-error {
     color: ${({ theme }) => theme.purple};
+    font-family: ${({ theme }) => theme.secondaryFont};
+    font-weight: 200;
   }
   input {
     background-color: transparent;

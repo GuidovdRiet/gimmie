@@ -37,7 +37,7 @@ const SquareFeet = () => {
     <Container>
       <Header />
       <FormWrapper>
-        <Card type="form" illustrationTypes={["school", "treeHouse"]}>
+        <Card type="form" illustrationTypes={["housePeople", "treeSwing"]}>
           <Formik
             initialValues={user}
             onSubmit={(values, actions) => handleSubmit({ values, actions })}
@@ -50,16 +50,16 @@ const SquareFeet = () => {
                 )}
                 <TopWrapper>
                   <h2>
-                    De opppervlakte van mijn huis moet minimaal
+                    De oppervlakte van mijn huis moet minimaal
                     <Field
                       name="squareFeet"
                       onChange={handleChange}
                       value={values.squareFeet}
                       type="number"
-                      placeholder="squareFeet"
+                      placeholder="m2"
                       autofocus
                     />
-                    zijn
+                    zijn.
                   </h2>
                 </TopWrapper>
                 <ButtonWrapper>
@@ -99,8 +99,8 @@ const FormWrapper = styled.div`
     line-height: 45px;
   }
   input {
-    margin: 0 -12px 0 13px;
-    max-width: 172px;
+    margin: 0 -12px 0 12px;
+    max-width: 68px;
     /* &::placeholder {
       padding-left: 5px;
     } */

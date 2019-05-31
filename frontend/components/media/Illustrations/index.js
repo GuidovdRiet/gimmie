@@ -1,12 +1,16 @@
 // Components
 import School from "./School";
 import TreeHouse from "./TreeHouse";
+import TreeSwing from "./TreeSwing";
 import Picture from "./Picture";
+import HousePeople from "./HousePeople";
 
 const types = {
   treeHouse: TreeHouse,
   school: School,
-  picture: Picture
+  picture: Picture,
+  treeSwing: TreeSwing,
+  housePeople: HousePeople
 };
 
 const Illustration = ({ type, ...props }) => {
