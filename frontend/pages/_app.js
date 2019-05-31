@@ -23,15 +23,15 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
     return (
-      <PageTransition timeout={300} classNames="page-transition">
-        <Container>
-          <ThemeProvider theme={theme}>
+      <Container>
+        <ThemeProvider theme={theme}>
+          <PageTransition timeout={300} classNames="page-transition">
             <PageLayout>
               <Component {...pageProps} key={router.route} />
             </PageLayout>
-          </ThemeProvider>
-        </Container>
-      </PageTransition>
+          </PageTransition>
+        </ThemeProvider>
+      </Container>
     );
   }
 }

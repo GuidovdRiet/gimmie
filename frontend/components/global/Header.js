@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <Wrapper>
       <Logo fill="#FFCFC7" className="logo" />
-      {/* <Link href="/">
+      <Link href="/">
         <a>Home</a>
       </Link>
       <Link href="/name">
@@ -19,7 +19,7 @@ const Header = () => {
       </Link>
       <Link href="/squarefeet">
         <a>Square feet</a>
-      </Link> */}
+      </Link>
     </Wrapper>
   );
 };

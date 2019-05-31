@@ -29,6 +29,7 @@ const Name = () => {
   });
 
   const handleSubmit = ({ values, actions }) => {
+    console.log(values.name, setNameContext);
     setNameContext(values.name);
     setUser(values);
     Router.push("/budget");
@@ -60,6 +61,7 @@ const Name = () => {
                   value={values.name}
                   type="text"
                   placeholder="Jonathan Jansen"
+                  autoFocus
                 />
                 <ButtonWrapper>
                   <Button

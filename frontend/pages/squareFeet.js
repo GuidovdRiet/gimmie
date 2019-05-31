@@ -59,7 +59,7 @@ const SquareFeet = () => {
                       value={values.squareFeet}
                       type="number"
                       placeholder="m2"
-                      autofocus
+                      autoFocus
                     />
                     zijn.
                   </h2>

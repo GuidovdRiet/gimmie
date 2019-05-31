@@ -54,6 +54,18 @@ const GlobalStyle = createGlobalStyle`
     line-height: 25px;
   }
 
+  /* Remove spin button number input */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type=number] {
+      -moz-appearance:textfield; /* Firefox */
+  }
+
   /* Page transition states */
   .page-transition-enter {
     opacity: 0;

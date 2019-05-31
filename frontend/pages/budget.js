@@ -57,6 +57,7 @@ const Budget = () => {
                     onChange={handleChange}
                     value={values.budget}
                     type="number"
+                    autoFocus
                     placeholder="0,00"
                   />
                 </TopWrapper>
