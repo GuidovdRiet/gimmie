@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Formik, Field } from "formik";
 import Router from "next/router";
 import styled from "styled-components";
+import BodyClassName from "react-body-classname";
 import * as yup from "yup";
 
 // Components
@@ -36,6 +37,7 @@ const Budget = () => {
   return (
     <Container>
       <Header />
+      <BodyClassName className="area-svg" />
       <FormWrapper>
         <Card type="form" illustrationTypes={["school", "treeHouse"]}>
           <Formik

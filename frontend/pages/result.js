@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import BodyClassName from "react-body-classname";
 import styled from "styled-components";
+import fetch from "isomorphic-unfetch";
 
 // Components
 import Header from "../components/global/Header";
@@ -10,7 +11,7 @@ import { Container } from "../components/global/PageLayout";
 // Context
 import { UserContext } from "../components/context/UserProvider";
 
-const result = () => {
+const Result = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { budget = 400000, squareFeet = 300 } = useContext(UserContext);
@@ -51,6 +52,6 @@ const result = () => {
   );
 };
 
-export default result;
+export default Result;
 
 const Wrapper = styled.div``;

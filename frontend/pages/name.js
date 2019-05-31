@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Formik, Field } from "formik";
 import Router from "next/router";
+import BodyClassName from "react-body-classname";
 import styled from "styled-components";
 import * as yup from "yup";
 
@@ -36,6 +37,7 @@ const Name = () => {
   return (
     <Container>
       <Header />
+      <BodyClassName className="area-svg" />
       <FormWrapper>
         <Card type="form" illustrationTypes={["picture"]}>
           <Formik

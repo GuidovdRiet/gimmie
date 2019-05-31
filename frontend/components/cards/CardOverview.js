@@ -21,6 +21,7 @@ const Wrapper = styled.section`
   h2 {
     font-size: 10rem;
     line-height: 1.3;
+    font-family: ${({ theme }) => theme.primaryFont};
   }
   h1 {
     color: ${({ theme }) => theme.purple};
