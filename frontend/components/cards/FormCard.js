@@ -33,7 +33,7 @@ const IllustrationWrapper = styled.div`
   display: flex;
   svg {
     width: 90px;
-    height: 90px;
+    /* height: 90px; */
     margin-right: 15px;
   }
 `;
@@ -45,8 +45,8 @@ const ChildWrapper = styled.div`
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.pink};
   border-radius: 40px;
-  padding: 40px 35px 50px 35px;
-  max-width: 620px;
+  padding: 70px 35px 80px 35px;
+  max-width: 617px;
   margin: 0 auto;
   .form-error {
     color: ${({ theme }) => theme.purple};
@@ -54,7 +54,6 @@ const Wrapper = styled.div`
   input {
     background-color: transparent;
     border: 0;
-    margin-left: 7px;
     font-family: ${({ theme }) => theme.secondaryFont};
     font-size: 3.41rem;
     color: ${({ theme }) => theme.purple};
@@ -73,7 +72,6 @@ const Wrapper = styled.div`
     color: ${({ theme }) => theme.purple};
     ${({ theme }) => theme.fontSmoothing};
     margin: 10px 0;
-    line-height: 30px;
     font-size: 3.26rem;
     font-weight: 200;
   }

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -71,4 +71,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  margin-top: 62px;
+  .button {
+    width: 160px;
+    height: 60px;
+    font-size: 1.6rem;
+    &:first-child {
+      margin-right: 35px;
+    }
+  }
+`;
+
 export default GlobalStyle;
+export { ButtonWrapper };

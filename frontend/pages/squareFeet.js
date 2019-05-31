@@ -1,19 +1,25 @@
 import { useState, useContext } from "react";
 import { Formik, Field } from "formik";
 import Router from "next/router";
+import styled from "styled-components";
 import * as yup from "yup";
 
 // Components
 import Header from "../components/global/Header";
 import { Container } from "../components/global/PageLayout";
+import Card from "../components/cards";
+import Button from "../components/buttons";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
 
-const squareFeet = () => {
+// Style
+import { ButtonWrapper } from "../common/globalStyle";
+
+const SquareFeet = () => {
   const { squareFeet, setSquareFeetContext } = useContext(UserContext);
   const initialState = {
-    squareFeet: squareFeet ? squareFeet : ""
+    squareFeet: squareFeet || ""
   };
   const [user, setUser] = useState(initialState);
 
@@ -30,29 +36,73 @@ const squareFeet = () => {
   return (
     <Container>
       <Header />
-      <Formik
-        initialValues={user}
-        onSubmit={(values, actions) => handleSubmit({ values, actions })}
-        validationSchema={userSchema}
-      >
-        {({ handleSubmit, handleChange, values, errors, touched }) => (
-          <form onSubmit={handleSubmit}>
-            <Field
-              name="squareFeet"
-              onChange={handleChange}
-              value={values.squareFeet}
-              type="number"
-              placeholder="squareFeet"
-            />
-            {errors.squareFeet && touched.squareFeet && (
-              <span>{errors.squareFeet}</span>
+      <FormWrapper>
+        <Card type="form" illustrationTypes={["school", "treeHouse"]}>
+          <Formik
+            initialValues={user}
+            onSubmit={(values, actions) => handleSubmit({ values, actions })}
+            validationSchema={userSchema}
+          >
+            {({ handleSubmit, handleChange, values, errors, touched }) => (
+              <form onSubmit={handleSubmit}>
+                {errors.squareFeet && touched.squareFeet && (
+                  <span className="form-error">{errors.squareFeet}</span>
+                )}
+                <TopWrapper>
+                  <h2>
+                    De opppervlakte van mijn huis moet minimaal
+                    <Field
+                      name="squareFeet"
+                      onChange={handleChange}
+                      value={values.squareFeet}
+                      type="number"
+                      placeholder="squareFeet"
+                      autofocus
+                    />
+                    zijn
+                  </h2>
+                </TopWrapper>
+                <ButtonWrapper>
+                  <Button
+                    type="submit"
+                    __type="square"
+                    className="button cross"
+                    iconType="cross"
+                    secondary
+                    text="Skip"
+                  />
+                  <Button
+                    type="submit"
+                    __type="square"
+                    className="button"
+                    iconType="arrow"
+                    text="Volgende"
+                  />
+                </ButtonWrapper>
+              </form>
             )}
-            <button type="submit">Volgende</button>
-          </form>
-        )}
-      </Formik>
+          </Formik>
+        </Card>
+      </FormWrapper>
     </Container>
   );
 };
 
-export default squareFeet;
+export default SquareFeet;
+
+const TopWrapper = styled.div`
+  display: inline;
+`;
+
+const FormWrapper = styled.div`
+  h2 {
+    line-height: 45px;
+  }
+  input {
+    margin: 0 -12px 0 13px;
+    max-width: 172px;
+    /* &::placeholder {
+      padding-left: 5px;
+    } */
+  }
+`;
