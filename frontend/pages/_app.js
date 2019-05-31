@@ -25,11 +25,11 @@ class MyApp extends App {
     return (
       <Container>
         <ThemeProvider theme={theme}>
-          <PageTransition timeout={300} classNames="page-transition">
-            <PageLayout>
+          <PageLayout>
+            <PageTransition timeout={300} classNames="page-transition">
               <Component {...pageProps} key={router.route} />
-            </PageLayout>
-          </PageTransition>
+            </PageTransition>
+          </PageLayout>
         </ThemeProvider>
       </Container>
     );

@@ -29,6 +29,7 @@ const Budget = () => {
   });
 
   const handleSubmit = ({ values, actions }) => {
+    console.log({ budget, setBudgetContext });
     setBudgetContext(values.budget);
     setUser(values);
     Router.push("/squarefeet");
@@ -51,17 +52,19 @@ const Budget = () => {
                   <span className="form-error">{errors.budget}</span>
                 )}
                 <TopWrapper>
-                  <h2>Ik wil maximaal &euro;</h2>
-                  <Field
-                    name="budget"
-                    onChange={handleChange}
-                    value={values.budget}
-                    type="number"
-                    autoFocus
-                    placeholder="0,00"
-                  />
+                  <h2>
+                    Ik wil maximaal &euro;
+                    <Field
+                      name="budget"
+                      onChange={handleChange}
+                      value={values.budget}
+                      type="number"
+                      autoFocus
+                      placeholder="0,00"
+                    />
+                    Uitgeven aan mijn nieuwe woning.
+                  </h2>
                 </TopWrapper>
-                <h2>Uitgeven aan mijn nieuwe woning.</h2>
                 <ButtonWrapper>
                   <Button
                     type="submit"

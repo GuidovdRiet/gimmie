@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   padding: 70px 35px 80px 35px;
   max-width: 617px;
   margin: 0 auto;
+  font-family: ${({ theme }) => theme.secondaryFont};
   .form-error {
     color: ${({ theme }) => theme.purple};
     font-family: ${({ theme }) => theme.secondaryFont};
