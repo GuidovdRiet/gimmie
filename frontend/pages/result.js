@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { Component, useContext, useEffect, useState } from "react";
 import BodyClassName from "react-body-classname";
 import styled from "styled-components";
 import fetch from "isomorphic-unfetch";
+import dynamic from "next/dynamic";
 
 // Components
 import Header from "../components/global/Header";
@@ -10,6 +11,10 @@ import { Container } from "../components/global/PageLayout";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
+
+const Map = dynamic(() => import("../components/maps/Map"), {
+  ssr: false
+});
 
 const Result = () => {
   const [data, setData] = useState([]);
@@ -41,11 +46,14 @@ const Result = () => {
       <Wrapper>
         {data &&
           data.map((neighbourhood, i) => (
-            <Card
-              type="overview"
-              neighbourhood={neighbourhood}
-              key={i.toString()}
-            />
+            <>
+              <Map />
+              <Card
+                type="overview"
+                neighbourhood={neighbourhood}
+                key={i.toString()}
+              />
+            </>
           ))}
       </Wrapper>
     </Container>
@@ -54,4 +62,9 @@ const Result = () => {
 
 export default Result;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  #id {
+    width: 400px;
+    height: 500px;
+  }
+`;

@@ -27,6 +27,10 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           {this.props.styleTags}
+          <link
+            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css"
+            rel="stylesheet"
+          />
           <style
             dangerouslySetInnerHTML={{
               __html: `${generateFontFaceCSSString(

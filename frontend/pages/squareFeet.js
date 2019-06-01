@@ -101,10 +101,7 @@ const FormWrapper = styled.div`
     line-height: 45px;
   }
   input {
-    margin: 0 -12px 0 12px;
-    max-width: 68px;
-    /* &::placeholder {
-      padding-left: 5px;
-    } */
+    margin: 0 5px 0 8px;
+    max-width: 53px;
   }
 `;
