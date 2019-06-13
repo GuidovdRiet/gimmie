@@ -15,7 +15,7 @@ const Header = () => {
         <a>Name</a>
       </Link>
       <Link href="/budget">
-        <a>Budget</a>
+        <a>Budget</a>Page
       </Link>
       <Link href="/squarefeet">
         <a>Square feet</a>

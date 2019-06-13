@@ -1,8 +1,18 @@
 import styled from "styled-components";
+import dynamic from "next/dynamic";
+import { object } from "prop-types";
+
+const Map = dynamic(() => import("../maps/Map"), {
+  ssr: false
+});
 
 const CardOverview = ({ neighbourhood }) => {
   return (
     <Wrapper>
+      <Map
+        latitude={neighbourhood.latitude}
+        longitude={neighbourhood.longitude}
+      />
       <h1 id={neighbourhood.id}>{neighbourhood.name}</h1>
       <h2 id={neighbourhood.id}>{neighbourhood.area}</h2>
     </Wrapper>
@@ -10,6 +20,10 @@ const CardOverview = ({ neighbourhood }) => {
 };
 
 export default CardOverview;
+
+CardOverview.propTypes = {
+  neighbourhood: object.isRequired
+};
 
 const Wrapper = styled.section`
   background-color: ${({ theme }) => theme.pink};

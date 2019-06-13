@@ -4,9 +4,9 @@ import { oneOfType, arrayOf, node, string } from "prop-types";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [name, setNameContext] = useState("");
-  const [budget, setBudgetContext] = useState("");
-  const [squareFeet, setSquareFeetContext] = useState("");
+  const [name, setNameContext] = useState();
+  const [budget, setBudgetContext] = useState();
+  const [squareFeet, setSquareFeetContext] = useState();
 
   return (
     <UserContext.Provider

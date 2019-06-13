@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 const Neighbourhood = mongoose.model('Neighbourhood');
 
+var geo = require('mapbox-geocoding');
+
+geo.setAccessToken(
+  'pk.eyJ1IjoiZ3VpZG92ZHJpZXQiLCJhIjoiY2p3ZGZxdDh6MDdjYjQzcGIxZmRhZHdtdSJ9._CHi3885MJVa8AY9fsIgJw'
+);
+
 exports.getAll = async (req, res) => {
   const Neighbourhoods = await Neighbourhood.find();
   if (!Neighbourhoods) {
