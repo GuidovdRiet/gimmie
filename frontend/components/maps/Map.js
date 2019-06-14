@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import MapGL, { Marker } from "react-map-gl";
+import ReactMapGL from "react-map-gl";
+import styled from "styled-components";
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoiZ3VpZG92ZHJpZXQiLCJhIjoiY2p3ZGZxdDh6MDdjYjQzcGIxZmRhZHdtdSJ9._CHi3885MJVa8AY9fsIgJw";
+import getConfig from "next/config";
+const {
+  publicRuntimeConfig: { MAPBOX_API_KEY }
+} = getConfig();
 
 class Map extends Component {
   state = {
@@ -13,24 +16,28 @@ class Map extends Component {
     }
   };
 
-  mapRef = React.createRef();
-
   render() {
-    const { viewport } = this.state;
-
     return (
-      <div style={{ height: "380px" }}>
-        <MapGL
-          ref={this.mapRef}
-          {...viewport}
+      <Wrapper>
+        <ReactMapGL
+          {...this.state.viewport}
+          mapboxApiAccessToken={MAPBOX_API_KEY}
           width="100%"
           height="380px"
-          onViewportChange={this.handleViewportChange}
-          mapboxApiAccessToken={MAPBOX_TOKEN}
+          onViewportChange={viewport => this.setState({ viewport })}
         />
-      </div>
+      </Wrapper>
     );
   }
 }
 
 export default Map;
+
+const Wrapper = styled.div`
+  .mapbox-improve-map {
+    display: none;
+  }
+  .mapboxgl-ctrl-bottom-right {
+    display: none;
+  }
+`;
