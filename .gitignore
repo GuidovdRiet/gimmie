@@ -13,3 +13,4 @@ node_modules/
 public/dist/*
 .eslintrc
 frontend/.next
+frontend/next.config.js
