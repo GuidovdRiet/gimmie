@@ -70,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
   .page-transition-enter {
     opacity: 0;
   }
+  /* 1. Enter start */
   .page-transition-enter-active {
     opacity: 1;
     transition: opacity 300ms;
@@ -77,6 +78,7 @@ const GlobalStyle = createGlobalStyle`
   .page-transition-exit {
     opacity: 1;
   }
+  /* 2. exit start */
   .page-transition-exit-active {
     opacity: 0;
     transition: opacity 300ms;

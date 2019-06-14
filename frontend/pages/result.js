@@ -14,22 +14,22 @@ import { UserContext } from "../components/context/UserProvider";
 const Result = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { budget = 400000, squareFeet = 300 } = useContext(UserContext);
+  const { budget, squareFeet } = useContext(UserContext);
 
   useEffect(() => {
-    if (budget && squareFeet) {
-      setLoading(true);
-      const fetchData = async () => {
-        const res = await fetch(
-          `http://localhost:7777/neighbourhoods/high-satisfaction/${squareFeet}/${budget}/`
-        );
-        const result = await res.json();
-        setData(result);
-        setLoading(false);
-      };
+    console.log({ budget, squareFeet });
+    setLoading(true);
+    const fetchData = async () => {
+      const res = await fetch(
+        `http://localhost:7777/neighbourhoods/high-satisfaction/${squareFeet ||
+          300}/${budget || 400000}/`
+      );
+      const result = await res.json();
+      setData(result);
+      setLoading(false);
+    };
 
-      fetchData();
-    }
+    fetchData();
   }, [budget, squareFeet]);
 
   return (
@@ -41,13 +41,11 @@ const Result = () => {
       <Wrapper>
         {data &&
           data.map((neighbourhood, i) => (
-            <>
-              <Card
-                type="overview"
-                neighbourhood={neighbourhood}
-                key={i.toString()}
-              />
-            </>
+            <Card
+              type="overview"
+              neighbourhood={neighbourhood}
+              key={i.toString()}
+            />
           ))}
       </Wrapper>
     </Container>
