@@ -1,26 +1,40 @@
 import styled from "styled-components";
-import { withRouter } from "next/router";
+import Link from "next/link";
+import { string, bool } from "prop-types";
 
 // Components
 import LogoPolygon from "../media/svg/LogoPolygon";
 import Icon from "../media/Icons";
 
-const Header = () => {
+const BackButton = ({ linkBack }) => (
+  <Link href={linkBack}>
+    <Button type="button">
+      <Icon type="arrowBack" className="icon" />
+    </Button>
+  </Link>
+);
+
+BackButton.propTypes = {
+  linkBack: string
+};
+
+const Header = ({ linkBack, showLinkBack }) => {
   return (
     <Wrapper>
-      <ContentWrapper>
-        <Toolbar>
-          <Button type="button">
-            <Icon type="arrowBack" className="icon" />
-          </Button>
-        </Toolbar>
+      <ContentWrapper showLinkBack={showLinkBack}>
+        <Toolbar>{showLinkBack && <BackButton linkBack={linkBack} />}</Toolbar>
         <LogoPolygon className="logo" />
       </ContentWrapper>
     </Wrapper>
   );
 };
 
-export default withRouter(Header);
+export default Header;
+
+Header.propTypes = {
+  linkBack: string,
+  showLinkBack: bool
+};
 
 const Wrapper = styled.header`
   width: 100%;
@@ -36,7 +50,9 @@ const ContentWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   height: 60px;
-  justify-content: space-between;
+  justify-content: ${({ showLinkBack }) =>
+    showLinkBack ? "space-between" : "center"};
+  transition: justify-content 0.3s ease-in-out;
   .logo {
     height: 150%;
     margin-top: 15px;

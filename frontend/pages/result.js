@@ -34,7 +34,7 @@ const Result = () => {
 
   return (
     <>
-      <Header />
+      <Header linkBack="squarefeet" showLinkBack />
       <Container>
         {/* Set className for different background image */}
         {loading && <div>loading ... </div>}

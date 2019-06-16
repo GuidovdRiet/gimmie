@@ -36,7 +36,7 @@ const SquareFeet = () => {
 
   return (
     <>
-      <Header />
+      <Header linkBack="budget" showLinkBack />
       <Container>
         <BodyClassName className="area-svg" />
         <FormWrapper>

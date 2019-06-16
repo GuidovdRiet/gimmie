@@ -37,7 +37,7 @@ const Budget = () => {
 
   return (
     <>
-      <Header />
+      <Header linkBack="name" showLinkBack />
       <Container>
         <BodyClassName className="area-svg" />
         <FormWrapper>
