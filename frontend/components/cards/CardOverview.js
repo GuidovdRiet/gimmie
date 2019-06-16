@@ -18,6 +18,7 @@ const CardOverview = ({ neighbourhood }) => {
           longitude={neighbourhood.longitude}
           height="350px"
         />
+        <div className="gradient-fade" />
       </TopWrapper>
       <BottomWrapper>
         <TextWrapper>
@@ -72,6 +73,17 @@ const TopWrapper = styled.div`
   border-radius: 40px 40px 0 0;
   height: 350px;
   width: 100%;
+  position: relative;
+  .gradient-fade {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 0.3)
+    );
+  }
 `;
 
 const BottomWrapper = styled.div`

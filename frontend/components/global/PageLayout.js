@@ -23,7 +23,7 @@ PageLayout.propTypes = {
 };
 
 export const Container = styled.main`
-  max-width: 1100px;
+  max-width: 1184px;
   margin: 0 auto;
   position: relative;
   /* background-color: rgba(255, 255, 255, 0.03); */
