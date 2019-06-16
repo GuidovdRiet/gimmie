@@ -36,58 +36,60 @@ const Budget = () => {
   };
 
   return (
-    <Container>
+    <>
       <Header />
-      <BodyClassName className="area-svg" />
-      <FormWrapper>
-        <Card type="form" illustrationTypes={["school", "treeHouse"]}>
-          <Formik
-            initialValues={user}
-            onSubmit={(values, actions) => handleSubmit({ values, actions })}
-            validationSchema={userSchema}
-          >
-            {({ handleSubmit, handleChange, values, errors, touched }) => (
-              <form onSubmit={handleSubmit}>
-                {errors.budget && touched.budget && (
-                  <span className="form-error">{errors.budget}</span>
-                )}
-                <TopWrapper>
-                  <h2>
-                    Ik wil maximaal &euro;
-                    <Field
-                      name="budget"
-                      onChange={handleChange}
-                      value={values.budget}
-                      type="number"
-                      autoFocus
-                      placeholder="0,00"
+      <Container>
+        <BodyClassName className="area-svg" />
+        <FormWrapper>
+          <Card type="form" illustrationTypes={["school", "treeHouse"]}>
+            <Formik
+              initialValues={user}
+              onSubmit={(values, actions) => handleSubmit({ values, actions })}
+              validationSchema={userSchema}
+            >
+              {({ handleSubmit, handleChange, values, errors, touched }) => (
+                <form onSubmit={handleSubmit}>
+                  {errors.budget && touched.budget && (
+                    <span className="form-error">{errors.budget}</span>
+                  )}
+                  <TopWrapper>
+                    <h2>
+                      Ik wil maximaal &euro;
+                      <Field
+                        name="budget"
+                        onChange={handleChange}
+                        value={values.budget}
+                        type="number"
+                        autoFocus
+                        placeholder="0,00"
+                      />
+                      Uitgeven aan mijn nieuwe woning.
+                    </h2>
+                  </TopWrapper>
+                  <ButtonWrapper>
+                    <Button
+                      type="submit"
+                      __type="square"
+                      className="button cross"
+                      iconType="cross"
+                      secondary
+                      text="Skip"
                     />
-                    Uitgeven aan mijn nieuwe woning.
-                  </h2>
-                </TopWrapper>
-                <ButtonWrapper>
-                  <Button
-                    type="submit"
-                    __type="square"
-                    className="button cross"
-                    iconType="cross"
-                    secondary
-                    text="Skip"
-                  />
-                  <Button
-                    type="submit"
-                    __type="square"
-                    className="button"
-                    iconType="arrow"
-                    text="Volgende"
-                  />
-                </ButtonWrapper>
-              </form>
-            )}
-          </Formik>
-        </Card>
-      </FormWrapper>
-    </Container>
+                    <Button
+                      type="submit"
+                      __type="square"
+                      className="button"
+                      iconType="arrow"
+                      text="Volgende"
+                    />
+                  </ButtonWrapper>
+                </form>
+              )}
+            </Formik>
+          </Card>
+        </FormWrapper>
+      </Container>
+    </>
   );
 };
 

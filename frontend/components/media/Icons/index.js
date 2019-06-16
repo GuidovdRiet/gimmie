@@ -1,10 +1,12 @@
 // Components
 import Arrow from "./Arrow";
 import Cross from "./Cross";
+import ArrowBack from "./ArrowBack";
 
 const types = {
   arrow: Arrow,
-  cross: Cross
+  cross: Cross,
+  arrowBack: ArrowBack
 };
 
 const Icon = ({ type, ...props }) => {

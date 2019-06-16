@@ -33,27 +33,29 @@ const Result = () => {
   }, [budget, squareFeet]);
 
   return (
-    <Container>
+    <>
       <Header />
-      {/* Set className for different background image */}
-      {loading && <div>loading ... </div>}
-      <BodyClassName className="area-svg" />
-      <Wrapper>
-        <InputWrapper>
-          <h1>test</h1>
-        </InputWrapper>
-        <ResultsWrapper>
-          {data &&
-            data.map((neighbourhood, i) => (
-              <Card
-                type="overview"
-                neighbourhood={neighbourhood}
-                key={i.toString()}
-              />
-            ))}
-        </ResultsWrapper>
-      </Wrapper>
-    </Container>
+      <Container>
+        {/* Set className for different background image */}
+        {loading && <div>loading ... </div>}
+        {/* <BodyClassName className="area-svg" /> */}
+        <Wrapper>
+          <InputWrapper>
+            <h1>test</h1>
+          </InputWrapper>
+          <ResultsWrapper>
+            {data &&
+              data.map((neighbourhood, i) => (
+                <Card
+                  type="overview"
+                  neighbourhood={neighbourhood}
+                  key={i.toString()}
+                />
+              ))}
+          </ResultsWrapper>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

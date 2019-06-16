@@ -35,58 +35,60 @@ const SquareFeet = () => {
   };
 
   return (
-    <Container>
+    <>
       <Header />
-      <BodyClassName className="area-svg" />
-      <FormWrapper>
-        <Card type="form" illustrationTypes={["housePeople", "treeSwing"]}>
-          <Formik
-            initialValues={user}
-            onSubmit={(values, actions) => handleSubmit({ values, actions })}
-            validationSchema={userSchema}
-          >
-            {({ handleSubmit, handleChange, values, errors, touched }) => (
-              <form onSubmit={handleSubmit}>
-                {errors.squareFeet && touched.squareFeet && (
-                  <span className="form-error">{errors.squareFeet}</span>
-                )}
-                <TopWrapper>
-                  <h2>
-                    De oppervlakte van mijn huis moet minimaal
-                    <Field
-                      name="squareFeet"
-                      onChange={handleChange}
-                      value={values.squareFeet}
-                      type="number"
-                      placeholder="m2"
-                      autoFocus
+      <Container>
+        <BodyClassName className="area-svg" />
+        <FormWrapper>
+          <Card type="form" illustrationTypes={["housePeople", "treeSwing"]}>
+            <Formik
+              initialValues={user}
+              onSubmit={(values, actions) => handleSubmit({ values, actions })}
+              validationSchema={userSchema}
+            >
+              {({ handleSubmit, handleChange, values, errors, touched }) => (
+                <form onSubmit={handleSubmit}>
+                  {errors.squareFeet && touched.squareFeet && (
+                    <span className="form-error">{errors.squareFeet}</span>
+                  )}
+                  <TopWrapper>
+                    <h2>
+                      De oppervlakte van mijn huis moet minimaal
+                      <Field
+                        name="squareFeet"
+                        onChange={handleChange}
+                        value={values.squareFeet}
+                        type="number"
+                        placeholder="m2"
+                        autoFocus
+                      />
+                      zijn.
+                    </h2>
+                  </TopWrapper>
+                  <ButtonWrapper>
+                    <Button
+                      type="submit"
+                      __type="square"
+                      className="button cross"
+                      iconType="cross"
+                      secondary
+                      text="Skip"
                     />
-                    zijn.
-                  </h2>
-                </TopWrapper>
-                <ButtonWrapper>
-                  <Button
-                    type="submit"
-                    __type="square"
-                    className="button cross"
-                    iconType="cross"
-                    secondary
-                    text="Skip"
-                  />
-                  <Button
-                    type="submit"
-                    __type="square"
-                    className="button"
-                    iconType="arrow"
-                    text="Volgende"
-                  />
-                </ButtonWrapper>
-              </form>
-            )}
-          </Formik>
-        </Card>
-      </FormWrapper>
-    </Container>
+                    <Button
+                      type="submit"
+                      __type="square"
+                      className="button"
+                      iconType="arrow"
+                      text="Volgende"
+                    />
+                  </ButtonWrapper>
+                </form>
+              )}
+            </Formik>
+          </Card>
+        </FormWrapper>
+      </Container>
+    </>
   );
 };
 

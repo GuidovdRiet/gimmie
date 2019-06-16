@@ -35,56 +35,58 @@ const Name = () => {
   };
 
   return (
-    <Container>
+    <>
       <Header />
-      <BodyClassName className="area-svg" />
-      <FormWrapper>
-        <Card type="form" illustrationTypes={["picture"]}>
-          <Formik
-            initialValues={user}
-            onSubmit={(values, actions) => handleSubmit({ values, actions })}
-            validationSchema={userSchema}
-          >
-            {({ handleSubmit, handleChange, values, errors, touched }) => (
-              <form onSubmit={handleSubmit}>
-                {errors.name && touched.name && (
-                  <span className="form-error">{errors.name}</span>
-                )}
-                <h2>
-                  Welkom bij de zoektocht naar de buurt die het beste bij je
-                  past. Wat is je naam?
-                </h2>
-                <Field
-                  name="name"
-                  onChange={handleChange}
-                  value={values.name}
-                  type="text"
-                  placeholder="Jonathan Jansen"
-                  autoFocus
-                />
-                <ButtonWrapper>
-                  <Button
-                    type="submit"
-                    __type="square"
-                    className="button cross"
-                    iconType="cross"
-                    secondary
-                    text="Skip"
+      <Container>
+        <BodyClassName className="area-svg" />
+        <FormWrapper>
+          <Card type="form" illustrationTypes={["picture"]}>
+            <Formik
+              initialValues={user}
+              onSubmit={(values, actions) => handleSubmit({ values, actions })}
+              validationSchema={userSchema}
+            >
+              {({ handleSubmit, handleChange, values, errors, touched }) => (
+                <form onSubmit={handleSubmit}>
+                  {errors.name && touched.name && (
+                    <span className="form-error">{errors.name}</span>
+                  )}
+                  <h2>
+                    Welkom bij de zoektocht naar de buurt die het beste bij je
+                    past. Wat is je naam?
+                  </h2>
+                  <Field
+                    name="name"
+                    onChange={handleChange}
+                    value={values.name}
+                    type="text"
+                    placeholder="Jonathan Jansen"
+                    autoFocus
                   />
-                  <Button
-                    type="submit"
-                    __type="square"
-                    className="button"
-                    iconType="arrow"
-                    text="Volgende"
-                  />
-                </ButtonWrapper>
-              </form>
-            )}
-          </Formik>
-        </Card>
-      </FormWrapper>
-    </Container>
+                  <ButtonWrapper>
+                    <Button
+                      type="submit"
+                      __type="square"
+                      className="button cross"
+                      iconType="cross"
+                      secondary
+                      text="Skip"
+                    />
+                    <Button
+                      type="submit"
+                      __type="square"
+                      className="button"
+                      iconType="arrow"
+                      text="Volgende"
+                    />
+                  </ButtonWrapper>
+                </form>
+              )}
+            </Formik>
+          </Card>
+        </FormWrapper>
+      </Container>
+    </>
   );
 };
 

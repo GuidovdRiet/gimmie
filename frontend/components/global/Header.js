@@ -1,38 +1,70 @@
 import styled from "styled-components";
-import Link from "next/link";
+import { withRouter } from "next/router";
 
 // Components
-import Logo from "../media/svg/Logo";
+import LogoPolygon from "../media/svg/LogoPolygon";
+import Icon from "../media/Icons";
 
 const Header = () => {
   return (
     <Wrapper>
-      <Logo fill="#FFCFC7" className="logo" />
-      {/* <Link href="/">
-        <a>Home</a>
-      </Link>
-      <Link href="/name">
-        <a>Name</a>
-      </Link>
-      <Link href="/budget">
-        <a>Budget</a>Page
-      </Link>
-      <Link href="/squarefeet">
-        <a>Square feet</a>
-      </Link> */}
+      <ContentWrapper>
+        <Toolbar>
+          <Button type="button">
+            <Icon type="arrowBack" className="icon" />
+          </Button>
+        </Toolbar>
+        <LogoPolygon className="logo" />
+      </ContentWrapper>
     </Wrapper>
   );
 };
 
-export default Header;
+export default withRouter(Header);
 
 const Wrapper = styled.header`
   width: 100%;
-  display: flex;
-  align-items: center;
-  margin: 40px 0 45px 0;
-  flex-direction: column;
+  margin: 0 0 80px 0;
+  background-color: ${({ theme }) => theme.mediumPurple};
   .logo {
     width: 109px;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  max-width: 1184px;
+  margin: 0 auto;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  .logo {
+    height: 150%;
+    margin-top: 15px;
+  }
+`;
+
+const Toolbar = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Button = styled.button`
+  width: 60px;
+  height: 100%;
+  border: 0px;
+  background-color: ${({ theme }) => theme.darkPurple};
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    background-color: ${({ theme }) => theme.purple};
+  }
+  &:focus {
+    outline: 0;
+  }
+  .icon {
+    width: 14px;
+    transform: translate(-2px, 4px);
   }
 `;
