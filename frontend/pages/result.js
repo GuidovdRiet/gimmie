@@ -39,14 +39,19 @@ const Result = () => {
       {loading && <div>loading ... </div>}
       <BodyClassName className="area-svg" />
       <Wrapper>
-        {data &&
-          data.map((neighbourhood, i) => (
-            <Card
-              type="overview"
-              neighbourhood={neighbourhood}
-              key={i.toString()}
-            />
-          ))}
+        <InputWrapper>
+          <h1>test</h1>
+        </InputWrapper>
+        <ResultsWrapper>
+          {data &&
+            data.map((neighbourhood, i) => (
+              <Card
+                type="overview"
+                neighbourhood={neighbourhood}
+                key={i.toString()}
+              />
+            ))}
+        </ResultsWrapper>
       </Wrapper>
     </Container>
   );
@@ -55,8 +60,16 @@ const Result = () => {
 export default Result;
 
 const Wrapper = styled.div`
-  #id {
-    width: 400px;
-    height: 500px;
-  }
+  display: flex;
+`;
+
+const InputWrapper = styled.div`
+  background-color: rgba(230, 126, 34, 0.2);
+  flex: 1;
+  margin-right: 50px;
+`;
+
+const ResultsWrapper = styled.div`
+  background-color: rgba(26, 188, 156, 0.2);
+  flex: 2;
 `;

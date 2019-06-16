@@ -93,7 +93,7 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   .button {
-    width: 160px;
+    width: 140px;
     height: 60px;
     font-size: 1.6rem;
     &:first-child {
