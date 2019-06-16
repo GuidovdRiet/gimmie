@@ -27,8 +27,9 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           {this.props.styleTags}
+          <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js" />
           <link
-            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css"
+            href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css"
             rel="stylesheet"
           />
           <style

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactMapGL from "react-map-gl";
 import styled from "styled-components";
+import { number, string } from "prop-types";
 
 import getConfig from "next/config";
 const {
@@ -23,7 +24,8 @@ class Map extends Component {
           {...this.state.viewport}
           mapboxApiAccessToken={MAPBOX_API_KEY}
           width="100%"
-          height="380px"
+          height={this.props.height}
+          mapStyle="mapbox://styles/mapbox/streets-v9"
           onViewportChange={viewport => this.setState({ viewport })}
         />
       </Wrapper>
@@ -32,6 +34,12 @@ class Map extends Component {
 }
 
 export default Map;
+
+Map.propTypes = {
+  latitude: number.isRequired,
+  longitude: number.isRequired,
+  height: string.isRequired
+};
 
 const Wrapper = styled.div`
   .mapbox-improve-map {
