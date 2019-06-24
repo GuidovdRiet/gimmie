@@ -1,23 +1,31 @@
 // Components
-import Arrow from "./Arrow";
-import Cross from "./Cross";
-import ArrowBack from "./ArrowBack";
-import HouseRounded from "./rounded/HouseRounded";
+import ArrowIcon from "./ArrowIcon";
+import CrossIcon from "./CrossIcon";
+import ArrowBackIcon from "./ArrowBackIcon";
+import HouseRoundedIcon from "./roundedIcon/HouseRoundedIcon";
 
-const types = {
-  arrow: Arrow,
-  cross: Cross,
-  arrowBack: ArrowBack,
-  houseRounded: HouseRounded
+const icons = {
+  arrow: ArrowIcon,
+  cross: CrossIcon,
+  arrowBack: ArrowBackIcon,
+  rounded: {
+    houseRounded: HouseRoundedIcon
+  },
+  data: {
+    // fill
+  }
 };
 
-const Icon = ({ type, ...props }) => {
-  const Comp = types[type];
-
-  if (typeof types[type] === "undefined") {
+const Icon = ({ type, sort, ...props }) => {
+  const Comp = sort ? icons[sort][type] : icons[type];
+  if (
+    sort
+      ? typeof icons[sort] === "undefined" ||
+        typeof icons[sort][type] === "undefined"
+      : typeof icons[type] === "undefined"
+  ) {
     return null;
   }
-
   return Comp && <Comp {...props} />;
 };
 

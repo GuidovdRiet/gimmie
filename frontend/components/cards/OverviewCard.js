@@ -9,7 +9,7 @@ const Map = dynamic(() => import("../maps/Map"), {
   ssr: false
 });
 
-const CardOverview = ({ neighbourhood }) => {
+const OverviewCard = ({ neighbourhood }) => {
   return (
     <Wrapper>
       <TopWrapper>
@@ -41,9 +41,9 @@ const CardOverview = ({ neighbourhood }) => {
   );
 };
 
-export default CardOverview;
+export default OverviewCard;
 
-CardOverview.propTypes = {
+OverviewCard.propTypes = {
   neighbourhood: object.isRequired
 };
 
