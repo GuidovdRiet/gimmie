@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { string, bool } from "prop-types";
 
 // Components
@@ -9,6 +9,7 @@ const AdjustButton = ({
   iconColor,
   buttonColor,
   remove,
+  onClick,
   ...props
 }) => {
   return (
@@ -18,6 +19,7 @@ const AdjustButton = ({
         iconColor={iconColor}
         buttonColor={buttonColor}
         remove={remove}
+        onClick={onClick}
       >
         {iconType && <Icon className="button-icon" type={iconType} />}
       </Button>

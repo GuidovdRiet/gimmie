@@ -71,6 +71,5 @@ const Wrapper = styled.div`
 `;
 
 const ResultsWrapper = styled.div`
-  background-color: rgba(26, 188, 156, 0.2);
   flex: 2;
 `;

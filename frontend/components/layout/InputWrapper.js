@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { string } from "prop-types";
+import { useState } from "react";
 
 // Components
 import Icon from "../media/Icons";
@@ -7,29 +8,47 @@ import Button from "../buttons";
 import Card from "../cards";
 
 const InputWrapper = ({ className }) => {
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
-    <Wrapper className={className}>
-      <div className="title-wrapper">
-        <i className="input-status" />
-        <p className="input-title">Woonsituatie</p>
-      </div>
-      <div className="wrapper-top">
-        <Icon type="houseRounded" className="icon" sort="rounded" />
-        <i className="input-line" />
-        <Button
-          __type="adjust"
-          iconType="cross"
-          iconColor="white"
-          className="input-button"
-        />
-      </div>
-      <Card type="input" sort="data">
-        <Icon type="dog" sort="data" />
-      </Card>
-      <div className="wrapper-bottom">
-        <i className="bottom-line" />
-      </div>
-    </Wrapper>
+    <>
+      {showPopup && (
+        <PopupContainer>
+          <div className="popup-wrapper">
+            <Button
+              onClick={() => setShowPopup(!showPopup)}
+              __type="adjust"
+              iconType="cross"
+              iconColor="white"
+              remove
+            />
+          </div>
+        </PopupContainer>
+      )}
+      <Wrapper className={className}>
+        <div className="title-wrapper">
+          <i className="input-status" />
+          <p className="input-title">Woonsituatie</p>
+        </div>
+        <div className="wrapper-top">
+          <Icon type="houseRounded" className="icon" sort="rounded" />
+          <i className="input-line" />
+          <Button
+            __type="adjust"
+            iconType="cross"
+            iconColor="white"
+            className="input-button"
+            onClick={() => setShowPopup(!showPopup)}
+          />
+        </div>
+        <Card type="input" sort="data">
+          <Icon type="dog" sort="data" />
+        </Card>
+        <div className="wrapper-bottom">
+          <i className="bottom-line" />
+        </div>
+      </Wrapper>
+    </>
   );
 };
 
@@ -39,13 +58,36 @@ InputWrapper.propTypes = {
   className: string
 };
 
+const PopupContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(245, 150, 152, 0.4);
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .popup-wrapper {
+    min-width: 900px;
+    min-height: 700px;
+    background-color: ${({ theme }) => theme.white};
+    border-radius: 40px;
+  }
+  .icon {
+    fill: ${({ theme }) => theme.lightGrey};
+    max-width: 30px;
+  }
+`;
+
 const Wrapper = styled.div`
   /* background-color: rgba(230, 126, 34, 0.2); */
   .title-wrapper {
     display: flex;
     align-items: center;
     margin-bottom: 33px;
-    transform: translateX(-16px);
+    transform: translateX(-17px);
   }
   .input-status {
     width: 6px;
