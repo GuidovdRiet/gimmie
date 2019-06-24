@@ -9,7 +9,7 @@ const InputWrapper = ({ className }) => {
     <Wrapper className={className}>
       <p>Woonsituatie</p>
       <Icon type="houseRounded" />
-      <Button __type="adjust" iconType="cross" iconColor="white" />
+      <Button __type="adjust" iconType="cross" iconColor="white" remove />
     </Wrapper>
   );
 };

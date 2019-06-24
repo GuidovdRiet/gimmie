@@ -10,7 +10,10 @@ const theme = {
   geraldineLight: "#f59698",
   shamrock: "#14ca8d",
   shamrockLight: "#3ace9b",
+
+  // Grey
   white: "#fff",
+  lightGrey: "#DCDCDC",
 
   // Fonts
   typefaces,

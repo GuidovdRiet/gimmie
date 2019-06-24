@@ -41,14 +41,18 @@ const ButtonWrapper = styled.div`
 `;
 
 const Button = styled.button`
-  min-width: 30px;
+  min-height: 40px;
+  min-width: 40px;
   border: 0px;
   background-color: ${({ theme, remove }) =>
-    remove ? theme.geraldine : theme.shamrock};
+    remove ? theme.lightGrey : theme.shamrock};
   display: inline-block;
   transition: transform 0.04s cubic-bezier(0.25, 0.75, 0.5, 1.25);
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     cursor: pointer;
     transform: translate3d(7px, 7px, 0);
@@ -75,6 +79,7 @@ const Button = styled.button`
     fill: ${({ theme, iconColor }) =>
       iconColor ? theme[iconColor] : theme.white};
     transform: ${({ remove }) => (remove ? "rotate(0)" : "rotate(45deg)")};
+    min-width: 16px;
   }
 `;
 
@@ -86,6 +91,5 @@ const ButtonLine = styled.div`
   height: 100%;
   position: absolute;
   border: 1px solid
-    ${({ theme, remove }) =>
-      remove ? theme.geraldineLight : theme.shamrockLight};
+    ${({ theme, remove }) => (remove ? theme.lightGrey : theme.shamrockLight)};
 `;
