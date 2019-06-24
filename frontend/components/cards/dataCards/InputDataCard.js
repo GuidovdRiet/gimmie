@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   border-radius: 40px;
   background-color: ${({ theme }) => theme.white};
   width: 100%;
-  min-height: 380px;
+  min-height: 325px;
   display: flex;
   flex-direction: column;
   .icon-wrapper {

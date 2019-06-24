@@ -63,7 +63,7 @@ export default Result;
 const Wrapper = styled.div`
   display: flex;
   .input-wrapper {
-    flex: 1;
+    flex: 0.8;
     margin-right: 50px;
   }
 `;

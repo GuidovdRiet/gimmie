@@ -19,7 +19,7 @@ const AdjustButton = ({
         buttonColor={buttonColor}
         remove={remove}
       >
-        {iconType && <Icon className="icon" type={iconType} />}
+        {iconType && <Icon className="button-icon" type={iconType} />}
       </Button>
       <ButtonLine className="button-line" remove={remove} />
     </ButtonWrapper>
@@ -74,7 +74,7 @@ const Button = styled.button`
   &:focus {
     outline: 0;
   }
-  .icon {
+  .button-icon {
     transform: translateY(1px);
     fill: ${({ theme, iconColor }) =>
       iconColor ? theme[iconColor] : theme.white};

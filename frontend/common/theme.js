@@ -3,6 +3,8 @@ import typefaces from "./typefaces";
 const theme = {
   red: "#E34646",
   purple: "#2F0A6E",
+  lightPurple: "#491f84",
+  highlightPurple: "#572f90",
   mediumPurple: "#270260",
   darkPurple: "#220257",
   pink: "#FFD0C9",
