@@ -14,7 +14,9 @@ const InputWrapper = ({ className }) => {
         <Icon type="houseRounded" className="icon" sort="rounded" />
         <Button __type="adjust" iconType="cross" iconColor="white" />
       </div>
-      <Card type="dog" sort="data" />
+      <Card type="input" sort="data">
+        <Icon type="dog" sort="data" />
+      </Card>
       <div className="wrapper-bottom" />
     </Wrapper>
   );

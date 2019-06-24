@@ -1,13 +1,13 @@
 // Components / cards
 import OverviewCard from "./OverviewCard";
 import FormCard from "./FormCard";
-import DogDataCard from "./dataCards/DogDataCard";
+import InputDataCard from "./dataCards/InputDataCard";
 
 const cards = {
   form: FormCard,
   overview: OverviewCard,
   data: {
-    dog: DogDataCard
+    input: InputDataCard
   }
 };
 
