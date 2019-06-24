@@ -38,11 +38,11 @@ const Result = () => {
       <Header linkBack="squarefeet" showLinkBack />
       <Container>
         {/* Set className for different background image */}
-        {loading && <div>loading ... </div>}
         {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
           <InputWrapper className="input-wrapper" />
           <ResultsWrapper>
+            {loading && <div>loading ... </div>}
             {data &&
               data.map((neighbourhood, i) => (
                 <Card
@@ -62,9 +62,11 @@ export default Result;
 
 const Wrapper = styled.div`
   display: flex;
+  margin-top: 130px;
   .input-wrapper {
     flex: 0.8;
     margin-right: 50px;
+    margin-top: -70px;
   }
 `;
 

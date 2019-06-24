@@ -9,7 +9,10 @@ import Card from "../cards";
 const InputWrapper = ({ className }) => {
   return (
     <Wrapper className={className}>
-      <p className="input-title">Woonsituatie</p>
+      <div className="title-wrapper">
+        <i className="input-status" />
+        <p className="input-title">Woonsituatie</p>
+      </div>
       <div className="wrapper-top">
         <Icon type="houseRounded" className="icon" sort="rounded" />
         <i className="input-line" />
@@ -38,13 +41,26 @@ InputWrapper.propTypes = {
 
 const Wrapper = styled.div`
   /* background-color: rgba(230, 126, 34, 0.2); */
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 33px;
+    transform: translateX(-16px);
+  }
+  .input-status {
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background-color: ${({ theme }) => theme.shamrock};
+    margin-right: 15px;
+  }
   .input-title {
     font-size: 2.3rem;
     font-weight: 500;
     ${({ theme }) => theme.fontSmoothing};
     font-family: ${({ theme }) => theme.secondaryFont};
     color: ${({ theme }) => theme.highlightPurple};
-    margin-top: 0;
+    margin: 0;
   }
   .wrapper-top {
     display: flex;
