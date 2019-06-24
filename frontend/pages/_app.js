@@ -26,9 +26,7 @@ class MyApp extends App {
       <Container>
         <ThemeProvider theme={theme}>
           <PageLayout>
-            <PageTransition timeout={300} classNames="page-transition">
-              <Component {...pageProps} key={router.route} />
-            </PageTransition>
+            <Component {...pageProps} key={router.route} />
           </PageLayout>
         </ThemeProvider>
       </Container>

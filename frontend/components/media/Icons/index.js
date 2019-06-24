@@ -2,11 +2,13 @@
 import Arrow from "./Arrow";
 import Cross from "./Cross";
 import ArrowBack from "./ArrowBack";
+import HouseRounded from "./rounded/HouseRounded";
 
 const types = {
   arrow: Arrow,
   cross: Cross,
-  arrowBack: ArrowBack
+  arrowBack: ArrowBack,
+  houseRounded: HouseRounded
 };
 
 const Icon = ({ type, ...props }) => {

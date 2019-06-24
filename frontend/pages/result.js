@@ -7,6 +7,7 @@ import fetch from "isomorphic-unfetch";
 import Header from "../components/global/Header";
 import Card from "../components/cards";
 import { Container } from "../components/global/PageLayout";
+import InputWrapper from "../components/layout/InputWrapper";
 
 // Context
 import { UserContext } from "../components/context/UserProvider";
@@ -40,9 +41,7 @@ const Result = () => {
         {loading && <div>loading ... </div>}
         {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
-          <InputWrapper>
-            <h1>test</h1>
-          </InputWrapper>
+          <InputWrapper className="input-wrapper" />
           <ResultsWrapper>
             {data &&
               data.map((neighbourhood, i) => (
@@ -63,12 +62,10 @@ export default Result;
 
 const Wrapper = styled.div`
   display: flex;
-`;
-
-const InputWrapper = styled.div`
-  background-color: rgba(230, 126, 34, 0.2);
-  flex: 1;
-  margin-right: 50px;
+  .input-wrapper {
+    flex: 1;
+    margin-right: 50px;
+  }
 `;
 
 const ResultsWrapper = styled.div`

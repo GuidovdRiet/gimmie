@@ -1,8 +1,10 @@
 // Components
 import SquareButton from "./SquareButton";
+import AdjustButton from "./AdjustButton";
 
 const types = {
-  square: SquareButton
+  square: SquareButton,
+  adjust: AdjustButton
 };
 
 const Button = ({ __type, ...props }) => {
