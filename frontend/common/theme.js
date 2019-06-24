@@ -17,6 +17,9 @@ const theme = {
   white: "#fff",
   lightGrey: "#DCDCDC",
 
+  // Shadows
+  bs: "0px 2px 15px rgba(28, 36, 43, 0.07)",
+
   // Fonts
   typefaces,
   primaryFont: "Poppins",

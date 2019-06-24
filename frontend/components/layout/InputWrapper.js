@@ -8,7 +8,7 @@ import Button from "../buttons";
 import Card from "../cards";
 
 const InputWrapper = ({ className }) => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
   return (
     <>
@@ -20,8 +20,26 @@ const InputWrapper = ({ className }) => {
               __type="adjust"
               iconType="cross"
               iconColor="white"
+              className="popup-button"
               remove
             />
+            <PopupCardWrapper>
+              <Card type="input" sort="data" className="popop-card">
+                <Icon type="dog" sort="data" />
+              </Card>
+              <Card type="input" sort="data" className="popop-card">
+                <Icon type="dog" sort="data" />
+              </Card>
+              <Card type="input" sort="data" className="popop-card">
+                <Icon type="dog" sort="data" />
+              </Card>
+              <Card type="input" sort="data" className="popop-card">
+                <Icon type="dog" sort="data" />
+              </Card>
+              <Card type="input" sort="data" className="popop-card">
+                <Icon type="dog" sort="data" />
+              </Card>
+            </PopupCardWrapper>
           </div>
         </PopupContainer>
       )}
@@ -41,7 +59,7 @@ const InputWrapper = ({ className }) => {
             onClick={() => setShowPopup(!showPopup)}
           />
         </div>
-        <Card type="input" sort="data">
+        <Card type="input" sort="data" buttonType="remove">
           <Icon type="dog" sort="data" />
         </Card>
         <div className="wrapper-bottom">
@@ -62,7 +80,8 @@ const PopupContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(245, 150, 152, 0.4);
+  background-color: rgba(34, 2, 87, 0.9);
+  box-shadow: ${({ theme }) => theme.bs};
   width: 100%;
   height: 100vh;
   z-index: 3;
@@ -78,6 +97,19 @@ const PopupContainer = styled.div`
   .icon {
     fill: ${({ theme }) => theme.lightGrey};
     max-width: 30px;
+  }
+  .popup-button {
+    margin: 40px;
+  }
+`;
+
+const PopupCardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .popop-card {
+    width: 28.89%;
+    margin: 20px;
   }
 `;
 

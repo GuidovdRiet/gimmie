@@ -4,12 +4,17 @@ import { oneOfType, arrayOf, node, string } from "prop-types";
 // Components
 import Button from "../../buttons";
 
-const InputDataCard = ({ children }) => {
+const InputDataCard = ({ className, buttonType, children }) => {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <div className="icon-wrapper">{children}</div>
       <div className="button-wrapper">
-        <Button __type="adjust" iconType="cross" iconColor="white" remove />
+        <Button
+          __type="adjust"
+          iconType="cross"
+          iconColor="white"
+          remove={buttonType}
+        />
       </div>
     </Wrapper>
   );
@@ -18,20 +23,20 @@ const InputDataCard = ({ children }) => {
 export default InputDataCard;
 
 InputDataCard.propTypes = {
-  children: oneOfType([arrayOf(node), node, string])
+  children: oneOfType([arrayOf(node), node, string]),
+  className: string,
+  buttonType: string
 };
 
 const Wrapper = styled.div`
   border-radius: 40px;
   background-color: ${({ theme }) => theme.white};
-  width: 100%;
   min-height: 325px;
   display: flex;
   flex-direction: column;
+  box-shadow: ${({ theme }) => theme.bs};
   .icon-wrapper {
-    /* background-color: #e67e22; */
     padding-top: 81px;
-    width: 100%;
     flex: 2;
     justify-content: center;
     align-items: center;
@@ -41,9 +46,7 @@ const Wrapper = styled.div`
     }
   }
   .button-wrapper {
-    /* background-color: #3498db; */
-    width: 100%;
-    flex: 1;
+    §flex: 1;
     padding: 0 40px 20px 0;
     display: flex;
     justify-content: flex-end;
