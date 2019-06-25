@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { string, bool } from "prop-types";
+import { string, bool, func } from "prop-types";
 
 // Components
 import Icon from "../media/Icons";
@@ -34,6 +34,7 @@ AdjustButton.propTypes = {
   iconType: string.isRequired,
   iconColor: string,
   buttonColor: string,
+  onClick: func,
   remove: bool
 };
 

@@ -16,6 +16,22 @@ exports.getAll = async (req, res) => {
   res.status(200).json(Neighbourhoods);
 };
 
+exports.getByData = async (req, res) => {
+  const { year } = req.query;
+  const { month } = req.query;
+  const { day } = req.query;
+
+  console.log({
+    query: req.query,
+    test: 'hjkdhkjd',
+    year,
+    month,
+    day
+  });
+
+  res.status(200).json();
+};
+
 exports.getByWOZbySquareFeed = async (req, res) => {
   const { squareFeet, budget } = req.params;
   const WOZ = Math.ceil(budget / squareFeet);

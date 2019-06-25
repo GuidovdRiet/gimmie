@@ -24,7 +24,7 @@ const Result = () => {
     const fetchData = async () => {
       const res = await fetch(
         `http://localhost:7777/neighbourhoods/high-satisfaction/${squareFeet ||
-          300}/${budget || 400000}/`
+          300}/${budget || 400000}`
       );
       const result = await res.json();
       setData(result);

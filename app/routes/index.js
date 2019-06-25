@@ -8,6 +8,7 @@ const neighbourhoodController = require('../controllers/neighbourhoodController'
 // Do work here
 router.get('/', neighbourhoodController.getAll);
 router.get('/neighbourhoods', neighbourhoodController.getAll);
+router.get('/neighbourhoods/data', neighbourhoodController.getByData);
 router.get(
   '/neighbourhoods/high-satisfaction/:squareFeet/:budget',
   neighbourhoodController.getByWOZbySquareFeed
