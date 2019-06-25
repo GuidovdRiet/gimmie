@@ -1,4 +1,4 @@
-import { bool } from "prop-types";
+import { bool, func, array } from "prop-types";
 import styled from "styled-components";
 
 // Components
@@ -6,7 +6,7 @@ import Icon from "../media/Icons";
 import Button from "../buttons";
 import Card from "../cards";
 
-const DataPopup = ({ showPopup, setShowPopup }) => {
+const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
   return (
     <PopupContainer>
       <div className="popup-wrapper">
@@ -19,19 +19,44 @@ const DataPopup = ({ showPopup, setShowPopup }) => {
           remove
         />
         <PopupCardWrapper>
-          <Card type="input" sort="data" className="popop-card">
+          <Card
+            type="input"
+            sort="data"
+            className="popop-card"
+            onClick={() => setUserData(userData.concat("dog"))}
+          >
             <Icon type="dog" sort="data" />
           </Card>
-          <Card type="input" sort="data" className="popop-card">
+          <Card
+            type="input"
+            sort="data"
+            className="popop-card"
+            onClick={() => setUserData(userData.concat("dog"))}
+          >
             <Icon type="dog" sort="data" />
           </Card>
-          <Card type="input" sort="data" className="popop-card">
+          <Card
+            type="input"
+            sort="data"
+            className="popop-card"
+            onClick={() => setUserData(userData.concat("dog"))}
+          >
             <Icon type="dog" sort="data" />
           </Card>
-          <Card type="input" sort="data" className="popop-card">
+          <Card
+            type="input"
+            sort="data"
+            className="popop-card"
+            onClick={() => setUserData(userData.concat("dog"))}
+          >
             <Icon type="dog" sort="data" />
           </Card>
-          <Card type="input" sort="data" className="popop-card">
+          <Card
+            type="input"
+            sort="data"
+            className="popop-card"
+            onClick={() => setUserData(userData.concat("dog"))}
+          >
             <Icon type="dog" sort="data" />
           </Card>
         </PopupCardWrapper>
@@ -43,7 +68,10 @@ const DataPopup = ({ showPopup, setShowPopup }) => {
 export default DataPopup;
 
 DataPopup.propTypes = {
-  showPopup: bool.isRequired
+  showPopup: bool.isRequired,
+  setShowPopup: func.isRequired,
+  setUserData: func.isRequired,
+  userData: array.isRequired
 };
 
 const PopupContainer = styled.div`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { string } from "prop-types";
+import { string, func, array } from "prop-types";
 import { useState } from "react";
 
 // Components
@@ -8,13 +8,18 @@ import Button from "../buttons";
 import Card from "../cards";
 import DataPopup from "./DataPopup";
 
-const InputWrapper = ({ className }) => {
-  const [showPopup, setShowPopup] = useState(true);
+const InputWrapper = ({ userData, setUserData, className }) => {
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
       {showPopup && (
-        <DataPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+        <DataPopup
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
+          setUserData={setUserData}
+          userData={userData}
+        />
       )}
       <Wrapper className={className}>
         <div className="title-wrapper">
@@ -46,7 +51,9 @@ const InputWrapper = ({ className }) => {
 export default InputWrapper;
 
 InputWrapper.propTypes = {
-  className: string
+  className: string,
+  setUserData: func.isRequired,
+  userData: array.isRequired
 };
 
 const Wrapper = styled.div`

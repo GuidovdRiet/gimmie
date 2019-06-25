@@ -4,7 +4,7 @@ import { oneOfType, arrayOf, node, string } from "prop-types";
 // Components
 import Button from "../../buttons";
 
-const InputDataCard = ({ className, buttonType, children }) => {
+const InputDataCard = ({ className, onClick, buttonType, children }) => {
   return (
     <Wrapper className={className}>
       <div className="icon-wrapper">{children}</div>
@@ -14,6 +14,7 @@ const InputDataCard = ({ className, buttonType, children }) => {
           iconType="cross"
           iconColor="white"
           remove={buttonType}
+          onClick={onClick}
         />
       </div>
     </Wrapper>

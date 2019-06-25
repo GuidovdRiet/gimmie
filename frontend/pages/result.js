@@ -15,6 +15,7 @@ import { UserContext } from "../components/context/UserProvider";
 const Result = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState([]);
   const { budget, squareFeet } = useContext(UserContext);
 
   useEffect(() => {
@@ -33,6 +34,8 @@ const Result = () => {
     fetchData();
   }, [budget, squareFeet]);
 
+  console.log({ userData });
+
   return (
     <>
       <Header linkBack="squarefeet" showLinkBack />
@@ -40,7 +43,11 @@ const Result = () => {
         {/* Set className for different background image */}
         {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
-          <InputWrapper className="input-wrapper" />
+          <InputWrapper
+            className="input-wrapper"
+            userData={userData}
+            setUserData={setUserData}
+          />
           <ResultsWrapper>
             {loading && <div>loading ... </div>}
             {data &&
