@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   min-height: 325px;
   display: flex;
   flex-direction: column;
-  box-shadow: ${({ theme }) => theme.bs};
+  box-shadow: ${({ theme }) => theme.bsI};
   .icon-wrapper {
     padding-top: 81px;
     flex: 2;
