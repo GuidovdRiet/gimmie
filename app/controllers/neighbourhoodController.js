@@ -19,6 +19,7 @@ exports.getAll = async (req, res) => {
 exports.getByData = async (req, res) => {
   const { greenery } = req.query;
 
+  // Create object of all query params given by user
   const obj = {
     greenery
   };
@@ -30,8 +31,7 @@ exports.getByData = async (req, res) => {
     return result;
   }, {});
 
-  console.log({ data });
-
+  // Set all values to sort value -1
   const dataSort = Object.keys(data).map((key) => {
     const dataKey = data[key];
     return { ...data, [dataKey]: -1 };
@@ -41,9 +41,7 @@ exports.getByData = async (req, res) => {
     .sort(...dataSort)
     .limit(4);
 
-  console.log({ neighbourhoodsByData });
-
-  res.status(200).json();
+  res.status(200).json(neighbourhoodsByData);
 };
 
 exports.getByWOZbySquareFeed = async (req, res) => {

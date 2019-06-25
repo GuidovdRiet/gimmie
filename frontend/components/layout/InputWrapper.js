@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { string, func, array } from "prop-types";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 // Components
 import Icon from "../media/Icons";
@@ -8,8 +8,17 @@ import Button from "../buttons";
 import Card from "../cards";
 import DataPopup from "./DataPopup";
 
+// Data
+import DataCategories from "../../data/dataCategories";
+
 const InputWrapper = ({ userData, setUserData, className }) => {
   const [showPopup, setShowPopup] = useState(false);
+
+  const cardCategories = useMemo(() => {
+    return userData.map(data =>
+      DataCategories[data].cardTypes.map(category => category)
+    );
+  }, [userData]);
 
   return (
     <>
@@ -37,9 +46,12 @@ const InputWrapper = ({ userData, setUserData, className }) => {
             onClick={() => setShowPopup(!showPopup)}
           />
         </div>
-        <Card type="input" sort="data" buttonType="remove">
-          <Icon type="dog" sort="data" />
-        </Card>
+        {cardCategories &&
+          cardCategories.map(cardCategory => (
+            <Card type="input" sort="data" buttonType="remove">
+              <Icon type={cardCategory} sort="data" />
+            </Card>
+          ))}
         <div className="wrapper-bottom">
           <i className="bottom-line" />
         </div>

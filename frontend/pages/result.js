@@ -19,22 +19,22 @@ const Result = () => {
   const { budget, squareFeet } = useContext(UserContext);
 
   useEffect(() => {
-    console.log({ budget, squareFeet });
     setLoading(true);
     const fetchData = async () => {
       const res = await fetch(
-        `http://localhost:7777/neighbourhoods/high-satisfaction/${squareFeet ||
-          300}/${budget || 400000}`
+        `http://localhost:7777/neighbourhoods/data?greenery=${userData[0]}`
       );
+      // const res = await fetch(
+      //   `http://localhost:7777/neighbourhoods/high-satisfaction/${squareFeet ||
+      //     300}/${budget || 400000}`
+      // );
       const result = await res.json();
       setData(result);
       setLoading(false);
     };
 
     fetchData();
-  }, [budget, squareFeet]);
-
-  console.log({ userData });
+  }, [budget, squareFeet, userData]);
 
   return (
     <>
