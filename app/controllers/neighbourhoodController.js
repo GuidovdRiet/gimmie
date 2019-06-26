@@ -21,8 +21,20 @@ exports.getByData = async (req, res) => {
   const socialAverage = 'socialAverage';
   const physicalAverage = 'physicalAverage';
   const safetyAverage = 'safetyAverage';
+  let schoolBasis;
+  let playground;
 
-  const { greenery, budget, squareFeet } = req.query;
+  console.log({ query: req.query });
+
+  const {
+ greenery, budget, squareFeet, kidGirl 
+} = req.query;
+
+  // TEMP:
+  if (kidGirl !== undefined) {
+    schoolBasis = 'schoolBasis';
+    playground = 'playground';
+  }
 
   // Limit low value input by always returning the lowest rated neighbourhood
   const WOZ = Math.ceil(Number(budget) / Number(squareFeet));
@@ -32,13 +44,17 @@ exports.getByData = async (req, res) => {
   const obj = {
     // User data
     greenery,
+    schoolBasis,
+    playground,
     // Base
     socialAverage,
     physicalAverage,
     safetyAverage
   };
 
-  // Filter all undefined values from object and set sort to -1
+  console.log({ obj });
+
+  // Filter all undefined values from object
   const data = Object.keys(obj).reduce((current, key) => {
     const result = current;
     if (obj[key] !== undefined) result[key] = obj[key];
@@ -51,6 +67,8 @@ exports.getByData = async (req, res) => {
     sortedData[current] = -1;
     return sortedData;
   }, {});
+
+  console.log({ dataSort });
 
   const neighbourhoodsByData = await Neighbourhood.find({
     wozAverage: { $lte: WOZTotal }

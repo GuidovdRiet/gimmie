@@ -47,7 +47,7 @@ const Result = () => {
         {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
           <InputWrapper
-            className="input-wrapper"
+            className="result-input-wrapper"
             userData={userData}
             setUserData={setUserData}
           />
@@ -73,7 +73,7 @@ export default Result;
 const Wrapper = styled.div`
   display: flex;
   margin-top: 130px;
-  .input-wrapper {
+  .result-input-wrapper {
     flex: 0.8;
     margin-right: 50px;
     margin-top: -70px;

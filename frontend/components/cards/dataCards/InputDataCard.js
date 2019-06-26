@@ -48,7 +48,7 @@ const Wrapper = styled.div`
     }
   }
   .button-wrapper {
-    §flex: 1;
+    flex: 1;
     padding: 0 40px 20px 0;
     display: flex;
     justify-content: flex-end;

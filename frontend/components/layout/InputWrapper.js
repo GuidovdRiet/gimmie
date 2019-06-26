@@ -48,7 +48,12 @@ const InputWrapper = ({ userData, setUserData, className }) => {
         </div>
         {cardCategories &&
           cardCategories.map(cardCategory => (
-            <Card type="input" sort="data" buttonType="remove">
+            <Card
+              type="input"
+              sort="data"
+              buttonType="remove"
+              className="input-wrapper-card"
+            >
               <Icon type={cardCategory} sort="data" />
             </Card>
           ))}
@@ -107,6 +112,9 @@ const Wrapper = styled.div`
       margin: 0 20px;
     }
   }
+  .input-wrapper-card {
+    margin-bottom: 40px;
+  }
   .wrapper-bottom {
     display: flex;
   }
@@ -114,7 +122,7 @@ const Wrapper = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.lightPurple};
     height: 1px;
-    margin: 40px 10px 0 10px;
+    margin: 0px 10px 0 10px;
     flex: 1;
   }
 `;

@@ -7,5 +7,8 @@ export default {
   },
   squareFeet: {
     cardTypes: ["dog"]
+  },
+  kidGirl : {
+    cardTypes: ['kidGirl']
   }
 };
