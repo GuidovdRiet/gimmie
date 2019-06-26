@@ -30,12 +30,12 @@ exports.getByData = async (req, res) => {
 
   // Create object of all query params given by user
   const obj = {
+    // User data
+    greenery,
     // Base
     socialAverage,
     physicalAverage,
-    safetyAverage,
-    // User data
-    greenery
+    safetyAverage
   };
 
   // Filter all undefined values from object and set sort to -1
@@ -45,23 +45,12 @@ exports.getByData = async (req, res) => {
     return result;
   }, {});
 
-  console.log({ data });
-
   // Set all values to sort value -1 for sorting
   const dataSort = Object.keys(data).reduce((allSortData, current) => {
     const sortedData = allSortData;
     sortedData[current] = -1;
     return sortedData;
   }, {});
-
-  console.log({ dataSort });
-
-  // const dataSort = Object.keys(data).map((key) => {
-  //   const dataKey = data[key];
-  //   const dataObject = {};
-  //   dataObject[dataKey] = -1;
-  //   return dataObject;
-  // });
 
   const neighbourhoodsByData = await Neighbourhood.find({
     wozAverage: { $lte: WOZTotal }

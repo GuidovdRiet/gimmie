@@ -11,7 +11,7 @@ const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        name,
+        name: name || "Jonathan Jansen",
         setNameContext,
         budget: budget || 400000,
         setBudgetContext,

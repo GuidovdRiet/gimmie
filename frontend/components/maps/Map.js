@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ReactMapGL from "react-map-gl";
 import styled from "styled-components";
 import { number, string } from "prop-types";
@@ -16,6 +16,25 @@ class Map extends Component {
       zoom: 12.2
     }
   };
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log({ state: this.state, nextProps, nextState });
+    if (
+      nextState.viewport.latitude !== nextProps.latitude ||
+      nextState.viewport.latitude !== nextProps.latitude
+    ) {
+      this.setState({
+        viewport: {
+          latitude: nextProps.latitude,
+          longitude: nextProps.longitude,
+          zoom: 12.2
+        }
+      });
+    }
+    // if viewport.lat !== nextprops.lat
+    // TODO: set nextprops to state viewport
+    // this.setState({})
+  }
 
   render() {
     return (
