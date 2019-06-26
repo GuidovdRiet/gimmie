@@ -19,31 +19,24 @@ const Result = () => {
   const { budget, squareFeet } = useContext(UserContext);
 
   const queryArray = useMemo(() => {
-    if (userData.length) {
-      return userData.reduce((prev, current, i) => {
-        const query = `${i === 0 ? "?" : "&"}${current}=${current}`;
-        return prev + query;
-      }, "");
-    }
+    return userData.reduce((prev, current, i) => {
+      const query = `${i === 0 ? "?" : "&"}${current}=${current}`;
+      return prev + query;
+    }, "http://localhost:7777/neighbourhoods/data");
+    // squareFeet = 300, budeget = 400000
   }, [userData]);
 
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const res = await fetch(
-        `http://localhost:7777/neighbourhoods/data?greenery=${userData[0]}`
-      );
-      // const res = await fetch(
-      //   `http://localhost:7777/neighbourhoods/high-satisfaction/${squareFeet ||
-      //     300}/${budget || 400000}`
-      // );
+      const res = await fetch(queryArray);
       const result = await res.json();
       setData(result);
       setLoading(false);
     };
 
     fetchData();
-  }, [budget, squareFeet, userData]);
+  }, [budget, queryArray, squareFeet, userData]);
 
   return (
     <>
