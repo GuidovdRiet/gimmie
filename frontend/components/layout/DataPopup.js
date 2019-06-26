@@ -33,31 +33,7 @@ const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
             className="popop-card"
             onClick={() => setUserData([...userData, "greenery"])}
           >
-            <Icon type="dog" sort="data" />
-          </Card>
-          <Card
-            type="input"
-            sort="data"
-            className="popop-card"
-            onClick={() => setUserData([...userData, "greenery"])}
-          >
-            <Icon type="dog" sort="data" />
-          </Card>
-          <Card
-            type="input"
-            sort="data"
-            className="popop-card"
-            onClick={() => setUserData([...userData, "greenery"])}
-          >
-            <Icon type="dog" sort="data" />
-          </Card>
-          <Card
-            type="input"
-            sort="data"
-            className="popop-card"
-            onClick={() => setUserData([...userData, "greenery"])}
-          >
-            <Icon type="dog" sort="data" />
+            <Icon type="kidGirl" sort="data" />
           </Card>
         </PopupCardWrapper>
       </div>

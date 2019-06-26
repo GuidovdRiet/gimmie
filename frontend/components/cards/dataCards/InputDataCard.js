@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { oneOfType, arrayOf, node, string } from "prop-types";
+import { oneOfType, arrayOf, node, string, func } from "prop-types";
 
 // Components
 import Button from "../../buttons";
@@ -25,6 +25,7 @@ export default InputDataCard;
 
 InputDataCard.propTypes = {
   children: oneOfType([arrayOf(node), node, string]),
+  onClick: func,
   className: string,
   buttonType: string
 };

@@ -3,7 +3,9 @@ import ArrowIcon from "./ArrowIcon";
 import CrossIcon from "./CrossIcon";
 import ArrowBackIcon from "./ArrowBackIcon";
 import HouseRoundedIcon from "./roundedIcon/HouseRoundedIcon";
+
 import DogDataIcon from "./dataIcon/DogDataIcon";
+import KidGirlDataIcon from "./dataIcon/KidGirlDataIcon";
 
 const icons = {
   arrow: ArrowIcon,
@@ -13,7 +15,8 @@ const icons = {
     houseRounded: HouseRoundedIcon
   },
   data: {
-    dog: DogDataIcon
+    dog: DogDataIcon,
+    kidGirl: KidGirlDataIcon
   }
 };
 
