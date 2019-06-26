@@ -23,7 +23,7 @@ const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
             type="input"
             sort="data"
             className="popop-card"
-            onClick={() => setUserData(userData.concat("greenery"))}
+            onClick={() => setUserData([...userData, "greenery"])}
           >
             <Icon type="dog" sort="data" />
           </Card>
@@ -31,7 +31,7 @@ const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
             type="input"
             sort="data"
             className="popop-card"
-            onClick={() => setUserData(userData.concat("greenery"))}
+            onClick={() => setUserData([...userData, "greenery"])}
           >
             <Icon type="dog" sort="data" />
           </Card>
@@ -39,7 +39,7 @@ const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
             type="input"
             sort="data"
             className="popop-card"
-            onClick={() => setUserData(userData.concat("greenery"))}
+            onClick={() => setUserData([...userData, "greenery"])}
           >
             <Icon type="dog" sort="data" />
           </Card>
@@ -47,7 +47,7 @@ const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
             type="input"
             sort="data"
             className="popop-card"
-            onClick={() => setUserData(userData.concat("greenery"))}
+            onClick={() => setUserData([...userData, "greenery"])}
           >
             <Icon type="dog" sort="data" />
           </Card>
@@ -55,7 +55,7 @@ const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
             type="input"
             sort="data"
             className="popop-card"
-            onClick={() => setUserData(userData.concat("greenery"))}
+            onClick={() => setUserData([...userData, "greenery"])}
           >
             <Icon type="dog" sort="data" />
           </Card>

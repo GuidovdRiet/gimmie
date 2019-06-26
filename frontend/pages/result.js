@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
 import BodyClassName from "react-body-classname";
 import styled from "styled-components";
 import fetch from "isomorphic-unfetch";
@@ -17,6 +17,15 @@ const Result = () => {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState([]);
   const { budget, squareFeet } = useContext(UserContext);
+
+  const queryArray = useMemo(() => {
+    if (userData.length) {
+      return userData.reduce((prev, current, i) => {
+        const query = `${i === 0 ? "?" : "&"}${current}=${current}`;
+        return prev + query;
+      }, "");
+    }
+  }, [userData]);
 
   useEffect(() => {
     setLoading(true);
