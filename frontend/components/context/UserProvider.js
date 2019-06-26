@@ -13,9 +13,9 @@ const UserProvider = ({ children }) => {
       value={{
         name,
         setNameContext,
-        budget,
+        budget: budget || 400000,
         setBudgetContext,
-        squareFeet,
+        squareFeet: squareFeet || 300,
         setSquareFeetContext
       }}
     >

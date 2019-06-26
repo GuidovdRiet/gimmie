@@ -17,10 +17,24 @@ exports.getAll = async (req, res) => {
 };
 
 exports.getByData = async (req, res) => {
-  const { greenery } = req.query;
+  // Base scores, highest score for neighbourhoods
+  const socialAverage = 'socialAverage';
+  const physicalAverage = 'physicalAverage';
+  const safetyAverage = 'safetyAverage';
+
+  const { greenery, budget, squareFeet } = req.query;
+
+  // Limit low value input by always returning the lowest rated neighbourhood
+  const WOZ = Math.ceil(Number(budget) / Number(squareFeet));
+  const WOZTotal = WOZ <= 1051 ? 1051 : WOZ;
 
   // Create object of all query params given by user
   const obj = {
+    // Base
+    socialAverage,
+    physicalAverage,
+    safetyAverage,
+    // User data
     greenery
   };
 
@@ -31,14 +45,28 @@ exports.getByData = async (req, res) => {
     return result;
   }, {});
 
-  // Set all values to sort value -1
-  const dataSort = Object.keys(data).map((key) => {
-    const dataKey = data[key];
-    return { ...data, [dataKey]: -1 };
-  });
+  console.log({ data });
 
-  const neighbourhoodsByData = await Neighbourhood.find({})
-    .sort(...dataSort)
+  // Set all values to sort value -1 for sorting
+  const dataSort = Object.keys(data).reduce((allSortData, current) => {
+    const sortedData = allSortData;
+    sortedData[current] = -1;
+    return sortedData;
+  }, {});
+
+  console.log({ dataSort });
+
+  // const dataSort = Object.keys(data).map((key) => {
+  //   const dataKey = data[key];
+  //   const dataObject = {};
+  //   dataObject[dataKey] = -1;
+  //   return dataObject;
+  // });
+
+  const neighbourhoodsByData = await Neighbourhood.find({
+    wozAverage: { $lte: WOZTotal }
+  })
+    .sort(dataSort)
     .limit(4);
 
   res.status(200).json(neighbourhoodsByData);

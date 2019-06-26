@@ -15,28 +15,29 @@ import { UserContext } from "../components/context/UserProvider";
 const Result = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [userData, setUserData] = useState([]);
   const { budget, squareFeet } = useContext(UserContext);
+  const [userData, setUserData] = useState([]);
 
-  const queryArray = useMemo(() => {
-    return userData.reduce((prev, current, i) => {
-      const query = `${i === 0 ? "?" : "&"}${current}=${current}`;
+  const queryURL = useMemo(() => {
+    return userData.reduce((prev, current) => {
+      const query = `&${current}=${current}`;
       return prev + query;
-    }, "http://localhost:7777/neighbourhoods/data");
+    }, `http://localhost:7777/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`);
     // squareFeet = 300, budeget = 400000
-  }, [userData]);
+  }, [budget, squareFeet, userData]);
 
   useEffect(() => {
     setLoading(true);
+    console.log({ queryURL });
     const fetchData = async () => {
-      const res = await fetch(queryArray);
+      const res = await fetch(queryURL);
       const result = await res.json();
       setData(result);
       setLoading(false);
     };
 
     fetchData();
-  }, [budget, queryArray, squareFeet, userData]);
+  }, [budget, queryURL, squareFeet, userData]);
 
   return (
     <>
