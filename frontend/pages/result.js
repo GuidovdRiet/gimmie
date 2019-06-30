@@ -23,7 +23,6 @@ const Result = () => {
       const query = `&${current}=${current}`;
       return prev + query;
     }, `http://localhost:7777/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`);
-    // squareFeet = 300, budeget = 400000
   }, [budget, squareFeet, userData]);
 
   useEffect(() => {

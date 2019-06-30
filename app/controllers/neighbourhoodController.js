@@ -16,6 +16,20 @@ exports.getAll = async (req, res) => {
   res.status(200).json(Neighbourhoods);
 };
 
+// db.getCollection('neighbourhoods').update({ _id: ObjectId("5d18a275b70ca71614dcbe29") }, { $set: {rankPosition: 2}})
+// .find({"id": { "$lt" : 12345}}).count() ;
+const setNeighbourhoodRank = ({ neighbourhoodsByData }) => Promise.all(
+    neighbourhoodsByData.map(async (neighbourhood) => {
+      const neighbourhoodObj = neighbourhood.toObject();
+
+      const result = await Neighbourhood.find({
+        rank: { $lt: neighbourhoodObj.rank }
+      }).count();
+
+      return result;
+    })
+  );
+
 exports.getByData = async (req, res) => {
   // Base scores, highest score for neighbourhoods
   const socialAverage = 'socialAverage';
@@ -24,13 +38,11 @@ exports.getByData = async (req, res) => {
   let schoolBasis;
   let playground;
 
-  console.log({ query: req.query });
-
   const {
  greenery, budget, squareFeet, kidGirl 
 } = req.query;
 
-  // TEMP:
+  // TEMP: set multiple values for kidGirl
   if (kidGirl !== undefined) {
     schoolBasis = 'schoolBasis';
     playground = 'playground';
@@ -52,8 +64,6 @@ exports.getByData = async (req, res) => {
     safetyAverage
   };
 
-  console.log({ obj });
-
   // Filter all undefined values from object
   const data = Object.keys(obj).reduce((current, key) => {
     const result = current;
@@ -68,13 +78,15 @@ exports.getByData = async (req, res) => {
     return sortedData;
   }, {});
 
-  console.log({ dataSort });
-
   const neighbourhoodsByData = await Neighbourhood.find({
     wozAverage: { $lte: WOZTotal }
   })
     .sort(dataSort)
     .limit(4);
+
+  const result = await setNeighbourhoodRank({ neighbourhoodsByData });
+
+  console.log({ result });
 
   res.status(200).json(neighbourhoodsByData);
 };
