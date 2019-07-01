@@ -2,11 +2,9 @@ const mongoose = require("mongoose");
 
 const Neighbourhood = mongoose.model("Neighbourhood");
 
-var geo = require("mapbox-geocoding");
-
-geo.setAccessToken(
-  "pk.eyJ1IjoiZ3VpZG92ZHJpZXQiLCJhIjoiY2p3ZGZxdDh6MDdjYjQzcGIxZmRhZHdtdSJ9._CHi3885MJVa8AY9fsIgJw"
-);
+// Helpers
+const filterUndefinedFromObject = require("../helpers/filterUndefinedFromObject");
+const setAllObjectValuesSortMinusOne = require("../helpers/setAllObjectValuesSortMinusOne");
 
 exports.getAll = async (req, res) => {
   const Neighbourhoods = await Neighbourhood.find();
@@ -16,17 +14,17 @@ exports.getAll = async (req, res) => {
   res.status(200).json(Neighbourhoods);
 };
 
-// Set the rank of the neighbourhood, for example position 14/86, 86 = total neighbourhoods
+// db.getCollection('neighbourhoods').update({ _id: ObjectId("5d18a275b70ca71614dcbe29") }, { $set: {rankPosition: 2}})
+// .find({"id": { "$lt" : 12345}}).count() ;
 const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
   Promise.all(
     neighbourhoodsByData.map(async neighbourhood => {
-      // Convert Mongoose object to regular object
       const neighbourhoodObj = neighbourhood.toObject();
 
-      // Get the neighbourhood total
-      const neighbourhoodTotal = await Neighbourhood.find({}).count();
+      // Get neighbourhood total count
+      const neighbourhoodTotal = await Neighbourhood.estimatedDocumentCount();
 
-      // Get the neighbourhood position
+      // Find all neighbourhoods with a lower score
       const neighbourhoodsLowerThan = await Neighbourhood.find({
         rank: { $lt: neighbourhoodObj.rank }
       }).count();
@@ -77,18 +75,10 @@ exports.getByData = async (req, res) => {
   };
 
   // Filter all undefined values from object
-  const data = Object.keys(obj).reduce((current, key) => {
-    const result = current;
-    if (obj[key] !== undefined) result[key] = obj[key];
-    return result;
-  }, {});
+  const filteredObject = filterUndefinedFromObject(obj);
 
   // Set all values to sort value -1 for sorting
-  const dataSort = Object.keys(data).reduce((allSortData, current) => {
-    const sortedData = allSortData;
-    sortedData[current] = -1;
-    return sortedData;
-  }, {});
+  const dataSort = setAllObjectValuesSortMinusOne(filteredObject);
 
   const neighbourhoodsByData = await Neighbourhood.find({
     wozAverage: { $lte: WOZTotal }

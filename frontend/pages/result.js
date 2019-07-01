@@ -1,16 +1,18 @@
-import { useContext, useEffect, useState, useMemo } from "react";
-import BodyClassName from "react-body-classname";
-import styled from "styled-components";
-import fetch from "isomorphic-unfetch";
+import {
+ useContext, useEffect, useState, useMemo 
+} from 'react';
+import BodyClassName from 'react-body-classname';
+import styled from 'styled-components';
+import fetch from 'isomorphic-unfetch';
 
 // Components
-import Header from "../components/global/Header";
-import Card from "../components/cards";
-import { Container } from "../components/global/PageLayout";
-import InputWrapper from "../components/layout/InputWrapper";
+import Header from '../components/global/Header';
+import Card from '../components/cards';
+import { Container } from '../components/global/PageLayout';
+import InputWrapper from '../components/layout/InputWrapper';
 
 // Context
-import { UserContext } from "../components/context/UserProvider";
+import { UserContext } from '../components/context/UserProvider';
 
 const Result = () => {
   const [data, setData] = useState([]);
@@ -18,12 +20,10 @@ const Result = () => {
   const { budget, squareFeet } = useContext(UserContext);
   const [userData, setUserData] = useState([]);
 
-  const queryURL = useMemo(() => {
-    return userData.reduce((prev, current) => {
+  const queryURL = useMemo(() => userData.reduce((prev, current) => {
       const query = `&${current}=${current}`;
       return prev + query;
-    }, `http://localhost:7777/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`);
-  }, [budget, squareFeet, userData]);
+    }, `http://localhost:7777/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`), [budget, squareFeet, userData]);
 
   useEffect(() => {
     setLoading(true);
@@ -52,8 +52,8 @@ const Result = () => {
           />
           <ResultsWrapper>
             {loading && <div>loading ... </div>}
-            {data &&
-              data.map((neighbourhood, i) => (
+            {data
+              && data.map((neighbourhood, i) => (
                 <Card
                   type="overview"
                   neighbourhood={neighbourhood}
