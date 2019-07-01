@@ -35,7 +35,7 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
       const neighbourhoodPosition = neighbourhoodsLowerThan + 1;
 
       // Add neighbourhoodTotal, neighbourhoodPosition to the neighbourhood
-      const result = await Neighbourhood.update(
+      const result = await Neighbourhood.updateOne(
         { _id: neighbourhoodObj._id },
         { $set: { neighbourhoodTotal, neighbourhoodPosition } }
       );
