@@ -16,9 +16,8 @@ exports.getAll = async (req, res) => {
   res.status(200).json(Neighbourhoods);
 };
 
-// db.getCollection('neighbourhoods').update({ _id: ObjectId("5d18a275b70ca71614dcbe29") }, { $set: {rankPosition: 2}})
-// .find({"id": { "$lt" : 12345}}).count() ;
-const setNeighbourhoodRank = ({ neighbourhoodsByData }) =>
+// Set the rank of the neighbourhood, for example position 14/86, 86 = total neighbourhoods
+const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
   Promise.all(
     neighbourhoodsByData.map(async neighbourhood => {
       // Convert Mongoose object to regular object
@@ -28,15 +27,14 @@ const setNeighbourhoodRank = ({ neighbourhoodsByData }) =>
       const neighbourhoodTotal = await Neighbourhood.find({}).count();
 
       // Get the neighbourhood position
-      const neighbourhoodPosition = await Neighbourhood.find({
+      const neighbourhoodsLowerThan = await Neighbourhood.find({
         rank: { $lt: neighbourhoodObj.rank }
       }).count();
 
-      console.log(
-        { _id: mongoose.Types.ObjectId(`${neighbourhoodObj._id}`) },
-        { $set: { neighbourhoodTotal, neighbourhoodPosition } }
-      );
+      // Set de current position of the neighbourhood
+      const neighbourhoodPosition = neighbourhoodsLowerThan + 1;
 
+      // Add neighbourhoodTotal, neighbourhoodPosition to the neighbourhood
       const result = await Neighbourhood.update(
         { _id: neighbourhoodObj._id },
         { $set: { neighbourhoodTotal, neighbourhoodPosition } }
@@ -98,9 +96,7 @@ exports.getByData = async (req, res) => {
     .sort(dataSort)
     .limit(4);
 
-  const result = await setNeighbourhoodRank({ neighbourhoodsByData });
-
-  console.log({ result });
+  await setNeighbourhoodRank({ neighbourhoodsByData });
 
   res.status(200).json(neighbourhoodsByData);
 };
