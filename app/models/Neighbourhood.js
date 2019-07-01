@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const neighbourhoodSchema = mongoose.Schema({
   name: {
@@ -20,7 +20,13 @@ const neighbourhoodSchema = mongoose.Schema({
   socialAverage: {
     type: Number,
     required: true
+  },
+  neighbourhoodTotal: {
+    type: Number
+  },
+  neighbourhoodPosition: {
+    type: Number
   }
 });
 
-module.exports = mongoose.model('Neighbourhood', neighbourhoodSchema);
+module.exports = mongoose.model("Neighbourhood", neighbourhoodSchema);
