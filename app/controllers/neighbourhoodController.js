@@ -53,12 +53,14 @@ exports.getByData = async (req, res) => {
   const { greenery, budget, squareFeet, kidGirl } = req.query;
 
   // TEMP: set multiple values for kidGirl
+  // TODO: Create function
   if (kidGirl !== undefined) {
     schoolBasis = "schoolBasis";
     playground = "playground";
   }
 
   // Limit low value input by always returning the lowest rated neighbourhood
+  // TODO: Create function
   const WOZ = Math.ceil(Number(budget) / Number(squareFeet));
   const WOZTotal = WOZ <= 1051 ? 1051 : WOZ;
 
