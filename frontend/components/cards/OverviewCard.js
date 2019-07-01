@@ -26,6 +26,9 @@ const OverviewCard = ({
       <div className="gradient-fade" />
     </TopWrapper>
     <BottomWrapper>
+      {/* <DataBar>
+        <p>test</p>
+      </DataBar> */}
       <Rank>
         <h2 className="rank-position">
           <span className="rank">{neighbourhoodPosition}</span>
@@ -107,6 +110,10 @@ const BottomWrapper = styled.div`
   display: flex;
   position: relative;
 `;
+
+const DataBar = styled.div`
+  
+`
 
 const Rank = styled.div`
   position: absolute;
