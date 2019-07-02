@@ -1,45 +1,45 @@
-import { bool, func, array } from "prop-types";
-import styled from "styled-components";
+import { bool, func, array } from 'prop-types';
+import styled from 'styled-components';
 
 // Components
-import Icon from "../media/Icons";
-import Button from "../buttons";
-import Card from "../cards";
+import Icon from '../media/Icons';
+import Button from '../buttons';
+import Card from '../cards';
 
-const DataPopup = ({ userData, showPopup, setShowPopup, setUserData }) => {
-  return (
-    <PopupContainer>
-      <div className="popup-wrapper">
-        <Button
-          onClick={() => setShowPopup(!showPopup)}
-          __type="adjust"
-          iconType="cross"
-          iconColor="white"
-          className="popup-button"
-          remove
-        />
-        <PopupCardWrapper>
-          <Card
-            type="input"
-            sort="data"
-            className="popup-card"
-            onClick={() => setUserData([...userData, "greenery"])}
-          >
-            <Icon type="dog" sort="data" />
-          </Card>
-          <Card
-            type="input"
-            sort="data"
-            className="popup-card"
-            onClick={() => setUserData([...userData, "kidGirl"])}
-          >
-            <Icon type="kidGirl" sort="data" />
-          </Card>
-        </PopupCardWrapper>
-      </div>
-    </PopupContainer>
-  );
-};
+const DataPopup = ({
+ userData, showPopup, setShowPopup, setUserData 
+}) => (
+  <PopupContainer>
+    <div className="popup-wrapper">
+      <Button
+        onClick={() => setShowPopup(!showPopup)}
+        __type="adjust"
+        iconType="cross"
+        iconColor="white"
+        className="popup-button"
+        remove
+      />
+      <PopupCardWrapper>
+        <Card
+          type="input"
+          sort="data"
+          className="popup-card"
+          onClick={() => setUserData([...userData, 'dog'])}
+        >
+          <Icon type="dog" sort="data" />
+        </Card>
+        <Card
+          type="input"
+          sort="data"
+          className="popup-card"
+          onClick={() => setUserData([...userData, 'kidGirl'])}
+        >
+          <Icon type="kidGirl" sort="data" />
+        </Card>
+      </PopupCardWrapper>
+    </div>
+  </PopupContainer>
+);
 
 export default DataPopup;
 

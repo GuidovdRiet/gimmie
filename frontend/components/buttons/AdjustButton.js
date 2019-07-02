@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { string, bool, func } from "prop-types";
+import styled from 'styled-components';
+import { string, bool, func } from 'prop-types';
 
 // Components
-import Icon from "../media/Icons";
+import Icon from '../media/Icons';
 
 const AdjustButton = ({
   iconType,
@@ -11,8 +11,7 @@ const AdjustButton = ({
   remove,
   onClick,
   ...props
-}) => {
-  return (
+}) => (
     <ButtonWrapper {...props}>
       <Button
         type="button"
@@ -26,7 +25,6 @@ const AdjustButton = ({
       <ButtonLine className="button-line" remove={remove} />
     </ButtonWrapper>
   );
-};
 
 export default AdjustButton;
 
@@ -47,8 +45,7 @@ const Button = styled.button`
   min-height: 40px;
   min-width: 40px;
   border: 0px;
-  background-color: ${({ theme, remove }) =>
-    remove ? theme.lightGrey : theme.shamrock};
+  background-color: ${({ theme, remove }) => (remove ? theme.lightGrey : theme.shamrock)};
   display: inline-block;
   transition: transform 0.04s cubic-bezier(0.25, 0.75, 0.5, 1.25);
   position: relative;
@@ -71,17 +68,15 @@ const Button = styled.button`
     }
   }
   &:active {
-    background-color: ${({ theme, remove }) =>
-      remove ? theme.geraldineLight : theme.shamrockLight};
+    background-color: ${({ theme, remove }) => (remove ? theme.geraldineLight : theme.shamrockLight)};
   }
   &:focus {
     outline: 0;
   }
   .button-icon {
     transform: translateY(1px);
-    fill: ${({ theme, iconColor }) =>
-      iconColor ? theme[iconColor] : theme.white};
-    transform: ${({ remove }) => (remove ? "rotate(0)" : "rotate(45deg)")};
+    fill: ${({ theme, iconColor }) => (iconColor ? theme[iconColor] : theme.white)};
+    transform: ${({ remove }) => (remove ? 'rotate(0)' : 'rotate(45deg)')};
     min-width: 16px;
   }
 `;

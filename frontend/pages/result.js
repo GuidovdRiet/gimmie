@@ -1,7 +1,6 @@
 import {
  useContext, useEffect, useState, useMemo 
 } from 'react';
-import BodyClassName from 'react-body-classname';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
@@ -45,8 +44,6 @@ const Result = () => {
     <>
       <Header linkBack="squarefeet" showLinkBack />
       <Container>
-        {/* Set className for different background image */}
-        {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
           <InputWrapper
             className="result-input-wrapper"

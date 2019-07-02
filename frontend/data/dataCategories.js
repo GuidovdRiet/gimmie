@@ -1,14 +1,14 @@
 export default {
-  greenery: {
-    cardTypes: ["dog"]
+  dog: {
+    cardTypes: ['dog']
   },
   budget: {
-    cardTypes: ["dog"]
+    cardTypes: ['dog']
   },
   squareFeet: {
-    cardTypes: ["dog"]
+    cardTypes: ['dog']
   },
-  kidGirl : {
+  kidGirl: {
     cardTypes: ['kidGirl']
   }
 };

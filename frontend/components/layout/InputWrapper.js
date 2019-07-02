@@ -1,15 +1,17 @@
-import styled from "styled-components";
-import { string, func, array, number } from "prop-types";
-import { useState, useMemo } from "react";
+import styled from 'styled-components';
+import {
+ string, func, array, number 
+} from 'prop-types';
+import { useState, useMemo } from 'react';
 
 // Components
-import Icon from "../media/Icons";
-import Button from "../buttons";
-import Card from "../cards";
-import DataPopup from "./DataPopup";
+import Icon from '../media/Icons';
+import Button from '../buttons';
+import Card from '../cards';
+import DataPopup from './DataPopup';
 
 // Data
-import DataCategories from "../../data/dataCategories";
+import DataCategories from '../../data/dataCategories';
 
 const InputWrapper = ({
   userData,
@@ -21,12 +23,11 @@ const InputWrapper = ({
   const [showPopup, setShowPopup] = useState(false);
 
   const cardCategories = useMemo(
-    () =>
-      userData.map(data =>
-        DataCategories[data].cardTypes.map(category => category)
-      ),
+    () => userData.map(data => DataCategories[data].cardTypes.map(category => category)),
     [userData]
   );
+
+  console.log({ userData });
 
   return (
     <>
@@ -63,13 +64,16 @@ const InputWrapper = ({
             <p>Vierkante meter</p>
             <h2>{squareFeet}</h2>
           </Card>
-          {cardCategories &&
-            cardCategories.map(cardCategory => (
+          {cardCategories
+            && cardCategories.map((cardCategory, i) => (
               <Card
                 type="input"
                 sort="data"
                 buttonType="remove"
                 className="input-wrapper-card"
+                onClick={
+                  () => setUserData(userData.filter((_, index) => index !== i)) // remove element from array
+                }
               >
                 <Icon type={cardCategory} sort="data" />
               </Card>

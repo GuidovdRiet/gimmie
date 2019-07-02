@@ -47,14 +47,21 @@ exports.getByData = async (req, res) => {
   const rank = "rank"; // total average
   let schoolBasis;
   let playground;
+  let greenery;
 
-  const { greenery, budget, squareFeet, kidGirl } = req.query;
+  const { dog, budget, squareFeet, kidGirl } = req.query;
 
   // TEMP: set multiple values for kidGirl
   // TODO: Create function
   if (kidGirl !== undefined) {
     schoolBasis = "schoolBasis";
     playground = "playground";
+  }
+
+  // TEMP: set multiple values for dog
+  // TODO: Create function
+  if (dog !== undefined) {
+    greenery = "greenery";
   }
 
   // Limit low value input by always returning the lowest rated neighbourhood
