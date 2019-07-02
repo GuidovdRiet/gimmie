@@ -12,7 +12,7 @@ app
 
     server.get('/neighbourhood/:id', (req, res) => {
       const actualPage = '/neighbourhood';
-      const queryParams = { title: req.params.id };
+      const queryParams = { neighbourhood: req.params.id };
       app.render(req, res, actualPage, queryParams);
     });
 

@@ -1,26 +1,26 @@
-import { useState, useContext } from "react";
-import { Formik, Field } from "formik";
-import Router from "next/router";
-import styled from "styled-components";
-import BodyClassName from "react-body-classname";
-import * as yup from "yup";
+import { useState, useContext } from 'react';
+import { Formik, Field } from 'formik';
+import Router from 'next/router';
+import styled from 'styled-components';
+import BodyClassName from 'react-body-classname';
+import * as yup from 'yup';
 
 // Components
-import Header from "../components/global/Header";
-import { Container } from "../components/global/PageLayout";
-import Card from "../components/cards";
-import Button from "../components/buttons";
+import Header from '../components/global/Header';
+import { Container } from '../components/global/PageLayout';
+import Card from '../components/cards';
+import Button from '../components/buttons';
 
 // Context
-import { UserContext } from "../components/context/UserProvider";
+import { UserContext } from '../components/context/UserProvider';
 
 // Style
-import { ButtonWrapper } from "../common/globalStyle";
+import { ButtonWrapper } from '../common/globalStyle';
 
 const Budget = () => {
   const { budget, setBudgetContext } = useContext(UserContext);
   const initialState = {
-    budget: budget || ""
+    budget: budget || ''
   };
   const [user, setUser] = useState(initialState);
 
@@ -29,10 +29,9 @@ const Budget = () => {
   });
 
   const handleSubmit = ({ values, actions }) => {
-    console.log({ budget, setBudgetContext });
     setBudgetContext(values.budget);
     setUser(values);
-    Router.push("/squarefeet");
+    Router.push('/squarefeet');
   };
 
   return (
@@ -41,13 +40,15 @@ const Budget = () => {
       <Container>
         <BodyClassName className="area-svg" />
         <FormWrapper>
-          <Card type="form" illustrationTypes={["school", "treeHouse"]}>
+          <Card type="form" illustrationTypes={['school', 'treeHouse']}>
             <Formik
               initialValues={user}
               onSubmit={(values, actions) => handleSubmit({ values, actions })}
               validationSchema={userSchema}
             >
-              {({ handleSubmit, handleChange, values, errors, touched }) => (
+              {({
+ handleSubmit, handleChange, values, errors, touched 
+}) => (
                 <form onSubmit={handleSubmit}>
                   {errors.budget && touched.budget && (
                     <span className="form-error">{errors.budget}</span>

@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import Link from "next/link";
-import { string, bool } from "prop-types";
+import styled from 'styled-components';
+import Link from 'next/link';
+import { string, bool } from 'prop-types';
 
 // Components
-import LogoPolygon from "../media/svg/LogoPolygon";
-import Icon from "../media/Icons";
+import LogoPolygon from '../media/svg/LogoPolygon';
+import Icon from '../media/Icons';
 
 const BackButton = ({ linkBack }) => (
   <Link href={linkBack}>
@@ -18,8 +18,7 @@ BackButton.propTypes = {
   linkBack: string
 };
 
-const Header = ({ linkBack, showLinkBack }) => {
-  return (
+const Header = ({ linkBack, showLinkBack }) => (
     <Wrapper>
       <ContentWrapper showLinkBack={showLinkBack}>
         <Toolbar>{showLinkBack && <BackButton linkBack={linkBack} />}</Toolbar>
@@ -27,7 +26,6 @@ const Header = ({ linkBack, showLinkBack }) => {
       </ContentWrapper>
     </Wrapper>
   );
-};
 
 export default Header;
 
@@ -50,8 +48,7 @@ const ContentWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   height: 60px;
-  justify-content: ${({ showLinkBack }) =>
-    showLinkBack ? "space-between" : "center"};
+  justify-content: ${({ showLinkBack }) => (showLinkBack ? "space-between" : "center")};
   transition: justify-content 0.3s ease-in-out;
   .logo {
     height: 150%;

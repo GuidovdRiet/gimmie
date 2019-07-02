@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import { object } from 'prop-types';
+import Link from 'next/link';
 
 // Components
 import Button from '../buttons';
@@ -44,13 +45,20 @@ const OverviewCard = ({
         </div>
       </TextWrapper>
       <ButtonWrapper>
-        <Button
-          type="submit"
-          __type="square"
-          className="button"
-          iconType="arrow"
-          text="Bekijk"
-        />
+        <Link
+          href={`/neighbourhood?neighbourhood=${name.toLowerCase()}`}
+          as={`/neighbourhood/${name.toLowerCase()}`}
+        >
+          <a>
+            <Button
+              type="submit"
+              __type="square"
+              className="button"
+              iconType="arrow"
+              text="Bekijk"
+            />
+          </a>
+        </Link>
       </ButtonWrapper>
     </BottomWrapper>
   </Wrapper>

@@ -2,7 +2,6 @@ import {
  useContext, useEffect, useState, useMemo 
 } from 'react';
 import BodyClassName from 'react-body-classname';
-import Link from 'next/link';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
@@ -11,6 +10,7 @@ import Header from '../components/global/Header';
 import Card from '../components/cards';
 import { Container } from '../components/global/PageLayout';
 import InputWrapper from '../components/layout/InputWrapper';
+import CardLoader from '../components/loaders/CardLoader';
 
 // Context
 import { UserContext } from '../components/context/UserProvider';
@@ -31,7 +31,6 @@ const Result = () => {
 
   useEffect(() => {
     setLoading(true);
-    console.log({ queryURL });
     const fetchData = async () => {
       const res = await fetch(queryURL);
       const result = await res.json();
@@ -46,12 +45,6 @@ const Result = () => {
     <>
       <Header linkBack="squarefeet" showLinkBack />
       <Container>
-        <Link
-          href="/neighbourhood?neighbourhood=spangen"
-          as="/neighbourhood/spangen"
-        >
-          <a>test</a>
-        </Link>
         {/* Set className for different background image */}
         {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
@@ -63,7 +56,11 @@ const Result = () => {
             squareFeet={squareFeet}
           />
           <ResultsWrapper>
-            {loading && <div>loading ... </div>}
+            {loading && (
+              <LoaderWrapper>
+                <CardLoader />
+              </LoaderWrapper>
+            )}
             {data
               && data.map((neighbourhood, i) => (
                 <Card
@@ -93,4 +90,11 @@ const Wrapper = styled.div`
 
 const ResultsWrapper = styled.div`
   flex: 2;
+`;
+
+const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 `;
