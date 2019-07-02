@@ -35,7 +35,8 @@ InputDataCard.propTypes = {
 const Wrapper = styled.div`
   border-radius: 40px;
   background-color: ${({ theme }) => theme.white};
-  min-height: 325px;
+  min-height: 300px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   box-shadow: ${({ theme }) => theme.bsI};

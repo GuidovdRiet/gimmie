@@ -1,21 +1,30 @@
-import styled from 'styled-components';
-import { string, func, array } from 'prop-types';
-import { useState, useMemo } from 'react';
+import styled from "styled-components";
+import { string, func, array, number } from "prop-types";
+import { useState, useMemo } from "react";
 
 // Components
-import Icon from '../media/Icons';
-import Button from '../buttons';
-import Card from '../cards';
-import DataPopup from './DataPopup';
+import Icon from "../media/Icons";
+import Button from "../buttons";
+import Card from "../cards";
+import DataPopup from "./DataPopup";
 
 // Data
-import DataCategories from '../../data/dataCategories';
+import DataCategories from "../../data/dataCategories";
 
-const InputWrapper = ({ userData, setUserData, className }) => {
+const InputWrapper = ({
+  userData,
+  setUserData,
+  budget,
+  squareFeet,
+  className
+}) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const cardCategories = useMemo(
-    () => userData.map(data => DataCategories[data].cardTypes.map(category => category)),
+    () =>
+      userData.map(data =>
+        DataCategories[data].cardTypes.map(category => category)
+      ),
     [userData]
   );
 
@@ -45,20 +54,27 @@ const InputWrapper = ({ userData, setUserData, className }) => {
             onClick={() => setShowPopup(!showPopup)}
           />
         </div>
-        <Card type="text" >
-          
-        </Card>
-        {cardCategories
-          && cardCategories.map(cardCategory => (
-            <Card
-              type="input"
-              sort="data"
-              buttonType="remove"
-              className="input-wrapper-card"
-            >
-              <Icon type={cardCategory} sort="data" />
-            </Card>
-          ))}
+        <div className="card-wrapper">
+          <Card type="text" sort="data">
+            <p>Budget</p>
+            <h2>{budget}</h2>
+          </Card>
+          <Card type="text" sort="data">
+            <p>Vierkante meter</p>
+            <h2>{squareFeet}</h2>
+          </Card>
+          {cardCategories &&
+            cardCategories.map(cardCategory => (
+              <Card
+                type="input"
+                sort="data"
+                buttonType="remove"
+                className="input-wrapper-card"
+              >
+                <Icon type={cardCategory} sort="data" />
+              </Card>
+            ))}
+        </div>
         <div className="wrapper-bottom">
           <i className="bottom-line" />
         </div>
@@ -72,7 +88,9 @@ export default InputWrapper;
 InputWrapper.propTypes = {
   className: string,
   setUserData: func.isRequired,
-  userData: array.isRequired
+  userData: array.isRequired,
+  budget: number.isRequired,
+  squareFeet: number.isRequired
 };
 
 const Wrapper = styled.div`
@@ -119,6 +137,10 @@ const Wrapper = styled.div`
   }
   .wrapper-bottom {
     display: flex;
+  }
+  .card-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
   }
   .bottom-line {
     width: 100%;

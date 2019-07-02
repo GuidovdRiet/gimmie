@@ -1,16 +1,18 @@
-import { useContext, useEffect, useState, useMemo } from "react";
-import BodyClassName from "react-body-classname";
-import styled from "styled-components";
-import fetch from "isomorphic-unfetch";
+import {
+ useContext, useEffect, useState, useMemo 
+} from 'react';
+import BodyClassName from 'react-body-classname';
+import styled from 'styled-components';
+import fetch from 'isomorphic-unfetch';
 
 // Components
-import Header from "../components/global/Header";
-import Card from "../components/cards";
-import { Container } from "../components/global/PageLayout";
-import InputWrapper from "../components/layout/InputWrapper";
+import Header from '../components/global/Header';
+import Card from '../components/cards';
+import { Container } from '../components/global/PageLayout';
+import InputWrapper from '../components/layout/InputWrapper';
 
 // Context
-import { UserContext } from "../components/context/UserProvider";
+import { UserContext } from '../components/context/UserProvider';
 
 const Result = () => {
   const [data, setData] = useState([]);
@@ -19,8 +21,7 @@ const Result = () => {
   const [userData, setUserData] = useState([]);
 
   const queryURL = useMemo(
-    () =>
-      userData.reduce((prev, current) => {
+    () => userData.reduce((prev, current) => {
         const query = `&${current}=${current}`;
         return prev + query;
       }, `http://localhost:7777/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`),
@@ -51,11 +52,13 @@ const Result = () => {
             className="result-input-wrapper"
             userData={userData}
             setUserData={setUserData}
+            budget={budget}
+            squareFeet={squareFeet}
           />
           <ResultsWrapper>
             {loading && <div>loading ... </div>}
-            {data &&
-              data.map((neighbourhood, i) => (
+            {data
+              && data.map((neighbourhood, i) => (
                 <Card
                   type="overview"
                   neighbourhood={neighbourhood}
@@ -76,7 +79,7 @@ const Wrapper = styled.div`
   margin-top: 130px;
   .result-input-wrapper {
     flex: 0.8;
-    margin-right: 50px;
+    margin-right: 80px;
     margin-top: -70px;
   }
 `;

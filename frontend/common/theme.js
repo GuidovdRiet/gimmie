@@ -17,6 +17,8 @@ const theme = {
   // Grey
   white: '#fff',
   lightGrey: '#DCDCDC',
+  mediumGrey: '#a3a2a2',
+  darkGrey: '#4D4D4D',
 
   // Shadows
   bs: '0px 2px 15px rgba(28, 36, 43, 0.07)',

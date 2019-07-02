@@ -29,6 +29,8 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
         rank: { $lt: neighbourhoodObj.rank }
       }).count();
 
+      console.log({ neighbourhoodsLowerThan });
+
       // Set de current position of the neighbourhood
       const neighbourhoodPosition = neighbourhoodsLowerThan + 1;
 
@@ -44,9 +46,7 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
 
 exports.getByData = async (req, res) => {
   // Base scores, highest score for neighbourhoods
-  const socialAverage = "socialAverage";
-  const physicalAverage = "physicalAverage";
-  const safetyAverage = "safetyAverage";
+  const rank = "rank"; // total average
   let schoolBasis;
   let playground;
 
@@ -71,9 +71,7 @@ exports.getByData = async (req, res) => {
     schoolBasis,
     playground,
     // Base
-    socialAverage,
-    physicalAverage,
-    safetyAverage
+    rank
   };
 
   // Filter all undefined values from object

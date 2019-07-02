@@ -35,7 +35,7 @@ const OverviewCard = ({
           <span className="divider">/</span>
           <span className="rank-total">{neighbourhoodTotal}</span>
         </h2>
-        <p className="rank-info">Positie totaal aantal buurten.</p>
+        <p className="rank-info">Totaal aantal buurten.</p>
       </Rank>
       <TextWrapper>
         <div className="text">
@@ -115,8 +115,8 @@ const DataBar = styled.div``;
 
 const Rank = styled.div`
   position: absolute;
-  top: -39px;
-  right: 8.2%;
+  top: -53px;
+  right: 8.9%;
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   display: flex;
@@ -130,33 +130,33 @@ const Rank = styled.div`
     color: #bf6283;
     display: flex;
     align-items: center;
+    margin-right: 4px;
     .rank,
     .rank-total {
       line-height: 36px;
+      font-family: ${({ theme }) => theme.secondaryFont};
     }
     .rank {
-      /* color: ${({ theme }) => theme.purple}; */
-      color: #3c3a3a;
-      font-size: 4.3rem;
+      color: ${({ theme }) => theme.darkGrey};
+      font-size: 4.9rem;
     }
     .divider {
       font-size: 1.6rem;
       margin: 0 4px;
-      color: #e7e5e5;
+      color: ${({ theme }) => theme.lightGrey};
     }
     .rank-total {
-      font-size: 3.4rem;
-      color: #e7e5e5;
+      font-size: 3.6rem;
+      color: ${({ theme }) => theme.lightGrey};
     }
   }
   .rank-info {
-    font-size: 1.2rem;
+    font-size: 1.23rem;
     font-weight: 500;
-    color: ${({ theme }) => theme.purple};
+    color: ${({ theme }) => theme.mediumGrey};
     font-family: ${({ theme }) => theme.secondaryFont};
     margin: 0;
     margin-top: 2px;
-    color: #a3a2a2;
   }
 `;
 
@@ -164,6 +164,15 @@ const TextWrapper = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  .text {
+    max-width: 550px;
+    h1,
+    h2 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 `;
 
 const ButtonWrapper = styled.div`

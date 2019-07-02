@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-size: 1.6rem;
-    line-height: 2;
     min-height: 500px;
     position: relative;
     width: 100%;
