@@ -58,13 +58,23 @@ const Result = () => {
                 <CardLoader />
               </LoaderWrapper>
             )}
-            {data
+            {data // Check for valid result, if result is not valid 1 neighbourhood is displayed
               && data.map((neighbourhood, i) => (
-                <Card
-                  type="overview"
-                  neighbourhood={neighbourhood}
-                  key={i.toString()}
-                />
+                <>
+                  {data.length <= 1 && (
+                    <div className="result-error-message">
+                      <h1 className="result-error-message-text">
+                        Geen geldige invoer. Pas uw budget en vierkante meters
+                        aan naar een geldige invoer!{' '}
+                      </h1>
+                    </div>
+                  )}
+                  <Card
+                    type="overview"
+                    neighbourhood={neighbourhood}
+                    key={i.toString()}
+                  />
+                </>
               ))}
           </ResultsWrapper>
         </Wrapper>
@@ -87,6 +97,19 @@ const Wrapper = styled.div`
 
 const ResultsWrapper = styled.div`
   flex: 2;
+  .result-error-message {
+    color: ${({ theme }) => theme.darkPurple};
+    ${({ theme }) => theme.fontSmoothing};
+    background-color: ${({ theme }) => theme.geraldine};
+    padding: 10px 30px;
+    margin-bottom: 40px;
+    h1 {
+      font-weight: 200;
+      font-size: 1.6rem;
+      margin: 0;
+      text-align: center;
+    }
+  }
 `;
 
 const LoaderWrapper = styled.div`
