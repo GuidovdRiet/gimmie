@@ -111,22 +111,20 @@ const BottomWrapper = styled.div`
   position: relative;
 `;
 
-const DataBar = styled.div`
-  
-`
+const DataBar = styled.div``;
 
 const Rank = styled.div`
   position: absolute;
   top: -39px;
-    right: 8.2%;
-  background-color: ${({ theme }) => theme.pinkDark};
+  right: 8.2%;
+  background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 12px;
-    padding: 12px 9px 8px 9px;
+  padding: 22px 12px 12px 12px;
   .rank-position {
     font-weight: 600;
     color: #bf6283;
@@ -134,17 +132,21 @@ const Rank = styled.div`
     align-items: center;
     .rank,
     .rank-total {
-      line-height: 40px;
+      line-height: 36px;
     }
     .rank {
-      color: ${({ theme }) => theme.purple};
+      /* color: ${({ theme }) => theme.purple}; */
+      color: #3c3a3a;
+      font-size: 4.3rem;
     }
     .divider {
-      font-size: 1.9rem;
+      font-size: 1.6rem;
       margin: 0 4px;
+      color: #e7e5e5;
     }
     .rank-total {
-      /* color: ${({ theme }) => theme.purple}; */
+      font-size: 3.4rem;
+      color: #e7e5e5;
     }
   }
   .rank-info {
@@ -153,6 +155,8 @@ const Rank = styled.div`
     color: ${({ theme }) => theme.purple};
     font-family: ${({ theme }) => theme.secondaryFont};
     margin: 0;
+    margin-top: 2px;
+    color: #a3a2a2;
   }
 `;
 

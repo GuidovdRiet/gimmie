@@ -1,25 +1,27 @@
-import styled from "styled-components";
-import { oneOfType, arrayOf, node, string, func } from "prop-types";
+import styled from 'styled-components';
+import {
+ oneOfType, arrayOf, node, string, func 
+} from 'prop-types';
 
 // Components
-import Button from "../../buttons";
+import Button from '../../buttons';
 
-const InputDataCard = ({ className, onClick, buttonType, children }) => {
-  return (
-    <Wrapper className={className}>
-      <div className="icon-wrapper">{children}</div>
-      <div className="button-wrapper">
-        <Button
-          __type="adjust"
-          iconType="cross"
-          iconColor="white"
-          remove={buttonType}
-          onClick={onClick}
-        />
-      </div>
-    </Wrapper>
-  );
-};
+const InputDataCard = ({
+ className, onClick, buttonType, children 
+}) => (
+  <Wrapper className={className}>
+    <div className="icon-wrapper">{children}</div>
+    <div className="button-wrapper">
+      <Button
+        __type="adjust"
+        iconType="cross"
+        iconColor="white"
+        remove={buttonType}
+        onClick={onClick}
+      />
+    </div>
+  </Wrapper>
+);
 
 export default InputDataCard;
 

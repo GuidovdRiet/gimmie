@@ -1,7 +1,7 @@
 // Components / cards
-import OverviewCard from "./OverviewCard";
-import FormCard from "./FormCard";
-import InputDataCard from "./dataCards/InputDataCard";
+import OverviewCard from './OverviewCard';
+import FormCard from './FormCard';
+import InputDataCard from './dataCards/InputDataCard';
 
 const cards = {
   form: FormCard,
@@ -15,9 +15,9 @@ const Card = ({ type, sort, ...props }) => {
   const Comp = sort ? cards[sort][type] : cards[type];
   if (
     sort
-      ? typeof cards[sort] === "undefined" ||
-        typeof cards[sort][type] === "undefined"
-      : typeof cards[type] === "undefined"
+      ? typeof cards[sort] === 'undefined'
+        || typeof cards[sort][type] === 'undefined'
+      : typeof cards[type] === 'undefined'
   ) {
     return null;
   }
