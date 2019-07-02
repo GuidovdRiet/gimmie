@@ -29,8 +29,6 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
         rank: { $lt: neighbourhoodObj.rank }
       }).count();
 
-      console.log({ neighbourhoodsLowerThan });
-
       // Set de current position of the neighbourhood
       const neighbourhoodPosition = neighbourhoodsLowerThan + 1;
 

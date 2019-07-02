@@ -2,6 +2,7 @@ import {
  useContext, useEffect, useState, useMemo 
 } from 'react';
 import BodyClassName from 'react-body-classname';
+import Link from 'next/link';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
@@ -45,6 +46,12 @@ const Result = () => {
     <>
       <Header linkBack="squarefeet" showLinkBack />
       <Container>
+        <Link
+          href="/neighbourhood?neighbourhood=spangen"
+          as="/neighbourhood/spangen"
+        >
+          <a>test</a>
+        </Link>
         {/* Set className for different background image */}
         {/* <BodyClassName className="area-svg" /> */}
         <Wrapper>
