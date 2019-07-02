@@ -26,7 +26,7 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
 
       // Find all neighbourhoods with a lower score
       const neighbourhoodsLowerThan = await Neighbourhood.find({
-        rank: { $lt: neighbourhoodObj.rank }
+        rank: { $gt: neighbourhoodObj.rank }
       }).count();
 
       // Set de current position of the neighbourhood

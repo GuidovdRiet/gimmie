@@ -62,6 +62,7 @@ const Result = () => {
               && data.map((neighbourhood, i) => (
                 <>
                   {data.length <= 1 && (
+                    // TODO: Create component
                     <div className="result-error-message">
                       <h1 className="result-error-message-text">
                         Geen geldige invoer. Pas uw budget en vierkante meters
