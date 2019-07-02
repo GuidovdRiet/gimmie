@@ -14,8 +14,17 @@ exports.getAll = async (req, res) => {
   res.status(200).json(Neighbourhoods);
 };
 
-// db.getCollection('neighbourhoods').update({ _id: ObjectId("5d18a275b70ca71614dcbe29") }, { $set: {rankPosition: 2}})
-// .find({"id": { "$lt" : 12345}}).count() ;
+exports.getSingle = async (req, res) => {
+  const { neighbourhood } = req.query;
+  const currentNeighbourhood = await Neighbourhood.find({
+    name: neighbourhood
+  });
+  if (!currentNeighbourhood) {
+    res.status(404).json({ error: "Page not found" });
+  }
+  res.status(200).json(currentNeighbourhood);
+};
+
 const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
   Promise.all(
     neighbourhoodsByData.map(async neighbourhood => {

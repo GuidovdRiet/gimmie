@@ -27,8 +27,6 @@ const InputWrapper = ({
     [userData]
   );
 
-  console.log({ userData });
-
   return (
     <>
       {showPopup && (

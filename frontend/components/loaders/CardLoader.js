@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CardLoader = () => (
-  <Loader className="lds-grid">
+  <Loader>
     <div />
     <div />
     <div />

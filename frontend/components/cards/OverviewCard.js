@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 // Components
 import Button from '../buttons';
+import Icon from '../media/Icons';
 
 const Map = dynamic(() => import('../maps/Map'), {
   ssr: false
@@ -28,7 +29,7 @@ const OverviewCard = ({
     </TopWrapper>
     <BottomWrapper>
       {/* <DataBar>
-        <p>test</p>
+        <Icon className="icon" type="dog" sort="data" />
       </DataBar> */}
       <Rank>
         <h2 className="rank-position">
@@ -46,8 +47,8 @@ const OverviewCard = ({
       </TextWrapper>
       <ButtonWrapper>
         <Link
-          href={`/neighbourhood?neighbourhood=${name.toLowerCase()}`}
-          as={`/neighbourhood/${name.toLowerCase()}`}
+          href={`/neighbourhood?neighbourhood=${name}`}
+          as={`/neighbourhood/${name}`}
         >
           <a>
             <Button
@@ -119,7 +120,16 @@ const BottomWrapper = styled.div`
   position: relative;
 `;
 
-const DataBar = styled.div``;
+const DataBar = styled.div`
+  position: absolute;
+  top: -38px;
+  left: 5.3%;
+  z-index: 2;
+  .icon {
+    width: 64px;
+    margin-right: 6px;
+  }
+`;
 
 const Rank = styled.div`
   position: absolute;
