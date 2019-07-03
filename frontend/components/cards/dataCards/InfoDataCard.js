@@ -1,14 +1,12 @@
 import styled from 'styled-components';
-import {
- oneOfType, arrayOf, node, string, func 
-} from 'prop-types';
+import { oneOfType, number, string } from 'prop-types';
 import Icon from '../../media/Icons';
 
-const TextDataCard = ({ children }) => (
+const TextDataCard = ({ score, name }) => (
   <Wrapper>
     <Icon type="dog" sort="data" className="data-icon" />
-    <h1 className="card-percentage">43,6%</h1>
-    <p className="data-type">Hondvriendelijk</p>
+    <h1 className="card-percentage">{score}</h1>
+    <p className="data-type">{name}</p>
     <p className="data-percentage-average">11,5</p>
   </Wrapper>
 );
@@ -16,7 +14,7 @@ const TextDataCard = ({ children }) => (
 export default TextDataCard;
 
 TextDataCard.propTypes = {
-  children: oneOfType([arrayOf(node), node, string])
+  score: oneOfType([number, string])
 };
 
 const Wrapper = styled.div`

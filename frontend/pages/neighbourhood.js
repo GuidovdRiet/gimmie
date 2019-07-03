@@ -12,6 +12,9 @@ import Card from '../components/cards';
 import { Container } from '../components/global/PageLayout';
 import Button from '../components/buttons';
 
+// Data
+import infoData from '../data/infoData';
+
 const Map = dynamic(() => import('../components/maps/Map'), {
   ssr: false
 });
@@ -19,8 +22,53 @@ const Map = dynamic(() => import('../components/maps/Map'), {
 const Neighbourhood = ({ dataArray }) => {
   const [data] = dataArray;
   const {
- name, area, latitude, longitude 
-} = data;
+    name,
+    area,
+    latitude,
+    longitude,
+    airQuality,
+    view,
+    safetyAverage,
+    parking,
+    ownParkingSpot,
+    publicTransport,
+    bakery,
+    greengrocer,
+    butcher,
+    schoolBasis,
+    schoolMiddelbaar,
+    schoolVMBO,
+    schoolVWOHAVO,
+    noiseDisturbance,
+    waterDisturbanceUnderneathHome,
+    noiseDisturbanceTraffic,
+    isulationOutside,
+    isulationNeighbours,
+    indoorSports
+  } = data;
+
+  const dataTypes = {
+    airQuality,
+    view,
+    safetyAverage,
+    parking,
+    ownParkingSpot,
+    publicTransport,
+    bakery,
+    greengrocer,
+    butcher,
+    schoolBasis,
+    schoolMiddelbaar,
+    schoolVMBO,
+    schoolVWOHAVO,
+    noiseDisturbance,
+    waterDisturbanceUnderneathHome,
+    noiseDisturbanceTraffic,
+    isulationOutside,
+    isulationNeighbours,
+    indoorSports
+  };
+
   return (
     <>
       <Header linkBack="/result" showLinkBack />
@@ -51,30 +99,18 @@ const Neighbourhood = ({ dataArray }) => {
           </div>
         </TopWrapper>
         <CardWrapper>
-          <Card
-            type="info"
-            sort="data"
-            className="popup-card"
-            onClick={() => console.log('click')}
-          />
-          <Card
-            type="info"
-            sort="data"
-            className="popup-card"
-            onClick={() => console.log('click')}
-          />
-          <Card
-            type="info"
-            sort="data"
-            className="popup-card"
-            onClick={() => console.log('click')}
-          />
-          <Card
-            type="info"
-            sort="data"
-            className="popup-card"
-            onClick={() => console.log('click')}
-          />
+          {Object.keys(dataTypes).map(key => (
+            <Card
+              key={key}
+              type="info"
+              sort="data"
+              className="popup-card"
+              score={dataTypes[key]}
+              name={infoData[key].name}
+              icon={infoData[key].icon}
+              onClick={() => console.log('click')}
+            />
+          ))}
         </CardWrapper>
       </Container>
     </>
@@ -104,7 +140,7 @@ const TopWrapper = styled.div`
   .content-wrapper {
     display: flex;
     justify-content: space-between;
-    transform: translateY(-85px);
+    margin-top: -85px;
     padding: 0 33px 0 24px;
     align-items: center;
   }
@@ -142,6 +178,7 @@ const CardWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  margin-top: 50px;
   .popup-card {
     margin: 20px;
   }
