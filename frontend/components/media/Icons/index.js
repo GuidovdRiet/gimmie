@@ -7,6 +7,14 @@ import HouseRoundedIcon from './roundedIcon/HouseRoundedIcon';
 import DogDataIcon from './dataIcon/DogDataIcon';
 import KidGirlDataIcon from './dataIcon/KidGirlDataIcon';
 import FamilyHomeDataIcon from './dataIcon/FamilyHomeDataIcon';
+import BabyDataIcon from './dataIcon/BabyDataIcon';
+import BookDataIcon from './dataIcon/BookDataIcon';
+import CarDataIcon from './dataIcon/CarDataIcon';
+import HomeDataIcon from './dataIcon/HomeDataIcon';
+import HouseHeartDataIcon from './dataIcon/HouseHeartDataIcon';
+import PlateDataIcon from './dataIcon/PlateDataIcon';
+import SchoolDataIcon from './dataIcon/SchoolDataIcon';
+import WorkDataIcon from './dataIcon/WorkDataIcon';
 
 const icons = {
   arrow: ArrowIcon,
@@ -18,7 +26,15 @@ const icons = {
   data: {
     dog: DogDataIcon,
     kidGirl: KidGirlDataIcon,
-    familyHome: FamilyHomeDataIcon
+    familyHome: FamilyHomeDataIcon,
+    baby: BabyDataIcon,
+    book: BookDataIcon,
+    car: CarDataIcon,
+    home: HomeDataIcon,
+    houseHeart: HouseHeartDataIcon,
+    plate: PlateDataIcon,
+    school: SchoolDataIcon,
+    work: WorkDataIcon
   }
 };
 
