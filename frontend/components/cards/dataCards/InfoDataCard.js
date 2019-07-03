@@ -2,19 +2,21 @@ import styled from 'styled-components';
 import { oneOfType, number, string } from 'prop-types';
 import Icon from '../../media/Icons';
 
-const TextDataCard = ({ score, name }) => (
+const InfoDataCard = ({ score, name, icon }) => (
   <Wrapper>
-    <Icon type="dog" sort="data" className="data-icon" />
+    <Icon type={icon} sort="data" className="data-icon" />
     <h1 className="card-percentage">{score}</h1>
     <p className="data-type">{name}</p>
-    <p className="data-percentage-average">11,5</p>
+    {/* <p className="data-percentage-average">11,5</p> */}
   </Wrapper>
 );
 
-export default TextDataCard;
+export default InfoDataCard;
 
-TextDataCard.propTypes = {
-  score: oneOfType([number, string])
+InfoDataCard.propTypes = {
+  score: oneOfType([number, string]),
+  name: string.isRequired,
+  icon: string.isRequired
 };
 
 const Wrapper = styled.div`
@@ -36,8 +38,17 @@ const Wrapper = styled.div`
   }
   .data-icon {
     max-width: 80px;
+    margin-bottom: 10px;
+  }
+  .data-type {
+    font-size: 2.3rem;
+    color: ${({ theme }) => theme.lightGrey};
+    font-family: ${({ theme }) => theme.secondaryFont};
+    margin-top: 5px;
   }
   .card-percentage {
-    font-size: 5rem;
+    font-size: 7rem;
+    color: ${({ theme }) => theme.darkGrey};
+    font-family: ${({ theme }) => theme.secondaryFont};
   }
 `;

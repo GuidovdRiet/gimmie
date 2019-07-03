@@ -1,4 +1,5 @@
 import { withRouter } from 'next/router';
+import { useContext } from 'react';
 import { array } from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
@@ -15,12 +16,17 @@ import Button from '../components/buttons';
 // Data
 import infoData from '../data/infoData';
 
+// Context
+import { UserContext } from '../components/context/UserProvider';
+
 const Map = dynamic(() => import('../components/maps/Map'), {
   ssr: false
 });
 
 const Neighbourhood = ({ dataArray }) => {
   const [data] = dataArray;
+  const { budget, squareFeet } = useContext(UserContext);
+
   const {
     name,
     area,
@@ -82,20 +88,19 @@ const Neighbourhood = ({ dataArray }) => {
               <h1>{name}</h1>
               <h2>{area}</h2>
             </div>
-            <Link
-              href={`/neighbourhood?neighbourhood=${name}`}
-              as={`/neighbourhood/${name}`}
+            <a
+              href={`https://www.funda.nl/koop/rotterdam/${name}/${budget}+/`}
+              rel="noopener noreferrer"
+              _target="blank"
             >
-              <a>
-                <Button
-                  type="submit"
-                  __type="square"
-                  className="button"
-                  iconType="arrow"
-                  text={`Koop een huis in ${name}`}
-                />
-              </a>
-            </Link>
+              <Button
+                type="submit"
+                __type="square"
+                className="button"
+                iconType="arrow"
+                text={`Koop een huis in ${name}`}
+              />
+            </a>
           </div>
         </TopWrapper>
         <CardWrapper>

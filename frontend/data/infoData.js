@@ -1,78 +1,78 @@
 export default {
   airQuality: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Luchtkwaliteit'
   },
   view: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Uitzicht'
   },
   safetyAverage: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Veiligheid'
   },
   parking: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Parkeermogelijkheid'
   },
   ownParkingSpot: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Eigen parkeerplek'
   },
   publicTransport: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Bereikbaar met OV'
   },
   bakery: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Bakkerij in de buurt'
   },
   greengrocer: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Groenteboer in de buurt'
   },
   butcher: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Slager in de buurt'
   },
   schoolBasis: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Basisschool in de buurt'
   },
   schoolMiddelbaar: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Middelbare school in de buurt'
   },
   schoolVMBO: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'VMBO in de buurt'
   },
   schoolVWOHAVO: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'HAVO/VWO in de buurt'
   },
   noiseDisturbance: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Geluidsoverlast'
   },
   waterDisturbanceUnderneathHome: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Wateroverlast onder woning'
   },
   noiseDisturbanceTraffic: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Geluidsoverlast verkeer'
   },
   isulationOutside: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'familyHome',
+    name: 'Isolatie buitenkant van het huis'
   },
   isulationNeighbours: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'familyHome',
+    name: 'Isolatie van het huis buren'
   },
   indoorSports: {
-    icon: 'data',
-    name: 'Air Quality'
+    icon: 'dog',
+    name: 'Binnensport'
   }
 };
