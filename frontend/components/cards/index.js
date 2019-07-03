@@ -3,13 +3,15 @@ import OverviewCard from './OverviewCard';
 import FormCard from './FormCard';
 import InputDataCard from './dataCards/InputDataCard';
 import TextDataCard from './dataCards/TextDataCard';
+import InfoDataCard from './dataCards/InfoDataCard';
 
 const cards = {
   form: FormCard,
   overview: OverviewCard,
   data: {
     input: InputDataCard,
-    text: TextDataCard
+    text: TextDataCard,
+    info: InfoDataCard
   }
 };
 

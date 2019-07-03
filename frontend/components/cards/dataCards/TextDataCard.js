@@ -1,8 +1,15 @@
 import styled from 'styled-components';
+import {
+ oneOfType, arrayOf, node, string 
+} from 'prop-types';
 
 const TextDataCard = ({ children }) => <Wrapper>{children}</Wrapper>;
 
 export default TextDataCard;
+
+TextDataCard.propTypes = {
+  children: oneOfType([arrayOf(node), node, string])
+};
 
 const Wrapper = styled.div`
   border-radius: 40px;

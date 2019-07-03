@@ -4,12 +4,12 @@ import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import Link from 'next/link';
+import BodyClassName from 'react-body-classname';
 
 // Components
 import Header from '../components/global/Header';
 import Card from '../components/cards';
 import { Container } from '../components/global/PageLayout';
-import InputWrapper from '../components/layout/InputWrapper';
 import Button from '../components/buttons';
 
 const Map = dynamic(() => import('../components/maps/Map'), {
@@ -24,6 +24,8 @@ const Neighbourhood = ({ dataArray }) => {
   return (
     <>
       <Header linkBack="/result" showLinkBack />
+      {/* Set className for different background image */}
+      <BodyClassName className="area-svg" />
       <Container>
         <TopWrapper>
           <Map latitude={latitude} longitude={longitude} height="350px" />
@@ -48,8 +50,32 @@ const Neighbourhood = ({ dataArray }) => {
             </Link>
           </div>
         </TopWrapper>
-        {/* Set className for different background image */}
-        {/* <BodyClassName className="area-svg" /> */}
+        <CardWrapper>
+          <Card
+            type="info"
+            sort="data"
+            className="popup-card"
+            onClick={() => console.log('click')}
+          />
+          <Card
+            type="info"
+            sort="data"
+            className="popup-card"
+            onClick={() => console.log('click')}
+          />
+          <Card
+            type="info"
+            sort="data"
+            className="popup-card"
+            onClick={() => console.log('click')}
+          />
+          <Card
+            type="info"
+            sort="data"
+            className="popup-card"
+            onClick={() => console.log('click')}
+          />
+        </CardWrapper>
       </Container>
     </>
   );
@@ -78,25 +104,45 @@ const TopWrapper = styled.div`
   .content-wrapper {
     display: flex;
     justify-content: space-between;
-    transform: translateY(-70px);
-    padding: 0 20px 0 0;
+    transform: translateY(-85px);
+    padding: 0 33px 0 24px;
     align-items: center;
   }
   .street-info {
     border-radius: 20px;
     background-color: ${({ theme }) => theme.pink};
     color: ${({ theme }) => theme.darkPurple};
-    padding: 5px 10px;
+    padding: 25px 25px;
     z-index: 99999;
     h1,
     h2 {
       font-family: ${({ theme }) => theme.primaryFont};
       ${({ theme }) => theme.fontSmoothing};
+      font-size: 4.5rem;
+      line-height: 1.3;
+      font-weight: 400;
+      margin: 0;
+    }
+    h1 {
+      font-weight: 500;
+    }
+    h2 {
+      font-weight: 100;
     }
   }
   .button {
     width: 300px;
     height: 60px;
     font-size: 1.6rem;
+  }
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  .popup-card {
+    margin: 20px;
   }
 `;

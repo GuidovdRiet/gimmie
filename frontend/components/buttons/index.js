@@ -1,6 +1,6 @@
 // Components
-import SquareButton from "./SquareButton";
-import AdjustButton from "./AdjustButton";
+import SquareButton from './SquareButton';
+import AdjustButton from './AdjustButton';
 
 const types = {
   square: SquareButton,
@@ -10,7 +10,7 @@ const types = {
 const Button = ({ __type, ...props }) => {
   const Comp = types[__type];
 
-  if (typeof types[__type] === "undefined") {
+  if (typeof types[__type] === 'undefined') {
     return null;
   }
 

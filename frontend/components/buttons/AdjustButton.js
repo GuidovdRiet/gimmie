@@ -12,19 +12,19 @@ const AdjustButton = ({
   onClick,
   ...props
 }) => (
-    <ButtonWrapper {...props}>
-      <Button
-        type="button"
-        iconColor={iconColor}
-        buttonColor={buttonColor}
-        remove={remove}
-        onClick={onClick}
-      >
-        {iconType && <Icon className="button-icon" type={iconType} />}
-      </Button>
-      <ButtonLine className="button-line" remove={remove} />
-    </ButtonWrapper>
-  );
+  <ButtonWrapper {...props}>
+    <Button
+      type="button"
+      iconColor={iconColor}
+      buttonColor={buttonColor}
+      remove={remove}
+      onClick={onClick}
+    >
+      {iconType && <Icon className="button-icon" type={iconType} />}
+    </Button>
+    <ButtonLine className="button-line" remove={remove} />
+  </ButtonWrapper>
+);
 
 export default AdjustButton;
 
