@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const PlateDataIcon = () => (
-  <SVG id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.6 130.6">
+const PlateDataIcon = ({ ...props }) => (
+  <SVG { ...props } id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.6 130.6">
     <style />
     <circle cx="65.3" cy="65.3" r="65.3" opacity=".33" fill="#1ccb9d" />
     <circle cx="65.3" cy="65.3" r="54.1" opacity=".81" fill="#1ccb9d" />

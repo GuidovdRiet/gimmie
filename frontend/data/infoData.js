@@ -1,66 +1,66 @@
 export default {
   airQuality: {
-    icon: 'dog',
+    icon: 'home',
     name: 'Luchtkwaliteit'
   },
   view: {
-    icon: 'dog',
+    icon: 'outside',
     name: 'Uitzicht'
   },
   safetyAverage: {
-    icon: 'dog',
+    icon: 'houseHeart',
     name: 'Veiligheid'
   },
   parking: {
-    icon: 'dog',
+    icon: 'car',
     name: 'Parkeermogelijkheid'
   },
   ownParkingSpot: {
-    icon: 'dog',
+    icon: 'car',
     name: 'Eigen parkeerplek'
   },
   publicTransport: {
-    icon: 'dog',
+    icon: 'book',
     name: 'Bereikbaar met OV'
   },
   bakery: {
-    icon: 'dog',
+    icon: 'plate',
     name: 'Bakkerij in de buurt'
   },
   greengrocer: {
-    icon: 'dog',
+    icon: 'plate',
     name: 'Groenteboer in de buurt'
   },
   butcher: {
-    icon: 'dog',
+    icon: 'plate',
     name: 'Slager in de buurt'
   },
   schoolBasis: {
-    icon: 'dog',
+    icon: 'school',
     name: 'Basisschool in de buurt'
   },
   schoolMiddelbaar: {
-    icon: 'dog',
+    icon: 'school',
     name: 'Middelbare school in de buurt'
   },
   schoolVMBO: {
-    icon: 'dog',
+    icon: 'school',
     name: 'VMBO in de buurt'
   },
   schoolVWOHAVO: {
-    icon: 'dog',
+    icon: 'school',
     name: 'HAVO/VWO in de buurt'
   },
   noiseDisturbance: {
-    icon: 'dog',
+    icon: 'book',
     name: 'Geluidsoverlast'
   },
   waterDisturbanceUnderneathHome: {
-    icon: 'dog',
+    icon: 'book',
     name: 'Wateroverlast onder woning'
   },
   noiseDisturbanceTraffic: {
-    icon: 'dog',
+    icon: 'book',
     name: 'Geluidsoverlast verkeer'
   },
   isulationOutside: {
@@ -72,7 +72,7 @@ export default {
     name: 'Isolatie van het huis buren'
   },
   indoorSports: {
-    icon: 'dog',
+    icon: 'book',
     name: 'Binnensport'
   }
 };

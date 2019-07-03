@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-const HouseHeartDataIcon = () => (
-  <SVG id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.6 130.6">
+const HouseHeartDataIcon = ({ ...props }) => (
+  <SVG
+    {...props}
+    id="Laag_1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 130.6 130.6"
+  >
     <circle cx="65.3" cy="65.3" r="65.3" opacity=".33" fill="#6273f1" />
     <circle cx="65.3" cy="65.3" r="54.1" opacity=".81" fill="#6273f1" />
     <path className="st2" d="M39.4 39.5h13.7v17.4H39.4z" />

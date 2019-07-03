@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-const SchoolDataIcon = () => (
-  <SVG id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.6 130.6">
+const SchoolDataIcon = ({ ...props }) => (
+  <SVG
+    {...props}
+    id="Laag_1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 130.6 130.6"
+  >
     <circle cx="65.6" cy="65.8" r="65.3" opacity=".33" fill="#63acb9" />
     <circle cx="65.6" cy="65.8" r="54.1" opacity=".81" fill="#63acb9" />
     <path

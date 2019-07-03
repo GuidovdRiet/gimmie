@@ -15,6 +15,7 @@ import HouseHeartDataIcon from './dataIcon/HouseHeartDataIcon';
 import PlateDataIcon from './dataIcon/PlateDataIcon';
 import SchoolDataIcon from './dataIcon/SchoolDataIcon';
 import WorkDataIcon from './dataIcon/WorkDataIcon';
+import OutsiteDataIcon from './dataIcon/OutsideDataIcon';
 
 const icons = {
   arrow: ArrowIcon,
@@ -34,7 +35,8 @@ const icons = {
     houseHeart: HouseHeartDataIcon,
     plate: PlateDataIcon,
     school: SchoolDataIcon,
-    work: WorkDataIcon
+    work: WorkDataIcon,
+    outside: OutsiteDataIcon
   }
 };
 

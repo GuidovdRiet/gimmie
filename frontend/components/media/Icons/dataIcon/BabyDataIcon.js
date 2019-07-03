@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-const BabyDataIcon = () => (
-  <SVG xmlns="http://www.w3.org/2000/svg" id="Laag_1" viewBox="0 0 130.6 130.6">
+const BabyDataIcon = ({ ...props }) => (
+  <SVG
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    id="Laag_1"
+    viewBox="0 0 130.6 130.6"
+  >
     <circle cx="65.4" cy="65.9" r="65.3" opacity=".33" fill="#463c49" />
     <circle cx="65.4" cy="65.9" r="54.1" opacity=".81" fill="#463c49" />
     <ellipse className="st2" cx="65.4" cy="84.3" rx="27.1" ry="25" />
