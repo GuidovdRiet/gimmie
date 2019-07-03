@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import dynamic from 'next/dynamic';
-import { object } from 'prop-types';
-import Link from 'next/link';
+import styled from "styled-components";
+import dynamic from "next/dynamic";
+import { object } from "prop-types";
+import Link from "next/link";
 
 // Components
-import Button from '../buttons';
-import Icon from '../media/Icons';
+import Button from "../buttons";
+import Icon from "../media/Icons";
 
-const Map = dynamic(() => import('../maps/Map'), {
+const Map = dynamic(() => import("../maps/Map"), {
   ssr: false
 });
 

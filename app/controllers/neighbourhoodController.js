@@ -35,7 +35,7 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
 
       // Find all neighbourhoods with a lower score
       const neighbourhoodsLowerThan = await Neighbourhood.find({
-        rank: { $gt: neighbourhoodObj.rank }
+        totalAverage: { $gt: neighbourhoodObj.totalAverage }
       }).count();
 
       // Set de current position of the neighbourhood
@@ -53,7 +53,7 @@ const setNeighbourhoodRank = async ({ neighbourhoodsByData }) =>
 
 exports.getByData = async (req, res) => {
   // Base scores, highest score for neighbourhoods
-  const rank = "rank"; // total average
+  const totalAverage = "totalAverage"; // total average
   let schoolBasis;
   let playground;
   let greenery;
@@ -85,7 +85,7 @@ exports.getByData = async (req, res) => {
     schoolBasis,
     playground,
     // Base
-    rank
+    totalAverage
   };
 
   // Filter all undefined values from object
