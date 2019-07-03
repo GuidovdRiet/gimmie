@@ -61,18 +61,25 @@ const PopupContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
   .popup-wrapper {
-    min-width: 900px;
-    min-height: 700px;
+    width: 700px;
+    padding: 72px 0 50px 0;
+    position: absolute;
+    top: 40px;
     background-color: ${({ theme }) => theme.white};
     border-radius: 40px;
+    margin-bottom: 80px;
   }
   .icon {
     fill: ${({ theme }) => theme.lightGrey};
     max-width: 30px;
   }
   .popup-button {
-    margin: 40px;
+    /* margin: 40px; */
+    position: absolute;
+    right: 30px;
+    top: 20px;
   }
 `;
 

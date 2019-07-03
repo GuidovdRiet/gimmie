@@ -37,7 +37,9 @@ const OverviewCard = ({
           <span className="divider">/</span>
           <span className="rank-total">{neighbourhoodTotal}</span>
         </h2>
-        <p className="rank-info">Totaal aantal buurten.</p>
+        <p className="rank-info">
+          {neighbourhoodPosition}e van de {neighbourhoodTotal} buurten
+        </p>
       </Rank>
       <TextWrapper>
         <div className="text">

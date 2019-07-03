@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { useSpring, animated, config } from "react-spring";
-import Router from "next/router";
+import styled from 'styled-components';
+import { useSpring, animated, config } from 'react-spring';
+import Router from 'next/router';
 
 // Components
-import Button from "../../buttons";
+import Button from '../../buttons';
 
 const StartTextAnimation = () => {
   const { opacity } = useSpring({
@@ -14,7 +14,7 @@ const StartTextAnimation = () => {
   });
 
   const handleNextRoute = () => {
-    Router.push("/name");
+    Router.push('/name');
   };
 
   return (
@@ -22,7 +22,7 @@ const StartTextAnimation = () => {
       {/* <Wrapper> */}
       <TextWrapper>
         <h1>
-          Vindt de buurt die het beste bij je past.
+          Vind de buurt die het beste bij je past.
           <br />
           <span>Een advies aan de hand van data.</span>
         </h1>

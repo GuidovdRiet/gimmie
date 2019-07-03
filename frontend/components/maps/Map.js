@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react';
-import ReactMapGL from 'react-map-gl';
-import styled from 'styled-components';
-import { number, string } from 'prop-types';
+import React, { Component, useState } from "react";
+import ReactMapGL from "react-map-gl";
+import styled from "styled-components";
+import { number, string } from "prop-types";
 
-import getConfig from 'next/config';
+import getConfig from "next/config";
 const {
   publicRuntimeConfig: { MAPBOX_API_KEY }
 } = getConfig();
@@ -19,8 +19,8 @@ class Map extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (
+      nextState.viewport.latitude !== nextProps.latitude ||
       nextState.viewport.latitude !== nextProps.latitude
-      || nextState.viewport.latitude !== nextProps.latitude
     ) {
       this.setState({
         viewport: {
@@ -63,7 +63,8 @@ const Wrapper = styled.div`
   .mapbox-improve-map {
     display: none;
   }
-  .mapboxgl-ctrl-bottom-right {
+  .mapboxgl-ctrl-bottom-right,
+  .mapboxgl-ctrl-logo {
     display: none;
   }
 `;
