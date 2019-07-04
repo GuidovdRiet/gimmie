@@ -2,7 +2,7 @@ const typefaces = [
   {
     typeface: 'Poppins',
     extensions: ['woff', 'woff2'],
-    fonts: ['Bold', 'Regular', 'Light', 'SemiBold', 'ExtraBold']
+    fonts: ['Bold', 'Regular', 'Thin', 'Light', 'SemiBold', 'ExtraBold']
   },
   {
     typeface: 'RobotoCondensed',

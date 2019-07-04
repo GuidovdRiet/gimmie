@@ -1,5 +1,6 @@
 // Components
 import ArrowIcon from './ArrowIcon';
+import ArrowSquareIcon from './ArrowSquareIcon';
 import CrossIcon from './CrossIcon';
 import ArrowBackIcon from './ArrowBackIcon';
 import HouseRoundedIcon from './roundedIcon/HouseRoundedIcon';
@@ -19,6 +20,7 @@ import OutsiteDataIcon from './dataIcon/OutsideDataIcon';
 
 const icons = {
   arrow: ArrowIcon,
+  arrowSquare: ArrowSquareIcon,
   cross: CrossIcon,
   arrowBack: ArrowBackIcon,
   rounded: {

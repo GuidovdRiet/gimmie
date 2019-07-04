@@ -1,5 +1,4 @@
-export default ({ ...props }) => {
-  return (
+export default ({ ...props }) => (
     <svg {...props} width="28.41" height="11.78">
       <path
         fill="#fff"
@@ -7,4 +6,3 @@ export default ({ ...props }) => {
       />
     </svg>
   );
-};

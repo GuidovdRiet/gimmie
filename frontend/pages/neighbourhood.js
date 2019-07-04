@@ -12,6 +12,7 @@ import Header from '../components/global/Header';
 import Card from '../components/cards';
 import { Container } from '../components/global/PageLayout';
 import Button from '../components/buttons';
+import Icon from '../components/media/Icons';
 
 // Data
 import infoData from '../data/infoData';
@@ -33,6 +34,7 @@ const Neighbourhood = ({ dataArray }) => {
     latitude,
     longitude,
     airQuality,
+    airQualityAverage,
     view,
     safetyAverage,
     parking,
@@ -54,7 +56,7 @@ const Neighbourhood = ({ dataArray }) => {
   } = data;
 
   const dataTypes = {
-    airQuality,
+    // airQuality,
     view,
     safetyAverage,
     parking,
@@ -104,6 +106,17 @@ const Neighbourhood = ({ dataArray }) => {
           </div>
         </TopWrapper>
         <CardWrapper>
+          {/* TEMP for demo to show data */}
+          <Card
+            type="info"
+            sort="data"
+            className="popup-card"
+            score={airQuality}
+            average={airQualityAverage}
+            name={infoData.airQuality.name}
+            icon={infoData.airQuality.icon}
+            onClick={() => console.log('click')}
+          />
           {Object.keys(dataTypes).map(key => (
             <Card
               key={key}
