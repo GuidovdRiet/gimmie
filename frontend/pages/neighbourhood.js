@@ -91,7 +91,7 @@ const Neighbourhood = ({ dataArray }) => {
               <h2>{area}</h2>
             </div>
             <a
-              href={`https://www.funda.nl/koop/rotterdam/${name}/${budget}+/`}
+              href={`https://www.funda.nl/koop/rotterdam/${name}/0-${budget}/`}
               rel="noopener noreferrer"
               _target="blank"
             >
