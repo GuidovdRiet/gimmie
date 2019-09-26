@@ -5,6 +5,7 @@ const router = express.Router();
 // Controllers
 const neighbourhoodController = require("../controllers/neighbourhoodController");
 
+
 // Do work here
 router.get("/", neighbourhoodController.getAll);
 router.get("/neighbourhoods", neighbourhoodController.getAll);
