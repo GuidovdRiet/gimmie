@@ -137,7 +137,7 @@ const Neighbourhood = ({ dataArray }) => {
 
 Neighbourhood.getInitialProps = async ({ query }) => {
   const res = await fetch(
-    `http://localhost:7777/neighbourhoods/single?neighbourhood=${
+    `https://gimmie-app.herokuapp.com/neighbourhoods/single?neighbourhood=${
       query.neighbourhood
     }`
   );

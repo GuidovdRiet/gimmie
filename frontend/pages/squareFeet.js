@@ -1,26 +1,26 @@
-import { useState, useContext } from "react";
-import { Formik, Field } from "formik";
-import Router from "next/router";
-import BodyClassName from "react-body-classname";
-import styled from "styled-components";
-import * as yup from "yup";
+import { useState, useContext } from 'react';
+import { Formik, Field } from 'formik';
+import Router from 'next/router';
+import BodyClassName from 'react-body-classname';
+import styled from 'styled-components';
+import * as yup from 'yup';
 
 // Components
-import Header from "../components/global/Header";
-import { Container } from "../components/global/PageLayout";
-import Card from "../components/cards";
-import Button from "../components/buttons";
+import Header from '../components/global/Header';
+import { Container } from '../components/global/PageLayout';
+import Card from '../components/cards';
+import Button from '../components/buttons';
 
 // Context
-import { UserContext } from "../components/context/UserProvider";
+import { UserContext } from '../components/context/UserProvider';
 
 // Style
-import { ButtonWrapper } from "../common/globalStyle";
+import { ButtonWrapper } from '../common/globalStyle';
 
 const SquareFeet = () => {
   const { squareFeet, setSquareFeetContext } = useContext(UserContext);
   const initialState = {
-    squareFeet: squareFeet || ""
+    squareFeet: squareFeet || ''
   };
   const [user, setUser] = useState(initialState);
 
@@ -31,7 +31,7 @@ const SquareFeet = () => {
   const handleSubmit = ({ values, actions }) => {
     setSquareFeetContext(values.squareFeet);
     setUser(values);
-    Router.push("/result");
+    Router.push('/result');
   };
 
   return (
@@ -40,13 +40,15 @@ const SquareFeet = () => {
       <Container>
         <BodyClassName className="area-svg" />
         <FormWrapper>
-          <Card type="form" illustrationTypes={["housePeople", "treeSwing"]}>
+          <Card type="form" illustrationTypes={['housePeople', 'treeSwing']}>
             <Formik
               initialValues={user}
               onSubmit={(values, actions) => handleSubmit({ values, actions })}
               validationSchema={userSchema}
             >
-              {({ handleSubmit, handleChange, values, errors, touched }) => (
+              {({
+ handleSubmit, handleChange, values, errors, touched 
+}) => (
                 <form onSubmit={handleSubmit}>
                   {errors.squareFeet && touched.squareFeet && (
                     <span className="form-error">{errors.squareFeet}</span>

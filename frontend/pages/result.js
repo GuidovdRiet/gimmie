@@ -24,7 +24,7 @@ const Result = () => {
     () => userData.reduce((prev, current) => {
         const query = `&${current}=${current}`;
         return prev + query;
-      }, `http://localhost:7777/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`),
+      }, `https://gimmie-app.herokuapp.com/neighbourhoods/data?budget=${budget}&squareFeet=${squareFeet}`),
     [budget, squareFeet, userData]
   );
 
